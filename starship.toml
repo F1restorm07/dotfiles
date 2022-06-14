@@ -1,0 +1,11 @@
+add_newline = true # insert blank line between prompts
+
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[➜](bold red)"
+
+[package]
+disabled = true
+
+[rust]
+format = "[$symbol]($style)"
