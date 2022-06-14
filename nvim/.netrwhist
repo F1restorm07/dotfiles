@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/Users/lukegardner/.config/tmux/themes/nord-tmux/src'
+let g:netrw_dirhist_4='/Users/lukegardner/.config/tmux/themes/nord-tmux'
+let g:netrw_dirhist_3='/Users/lukegardner/.config/tmux/themes'
+let g:netrw_dirhist_2='/Users/lukegardner/.config/tmux'
+let g:netrw_dirhist_1='/Users/lukegardner/.config'
+let g:netrw_dirhist_0='/Users/lukegardner'
+let g:netrw_dirhist_9='/Users/lukegardner/.config'
+let g:netrw_dirhist_8='/Users/lukegardner'
+let g:netrw_dirhist_7='/Users/lukegardner/.config'
+let g:netrw_dirhist_6='/Users/lukegardner'

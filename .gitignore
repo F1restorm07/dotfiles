@@ -1,0 +1,8 @@
+.DS_Store
+.mono/
+configstore/
+gtk-*/
+nvim/undodir/
+htop/
+iterm2/
+yarn/
