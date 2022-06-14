@@ -1,0 +1,150 @@
+@import "nord-colorscheme.rasi"
+
+#window {
+	width: 30%;
+	y-offset: 5%;
+
+
+	location: north;
+	anchor: north;
+
+	text-color: @foreground;
+	background-color: @background-t;
+
+
+	border-radius: 10;
+	padding: 7px;
+}
+
+#mainbox {
+	 children: [message, bottom-bar, listview];
+	 spacing: 0px;
+}
+
+#bottom-bar {
+	    orientation: vertical;
+	    expand: false;
+	    children: [inputbar, mode-switcher];
+
+
+	    background-color: @background;
+	    padding: 3em 2em;
+	    border-radius: 10;
+}
+
+#inputbar {
+	  expand: true;
+	  children: [textbox-prompt, entry];
+	  padding: 1em;
+	  border-radius: 10;
+	  background-color: @background-t;
+}
+
+#textbox-prompt {
+		expand: false;
+		text-color: @foreground;
+		font: @font-lg;
+		padding: 0em 0.75em;
+}
+
+#entry {
+       font: @font-lg;
+       text-color: @foreground;
+       cursor: text;
+}
+
+#mode-switcher {
+	       width: 10%;
+	       margin: 1em;
+}
+
+#button {
+	font: @font-sm;
+
+	padding: 1em;
+	cursor: pointer;
+	horizontal-align: 0.5;
+	vertical-align: 0.5;
+	border-radius: 10;
+	expand: false;
+	text-color: @foreground;
+}
+
+#button selected {
+	background-color: @background-t;
+}
+
+#listview {
+	scrollbar: none;
+	background-color: @background;
+
+	reverse: false;
+	fixed-height: false;
+	lines: 5;
+	columns: 2;
+	dynamic: true;
+	spacing: 0.5em;
+	fixed-columns: true;
+	show-icons: false;
+
+	padding: 1em 0 1em 0;
+}
+
+#scrollbar {
+	handle-color: @primary-bg;
+	padding: 0 0.5em 0 0.5em;
+}
+
+#scrollbar.handle {
+	border: 1px;
+	//border-radius: 3px;
+}
+
+#element {
+	//margin: 0 5.5em 0em 1em;
+	margin: 0 2em;
+	cursor: pointer;
+	spacing: 1em;
+	// orientation: vertical;
+}
+
+#element-text {
+	padding: 1em;
+	cursor: pointer;
+	vertical-align: 0.5;
+	text-color: @foreground;
+	font: @font-sm;
+	border-radius: 10;
+	expand: true;
+}
+
+#element-text selected {
+	text-color: @primary;
+	background-color: @background-t;
+}
+
+#element selected {
+	text-color: @primary;
+}
+
+#element active {
+	text-color: @primary;
+}
+
+#element urgent {
+	text-color: @alert;
+}
+
+#element-icon {
+	padding: 0.5em;
+	size: 2.5em;
+	cursor: pointer;
+	// size: 4%;
+	vertical-align: 0.5;
+	border-radius: 10;
+}
+
+#element-icon selected {
+	background-color: @background-t;
+}
+

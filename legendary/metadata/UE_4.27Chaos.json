@@ -1,0 +1,73 @@
+{
+  "app_name": "UE_4.27Chaos",
+  "app_title": "4.27-Chaos",
+  "asset_infos": {
+    "Windows": {
+      "app_name": "UE_4.27Chaos",
+      "asset_id": "UE",
+      "build_version": "4.27.2-18386882+++UE4+Release-4.27-Chaos-Windows",
+      "catalog_item_id": "ed2b249a315e4493b084233d5167fea3",
+      "label_name": "Live-Windows",
+      "metadata": {},
+      "namespace": "ue"
+    }
+  },
+  "base_urls": [],
+  "metadata": {
+    "ageGatings": {},
+    "applicationId": "",
+    "categories": [
+      {
+        "path": "engines/unstable"
+      },
+      {
+        "path": "engines"
+      },
+      {
+        "path": "engines/ue4"
+      }
+    ],
+    "creationDate": "2021-08-17T14:52:54.981Z",
+    "customAttributes": {
+      "AllowMultipleInstances": {
+        "type": "STRING",
+        "value": "true"
+      }
+    },
+    "description": "4.27-Chaos",
+    "developer": "Epic Games",
+    "developerId": "o-aa83a0a9bc45e98c80c1b1c9d92e9e",
+    "endOfSupport": false,
+    "entitlementName": "ed2b249a315e4493b084233d5167fea3",
+    "entitlementType": "EXECUTABLE",
+    "eulaIds": [
+      "unreal_engine"
+    ],
+    "id": "ed2b249a315e4493b084233d5167fea3",
+    "installModes": [],
+    "itemType": "DURABLE",
+    "keyImages": [],
+    "lastModifiedDate": "2022-04-05T14:31:59.668Z",
+    "longDescription": "Preview 3",
+    "namespace": "ue",
+    "releaseInfo": [
+      {
+        "appId": "UE_4.27Chaos",
+        "compatibleApps": [],
+        "dateAdded": "2020-11-11T00:00:00.000Z",
+        "id": "6edcbae7662b47c3bb41248e847ccd22",
+        "platform": [
+          "Windows",
+          "Mac"
+        ],
+        "releaseNote": "",
+        "versionTitle": ""
+      }
+    ],
+    "requiresSecureAccount": false,
+    "status": "ACTIVE",
+    "technicalDetails": "Warning: This is a custom distribution of UE4 with Chaos Engine enabled.",
+    "title": "4.27-Chaos",
+    "unsearchable": false
+  }
+}

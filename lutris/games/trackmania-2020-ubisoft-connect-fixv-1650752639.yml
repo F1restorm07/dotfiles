@@ -1,0 +1,6 @@
+game:
+  args: uplay://launch/5595/0
+  exe: drive_c/Program Files (x86)/Ubisoft/Ubisoft Game Launcher/UbisoftConnect.exe
+  prefix: /home/f1restorm/Games/trackmania-2020
+wine:
+  version: lutris-fshack-7.2-x86_64

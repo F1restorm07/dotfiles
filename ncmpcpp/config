@@ -1,0 +1,69 @@
+# directories
+
+ncmpcpp_directory = ~/.config/ncmpcpp
+mpd_music_dir = ~/Documents/music/music
+
+# ---
+
+# general
+
+external_editor = nvim
+autocenter_mode = "yes"
+centered_cursor = "yes"
+ignore_leading_the = "yes"
+connected_message_on_startup = "yes"
+cyclic_scrolling = "yes"
+mouse_support = "yes"
+lines_scrolled = "1"
+playlist_display_mode = "columns"
+browser_display_mode = "columns"
+search_engine_display_mode = "columns"
+playlist_editor_display_mode = "columns"
+display_bitrate = "no"
+startup_screen = "playlist"
+execute_on_song_change = notify-send "Now Playing" "$(mpc --format '%title% \n%artist% - %album%' current)"
+
+# ---
+
+# progress bar
+
+progressbar_look = "   "
+progressbar_color = "black"
+progressbar_elapsed_color = "yellow"
+
+# ---
+
+# visualizer
+
+visualizer_data_source = "/tmp/mpd.fifo"
+visualizer_output_name = "Visualizer"
+visualizer_in_stereo = "no"
+visualizer_sync_interval = "30"
+visualizer_type = "ellipse"
+#visualizer_fps = "60"
+visualizer_look = ●▮
+visualizer_color = "33,39,63,75,81,99,117,153,189"
+
+# colors
+
+main_window_color = "blue"
+color1 = "white"
+color2 = "blue"
+
+# ---
+
+# ui
+
+header_visibility = "no"
+#statusbar_visibility = "no"
+titles_visibility = "no"
+
+now_playing_prefix = "$b$8$7"
+now_playing_suffix = "	$/b$8"
+current_item_prefix = "$b$7$/b$3 "
+current_item_suffix = "  $8"
+song_status_format= "$7%t"
+song_list_format = "$8%a - %t$R  %l"
+song_columns_list_format = "(53)[white]{tr} (45)[blue]{a}"
+song_library_format = {{%a - %t} (%b)}|{%f}
+song_window_title_format = "Music"
