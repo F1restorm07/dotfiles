@@ -1,0 +1,37 @@
+* {
+  trans: #00000000;
+
+  background: #2e3440ff;
+  foreground: #e5e9f0ff;
+
+  black: #3b4252ff;
+  red: #bf616aff;
+  green: #a3be8cff;
+  yellow: #ebcb8bff;
+  blue: #81a1c1ff;
+  magenta: #b48eadff;
+  cyan: #88c0d0ff;
+  white: #e5e9f0ff;
+
+  blackBri: #4c566aff;
+  redBri: #bf616aff;
+  greenBri: #a3be8cff;
+  yellowBri: #ebcb8bff;
+  blueBri: #81a1caff;
+  magentaBri: #b48eadff;
+  cyanBri: #8fbcbbff;
+  whiteBri: #eceff4ff;
+
+  background-t: @blackBri;
+
+  primary: @magenta;
+  primary-bg: @background;
+  secondary: @green;
+  alert: @red;
+  alert-bg: @background;
+  background-color: @trans;
+
+  font-sm: "IBM Plex Sans 13";
+  font-md: "IBM Plex Sans Bold 13";
+  font-lg: "IBM Plex Sans 18";
+}

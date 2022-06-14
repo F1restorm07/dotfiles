@@ -1,0 +1,138 @@
+May 02 22:29 : exception: Failed to open '/home/f1restorm/Documents/music/mpdstate': No such file or directory
+May 02 22:29 : config: option 'buffer_time' on line 128 was not recognized
+May 02 22:29 : config: option 'max_client' on line 152 was not recognized
+May 02 22:44 : config: option 'buffer_time' on line 128 was not recognized
+May 02 22:44 : config: option 'max_client' on line 152 was not recognized
+May 02 22:45 : state_file: Loading state file /home/f1restorm/Documents/music/mpdstate
+May 02 22:45 : event: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+May 02 22:45 : inotify: initializing inotify
+May 02 22:45 : inotify: watching music directory
+May 02 22:45 : config: option 'buffer_time' on line 128 was not recognized
+May 02 22:45 : config: option 'max_client' on line 152 was not recognized
+May 02 22:45 : state_file: Saving state file /home/f1restorm/Documents/music/mpdstate
+May 02 22:45 : fifo_output: Removing FIFO "/tmp/mpd.fifo"
+May 02 22:46 : state_file: Loading state file /home/f1restorm/Documents/music/mpdstate
+May 02 22:46 : event: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+May 02 22:46 : inotify: initializing inotify
+May 02 22:46 : inotify: watching music directory
+May 02 22:46 : config: option 'buffer_time' on line 128 was not recognized
+May 02 22:46 : config: option 'max_client' on line 152 was not recognized
+May 02 22:47 : state_file: Saving state file /home/f1restorm/Documents/music/mpdstate
+May 02 22:47 : fifo_output: Removing FIFO "/tmp/mpd.fifo"
+May 02 23:09 : config: option 'buffer_time' on line 128 was not recognized
+May 02 23:09 : config: option 'max_client' on line 152 was not recognized
+May 02 23:13 : config: option 'buffer_time' on line 128 was not recognized
+May 02 23:13 : config: option 'max_client' on line 152 was not recognized
+May 02 23:17 : config: option 'buffer_time' on line 128 was not recognized
+May 02 23:17 : config: option 'max_client' on line 152 was not recognized
+May 02 23:18 : config: option 'buffer_time' on line 128 was not recognized
+May 02 23:18 : config: option 'max_client' on line 152 was not recognized
+May 03 19:06 : config: option 'buffer_time' on line 128 was not recognized
+May 03 19:06 : config: option 'max_client' on line 152 was not recognized
+May 03 19:08 : update: added /Sewerslvt - Mr. Kill Myself [RgFaK6ZQifE].mkv
+May 03 19:12 : ffmpeg/opus: Could not update timestamps for skipped samples.
+May 03 19:12 : server_socket: bind to '0.0.0.0:8000' failed (continuing anyway, because binding to '[::]:8000' succeeded): Failed to bind socket: Address already in use
+May 03 19:12 : output: Failed to play on "PulseAudio" (pulse): suspended
+May 03 19:16 : output: Failed to play on "PulseAudio" (pulse): suspended
+May 03 19:34 : ffmpeg/opus: Could not update timestamps for discarded samples.
+May 03 19:34 : player: played "Sewerslvt - Mr. Kill Myself [RgFaK6ZQifE].mkv"
+May 03 19:47 : update: added /Sewerslvt - Mr. Kill Myself.mp3
+May 03 19:48 : update: removing Sewerslvt - Mr. Kill Myself [RgFaK6ZQifE].mkv
+May 03 20:06 : update: added /Outer Wilds Soundtrack Piano Cover.webm
+May 03 20:06 : update: added /Outer Wilds Soundtrack Piano Cover.mp3
+May 03 20:06 : update: updating /Outer Wilds Soundtrack Piano Cover.mp3
+May 03 20:06 : update: removing Outer Wilds Soundtrack Piano Cover.webm
+May 03 20:12 : player: played "Outer Wilds Soundtrack Piano Cover.mp3"
+May 03 20:18 : update: updating /Outer Wilds Soundtrack Piano Cover.mp3
+May 03 20:18 : update: updating /Sewerslvt - Mr. Kill Myself.mp3
+May 03 20:18 : update: updating /Outer Wilds Soundtrack Piano Cover.mp3
+May 03 20:18 : update: updating /Sewerslvt - Mr. Kill Myself.mp3
+May 03 20:23 : update: added /LemKuuja - What's a Future Funk.mp3
+May 03 20:23 : update: removing Outer Wilds Soundtrack Piano Cover.mp3
+May 03 20:23 : update: added /Outer Wilds Soundtrack Piano Cover.webm
+May 03 20:23 : update: added /Outer Wilds Soundtrack Piano Cover.mp3
+May 03 20:24 : update: removing Outer Wilds Soundtrack Piano Cover.webm
+May 03 20:24 : update: added /Outer Wilds Soundtrack Piano Cover - 002 Timber Hearth [m8IRu3lEUPs].mp3
+May 03 20:24 : update: added /Outer Wilds Soundtrack Piano Cover - 005 Reprise [m8IRu3lEUPs].mp3
+May 03 20:24 : update: added /Outer Wilds Soundtrack Piano Cover - 004 14.3 Billion Years [m8IRu3lEUPs].mp3
+May 03 20:24 : update: added /Outer Wilds Soundtrack Piano Cover - 001 Outer Wilds [m8IRu3lEUPs].mp3
+May 03 20:24 : update: updating /Outer Wilds Soundtrack Piano Cover.mp3
+May 03 20:24 : update: added /Outer Wilds Soundtrack Piano Cover - 003 Castaways [m8IRu3lEUPs].mp3
+May 03 20:25 : update: updating /Outer Wilds Soundtrack Piano Cover - 001 Outer Wilds [m8IRu3lEUPs].mp3
+May 03 20:25 : update: updating /Outer Wilds Soundtrack Piano Cover - 003 Castaways [m8IRu3lEUPs].mp3
+May 03 20:26 : update: updating /Outer Wilds Soundtrack Piano Cover - 002 Timber Hearth [m8IRu3lEUPs].mp3
+May 03 20:26 : update: updating /Outer Wilds Soundtrack Piano Cover - 005 Reprise [m8IRu3lEUPs].mp3
+May 03 20:26 : update: updating /Outer Wilds Soundtrack Piano Cover - 004 14.3 Billion Years [m8IRu3lEUPs].mp3
+May 03 20:26 : update: updating /Outer Wilds Soundtrack Piano Cover - 001 Outer Wilds [m8IRu3lEUPs].mp3
+May 03 20:26 : update: updating /Outer Wilds Soundtrack Piano Cover.mp3
+May 03 20:26 : update: updating /Outer Wilds Soundtrack Piano Cover - 003 Castaways [m8IRu3lEUPs].mp3
+May 03 20:26 : update: updating /LemKuuja - What's a Future Funk.mp3
+May 03 20:26 : update: updating /Sewerslvt - Mr. Kill Myself.mp3
+May 03 20:29 : update: updating /Outer Wilds Soundtrack Piano Cover - 002 Timber Hearth [m8IRu3lEUPs].mp3
+May 03 20:29 : update: updating /Outer Wilds Soundtrack Piano Cover - 005 Reprise [m8IRu3lEUPs].mp3
+May 03 20:29 : update: updating /Outer Wilds Soundtrack Piano Cover - 004 14.3 Billion Years [m8IRu3lEUPs].mp3
+May 03 20:29 : update: updating /Outer Wilds Soundtrack Piano Cover - 001 Outer Wilds [m8IRu3lEUPs].mp3
+May 03 20:29 : update: updating /Outer Wilds Soundtrack Piano Cover.mp3
+May 03 20:29 : update: updating /Outer Wilds Soundtrack Piano Cover - 003 Castaways [m8IRu3lEUPs].mp3
+May 03 20:29 : update: updating /LemKuuja - What's a Future Funk.mp3
+May 03 20:29 : update: updating /Sewerslvt - Mr. Kill Myself.mp3
+May 03 20:30 : update: removing Outer Wilds Soundtrack Piano Cover.mp3
+May 03 20:35 : player: played "LemKuuja - What's a Future Funk.mp3"
+May 03 20:37 : player: played "Outer Wilds Soundtrack Piano Cover - 001 Outer Wilds [m8IRu3lEUPs].mp3"
+May 03 20:40 : player: played "Outer Wilds Soundtrack Piano Cover - 002 Timber Hearth [m8IRu3lEUPs].mp3"
+May 03 20:42 : player: played "Outer Wilds Soundtrack Piano Cover - 003 Castaways [m8IRu3lEUPs].mp3"
+May 03 20:48 : alsa_output: Decoder is too slow; playing silence to avoid xrun
+May 03 20:48 : player: played "Outer Wilds Soundtrack Piano Cover - 004 14.3 Billion Years [m8IRu3lEUPs].mp3"
+May 03 20:53 : player: played "Outer Wilds Soundtrack Piano Cover - 005 Reprise [m8IRu3lEUPs].mp3"
+May 03 21:26 : player: played "LemKuuja - What's a Future Funk.mp3"
+May 03 21:26 : config: option 'buffer_time' on line 128 was not recognized
+May 03 21:26 : config: option 'max_client' on line 152 was not recognized
+May 03 21:26 : server_socket: bind to '0.0.0.0:8000' failed (continuing anyway, because binding to '[::]:8000' succeeded): Failed to bind socket: Address already in use
+May 03 21:30 : player: played "LemKuuja - What's a Future Funk.mp3"
+May 04 15:20 : zeroconf: No global port, disabling zeroconf
+May 04 15:20 : config: option 'buffer_time' on line 128 was not recognized
+May 04 15:20 : config: option 'max_client' on line 152 was not recognized
+May 04 15:20 : server_socket: bind to '0.0.0.0:8000' failed (continuing anyway, because binding to '[::]:8000' succeeded): Failed to bind socket: Address already in use
+May 04 19:28 : player: played "LemKuuja - What's a Future Funk.mp3"
+May 04 20:09 : zeroconf: No global port, disabling zeroconf
+May 04 20:09 : config: option 'buffer_time' on line 128 was not recognized
+May 04 20:09 : config: option 'max_client' on line 152 was not recognized
+May 04 20:09 : server_socket: bind to '0.0.0.0:8000' failed (continuing anyway, because binding to '[::]:8000' succeeded): Failed to bind socket: Address already in use
+May 04 22:59 : player: played "LemKuuja - What's a Future Funk.mp3"
+May 06 15:50 : zeroconf: No global port, disabling zeroconf
+May 06 15:50 : config: option 'buffer_time' on line 128 was not recognized
+May 06 15:50 : config: option 'max_client' on line 152 was not recognized
+May 06 15:50 : server_socket: bind to '0.0.0.0:8000' failed (continuing anyway, because binding to '[::]:8000' succeeded): Failed to bind socket: Address already in use
+May 06 16:33 : player: played "Sewerslvt - Mr. Kill Myself.mp3"
+May 06 16:34 : player: played "Sewerslvt - Mr. Kill Myself.mp3"
+May 06 16:34 : exception: Not playing
+May 06 16:36 : player: played "Sewerslvt - Mr. Kill Myself.mp3"
+May 06 16:36 : player: played "LemKuuja - What's a Future Funk.mp3"
+May 06 16:37 : zeroconf: No global port, disabling zeroconf
+May 06 16:37 : config: option 'buffer_time' on line 128 was not recognized
+May 06 16:37 : config: option 'max_client' on line 152 was not recognized
+May 06 16:37 : server_socket: bind to '0.0.0.0:8000' failed (continuing anyway, because binding to '[::]:8000' succeeded): Failed to bind socket: Address already in use
+May 06 16:38 : player: played "LemKuuja - What's a Future Funk.mp3"
+May 06 16:38 : zeroconf: No global port, disabling zeroconf
+May 06 16:38 : config: option 'buffer_time' on line 128 was not recognized
+May 06 16:38 : config: option 'max_client' on line 152 was not recognized
+May 06 16:39 : server_socket: bind to '0.0.0.0:8000' failed (continuing anyway, because binding to '[::]:8000' succeeded): Failed to bind socket: Address already in use
+May 06 16:42 : player: played "LemKuuja - What's a Future Funk.mp3"
+May 06 16:43 : zeroconf: No global port, disabling zeroconf
+May 06 16:43 : config: option 'buffer_time' on line 128 was not recognized
+May 06 16:43 : config: option 'max_client' on line 152 was not recognized
+May 06 16:43 : server_socket: bind to '0.0.0.0:8000' failed (continuing anyway, because binding to '[::]:8000' succeeded): Failed to bind socket: Address already in use
+May 06 19:30 : player: played "LemKuuja - What's a Future Funk.mp3"
+May 06 19:34 : zeroconf: No global port, disabling zeroconf
+May 06 19:34 : config: option 'buffer_time' on line 128 was not recognized
+May 06 19:34 : config: option 'max_client' on line 152 was not recognized
+May 06 19:34 : server_socket: bind to '0.0.0.0:8000' failed (continuing anyway, because binding to '[::]:8000' succeeded): Failed to bind socket: Address already in use
+May 06 22:29 : player: played "LemKuuja - What's a Future Funk.mp3"
+May 07 13:05 : zeroconf: No global port, disabling zeroconf
+May 07 13:05 : config: option 'buffer_time' on line 128 was not recognized
+May 07 13:05 : config: option 'max_client' on line 152 was not recognized
+May 07 13:05 : server_socket: bind to '0.0.0.0:8000' failed (continuing anyway, because binding to '[::]:8000' succeeded): Failed to bind socket: Address already in use
+Jun 13 21:05 : zeroconf: No global port, disabling zeroconf
+Jun 13 21:05 : config: option 'buffer_time' on line 128 was not recognized
+Jun 13 21:05 : config: option 'max_client' on line 152 was not recognized
+Jun 13 21:05 : server_socket: bind to '0.0.0.0:8000' failed (continuing anyway, because binding to '[::]:8000' succeeded): Failed to bind socket: Address already in use

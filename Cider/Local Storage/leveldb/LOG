@@ -1,0 +1,5 @@
+2022/04/24-08:56:03.937 8cc4 Reusing MANIFEST /home/f1restorm/.config/Cider/Local Storage/leveldb/MANIFEST-000001
+2022/04/24-08:56:03.937 8cc4 Recovering log #3
+2022/04/24-08:56:03.937 8cc4 Level-0 table #3: started
+2022/04/24-08:56:03.982 8cc4 Level-0 table #3: 13340 bytes OK
+2022/04/24-08:56:04.082 8cc4 Delete type=0 #3
