@@ -1,7 +1,7 @@
 " {{{ System Config
 
 syntax enable " enables syntax highlighting
-set t_Co=256
+set t_Co=256 " extend the terminal color palette
 set nocompatible " make vim more or less vi-compatible
 
 set visualbell " use visual bell instead of beeping
@@ -84,10 +84,13 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fr <cmd>Telescope gradle<cr>
 
-nmap <silent> <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
+nmap <silent> <leader>q <cmd>bp<bar>sp<bar>bn<bar>bd<cr>
 
 nnoremap <leader>g <cmd>Magit<cr>
+
+nnoremap <silent> zs <cmd>term<space>zsh<cr>a
 
 " }}}
 " -------------------------------------------------------
@@ -136,8 +139,8 @@ nnoremap <leader>g <cmd>Magit<cr>
                " {{{ Language Specific
                Plug 'Saecki/crates.nvim'
                Plug 'preservim/vim-markdown'
-               Plug 'vimwiki/vimwiki'
-               Plug 'jceb/vim-orgmode'
+               Plug 'vimwiki/vimwiki', { 'for': 'vimwiki' }
+               Plug 'nvim-orgmode/orgmode'
                " }}}
 
                 " {{{ Aesthetics
@@ -149,10 +152,12 @@ nnoremap <leader>g <cmd>Magit<cr>
                 Plug 'glepnir/dashboard-nvim'
                 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
                 Plug 'onsails/lspkind.nvim'
+                Plug 'lukas-reineke/headlines.nvim'
                 " }}}
                 
                 " {{{ ColorSchemes
-                Plug 'arcticicestudio/nord-vim'
+                " Plug 'arcticicestudio/nord-vim'
+                Plug 'shaunsingh/nord.nvim'
                 Plug 'tanvirtin/monokai.nvim'
                 " }}}
 
@@ -164,7 +169,9 @@ nnoremap <leader>g <cmd>Magit<cr>
         set background=dark
 
         lua require('crates').setup()
+        lua require('headlines').setup()
         lua require('impatient').enable_profile()
+        lua require('orgmode').setup_ts_grammar()
 
         " }}}
 
@@ -203,6 +210,30 @@ let g:dashboard_custom_header =<< trim END
  `''                                                                      ``'
 END
 
+" let g:dashboard_custom_header = [
+"                         \' =================     ===============     ===============   ========  ======== ',
+"                         \' \\ . . . . . . .\\   //. . . . . . .\\   //. . . . . . .\\  \\. . .\\// . . // ',
+"                         \' ||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\/ . . .|| ',
+"                         \' || . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . || ',
+"                         \' ||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .|| ',
+"                         \' || . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\ . . . . || ',
+"                         \' ||. . ||   ||-'  || ||  `-||   || . .|| ||. . ||   ||-'  || ||  `|\_ . .|. .|| ',
+"                         \' || . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\ `-_/| . || ',
+"                         \' ||_-' ||  .|/    || ||    \|.  || `-_|| ||_-' ||  .|/    || ||   | \  / |-_.|| ',
+"                         \' ||    ||_-'      || ||      `-_||    || ||    ||_-'      || ||   | \  / |  `|| ',
+"                         \' ||    `'         || ||         `'    || ||    `'         || ||   | \  / |   || ',
+"                         \' ||            .===' `===.         .==='.`===.         .===' /==. |  \/  |   || ',
+"                         \' ||         .=='   \_|-_ `===. .==='   _|_   `===. .===' _-|/   `==  \/  |   || ',
+"                         \' ||      .=='    _-'    `-_  `='    _-'   `-_    `='  _-'   `-_  /|  \/  |   || ',
+"                         \' ||   .=='    _-'          '-__\._-'         '-_./__-'         `' |. /|  |   || ',
+"                         \' ||.=='    _-'                                                     `' |  /==.|| ',
+"                         \' =='    _-'                        N E O V I M                         \/   `== ',
+"                         \' \   _-'                                                                `-_   / ',
+"                         \'  `''                                                                      ``' ',
+"         ]
+
+let g:org_indent = 1
+
 let g:neovide_cursor_vfx_mode = "wireframe"
 let g:neovide_cursor_vfx_opacity = 200.0
 let g:neovide_cursor_vfx_particle_lifetime = 0.5
@@ -211,6 +242,18 @@ let g:neovide_cursor_animation_length = 0.05
 let g:neovide_cursor_trail_length = 0.2
 let g:neovide_cursor_unfocused_outline_width = 0.125
 
+" }}}
+" -------------------------------------------------------
+" {{{ Highlights
+
+hi Headline1 guifg=#88c0d0 guibg=#3b4252 gui=bold
+hi link Headline2 Headline1
+hi link Headline3 Headline1
+hi link Headline4 Headline1
+hi link Headline5 Headline1
+hi link Headline6 Headline1
+
+" hi DashboardHeader guifg=#b48dac guibg=NONE ctermfg=Magenta
 
 " }}}
 " -------------------------------------------------------
@@ -470,6 +513,7 @@ lua << END
     }),
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
+      { name = 'orgmode' },
       { name = 'vsnip' }, -- For vsnip users.
       -- { name = 'luasnip' }, -- For luasnip users.
       -- { name = 'ultisnips' }, -- For ultisnips users.
@@ -554,13 +598,13 @@ nnoremap <silent> ]e :Lspsaga diagnostic_jump_next<CR>
 
 lua << END
 require'nvim-treesitter.configs'.setup {
-        ensure_installed = { "rust", "toml", "kotlin", "elixir", "lua", "vim" },
+        ensure_installed = { "rust", "toml", "kotlin", "elixir", "lua", "vim", "org" },
         sync_install = false,
         ignore_install = { "javascript" },
         highlight = {
                 enable = true,
                 disable = {},
-                additional_vim_regex_highlighting = false,
+                additional_vim_regex_highlighting = {"org"},
                 },
         incremental_selection = {
                 enable = true,
@@ -576,10 +620,67 @@ END
 
 " }}}
 " -------------------------------------------------------
-" {{{ Telescope
+" {{{ Dashboard
+lua << END
+local dash = require('dashboard')
+
+-- dash.preview_command = "awk '{ printf \"\033[35m%s\", $0 }'" 
+-- dash.preview_command = 'awk \'{ printf "\033[35m%s\n", '
+dash.preview_command = 'cat | lolcat -F 0.03 -s 90 -p 2 -a -d 2'
+dash.preview_file_path = '~/.config/nvim/dashboard_header.txt'
+dash.preview_file_height = 20
+dash.preview_file_width = 80
+END
+
+
+" }}}
+" -------------------------------------------------------
+" {{{ Misc Lua Configs
 
 lua << END
 local telescope = require('telescope')
 
 telescope.load_extension('gradle')
+END
+
+lua << END
+require('orgmode').setup({
+        org_agenda_files = {'~/Documents/**/*'},
+})
+
+require('headlines').setup({
+markdown = { 
+        fat_headlines = false,
+        headline_highlights = {
+                "Headline1",
+                "Headline2",
+                "Headline3",
+                "Headline4",
+                "Headline5",
+                "Headline6",
+                },
+        },
+org = { 
+        fat_headlines = false,
+        headline_highlights = {
+                "Headline1",
+                "Headline2",
+                "Headline3",
+                "Headline4",
+                "Headline5",
+                "Headline6",
+                },
+        },
+norg = { 
+        fat_headlines = false,
+        headline_highlights = {
+                "Headline1",
+                "Headline2",
+                "Headline3",
+                "Headline4",
+                "Headline5",
+                "Headline6",
+                },
+        }
+})
 END
