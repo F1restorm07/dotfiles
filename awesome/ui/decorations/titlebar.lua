@@ -76,7 +76,7 @@ client.connect_signal("request::titlebars", function(c)
 	-- Titlebars setup
 	--------------------
 
-	awful.titlebar(c, { position = "top", size = dpi(45), bg = beautiful.transparent }):setup({
+	awful.titlebar(c, { position = "top", size = dpi(24), bg = beautiful.transparent }):setup({
 		{
 			layout = wibox.layout.align.horizontal,
 			{
@@ -122,13 +122,33 @@ client.connect_signal("request::titlebars", function(c)
 
 	awful.titlebar(c, {
 		position = "bottom",
-		size = dpi(24),
+		size = dpi(12),
 		bg = beautiful.transparent,
 	}):setup({
 		bg = beautiful.titlebar_bg,
 		shape = helpers.prrect(beautiful.border_radius, false, false, true, true),
 		widget = wibox.container.background,
 	})
+
+        awful.titlebar(c, {
+                position = "left",
+                size = dpi(6),
+                bg = beautiful.transparent,
+        }):setup({
+                bg = beautiful.titlebar_bg,
+                shape =  gears.shape.rectangle,
+                widget = wibox.container.background,
+        })
+
+        awful.titlebar(c, {
+                position = "right",
+                size = dpi(6),
+                bg = beautiful.transparent,
+        }):setup({
+                bg = beautiful.titlebar_bg,
+                shape =  gears.shape.rectangle,
+                widget = wibox.container.background,
+        })
 end)
 
 	-- Window Shape (https://github.com/awesomeWM/awesome/issues/920)

@@ -9,5 +9,6 @@ awful.screen.connect_for_each_screen(function(s)
 		height = dpi(50),
 		offset = dpi(5),
 		inner_shape = gears.shape.rounded_rect,
+                outer_shape = gears.shape.rounded_rect,
 	})
 end)
