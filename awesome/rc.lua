@@ -13,8 +13,9 @@ pcall(require, "luarocks.loader")
 themes = {
 	"day", -- [1] 🌕 Beautiful Light Colorscheme
 	"night", -- [2] 🌑 Aesthetic Dark Colorscheme
+        "nord" -- [3] Nord Dark Colorscheme
 }
-theme = themes[2]
+theme = themes[3]
 -- ============================================
 -- 🌊 Default Applications
 terminal = "alacritty"

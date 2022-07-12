@@ -49,19 +49,19 @@ colors:
 
 font:
         normal:
-                family: 'JetBrainsMono NF'
+                family: 'JetBrainsMono Nerd Font Mono'
                 style: Regular
                 size: 13.0
                 anti_alias: true
 
         italic:
-                family: 'JetBrainsMono NF'
+                family: 'JetBrainsMono Nerd Font Mono'
                 style: Italic
                 size: 13.0
                 anti_alias: true
 
         bold:
-                family: 'JetBrainsMono NF'
+                family: 'JetBrainsMono Nerd Font Mono'
                 style: Bold
                 size: 13.0
                 anti_alias: true
@@ -80,7 +80,7 @@ line height:
 live_config_reload: true
 
 shell:
-        program: /opt/homebrew/bin/tmux
+        program: tmux
         args:
                 - new
                 - -A

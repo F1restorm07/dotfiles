@@ -101,88 +101,6 @@ awful.screen.connect_for_each_screen(function(s)
 
 	helpers.add_hover_cursor(search, "hand2")
 
-	-- battery
-	local charge_icon = wibox.widget({
-		markup = helpers.colorize_text("", beautiful.xbackground .. "80"),
-		align = "center",
-		valign = "center",
-		font = beautiful.icon_font_name .. "Round 16",
-		widget = wibox.widget.textbox,
-		visible = false,
-	})
-
-	local batt = wibox.widget({
-		color = beautiful.battery_happy_color,
-		background_color = beautiful.battery_happy_color .. "55",
-		bar_shape = function(cr, width, height)
-			gears.shape.rounded_rect(cr, width, height, dpi(5))
-		end,
-		shape = function(cr, width, height)
-			gears.shape.rounded_rect(cr, width, height, dpi(5))
-		end,
-		value = 50,
-		max_value = 100,
-		widget = wibox.widget.progressbar,
-	})
-
-	local batt_container = wibox.widget({
-		{
-			batt,
-			forced_height = dpi(35),
-			forced_width = dpi(100),
-			shape = function(cr, width, height)
-				gears.shape.rounded_rect(cr, width, height, dpi(5))
-			end,
-			bg = beautiful.wibar_widget_bg,
-			widget = wibox.container.background,
-		},
-		charge_icon,
-		valign = "center",
-		layout = wibox.layout.stack,
-	})
-
-	local batt_last_value = 100
-	local batt_low_value = 40
-	local batt_critical_value = 20
-	awesome.connect_signal("signal::battery", function(value)
-		batt.value = value
-		batt_last_value = value
-		local color
-
-		if charge_icon.visible then
-			color = beautiful.battery_charging_color
-		elseif value <= batt_critical_value then
-			color = beautiful.battery_sad_color
-		elseif value <= batt_low_value then
-			color = beautiful.battery_ok_color
-		else
-			color = beautiful.battery_happy_color
-		end
-
-		batt.color = color
-		batt.background_color = color .. "44"
-	end)
-
-	awesome.connect_signal("signal::charger", function(state)
-		local color
-		if state then
-			charge_icon.visible = true
-			color = beautiful.battery_charging_color
-		elseif batt_last_value <= batt_critical_value then
-			charge_icon.visible = false
-			color = beautiful.battery_sad_color
-		elseif batt_last_value <= batt_low_value then
-			charge_icon.visible = false
-			color = beautiful.battery_ok_color
-		else
-			charge_icon.visible = false
-			color = beautiful.battery_happy_color
-		end
-
-		batt.color = color
-		batt.background_color = color .. "44"
-	end)
-
 	local vertical_separator = wibox.widget({
 		orientation = "vertical",
 		color = beautiful.wibar_bg,
@@ -195,7 +113,7 @@ awful.screen.connect_for_each_screen(function(s)
 	-- Clock
 	local clock = wibox.widget({
 		font = beautiful.font_name .. "Bold 12",
-		format = "%I:%M %p",
+		format = "%m/%d  %I:%M %p",
 		align = "center",
 		valign = "center",
 		widget = wibox.widget.textclock,
@@ -248,9 +166,10 @@ awful.screen.connect_for_each_screen(function(s)
 			right = dpi(10),
 			widget = wibox.container.margin,
 		},
-		shape = function(cr, width, height)
-			gears.shape.rounded_rect(cr, width, height, dpi(5))
-		end,
+		-- shape = function(cr, width, height)
+		-- 	gears.shape.transform(gears.shape.parallelogram) : scale(0.5, 1)(cr, width, height, width)
+		-- end,
+                shape = function (cr, w, h) gears.shape.rounded_rect(cr, w, h, dpi(5)) end,
 		bg = beautiful.wibar_widget_bg,
 		widget = wibox.container.background,
 	})
@@ -309,13 +228,12 @@ awful.screen.connect_for_each_screen(function(s)
 		position = "top",
 		screen = s,
 		height = dpi(50),
-		width = s.geometry.width - dpi(40),
+		-- width = s.geometry.width - dpi(10),
+                width = s.geometry.width,
 		bg = beautiful.transparent,
 		ontop = true,
 		visible = true,
 	})
-
-	awful.placement.top(s.mywibar, { margins = beautiful.useless_gap * 3 })
 
 	-- Remove wibar on full screen
 	local function remove_wibar(c)
@@ -362,7 +280,6 @@ awful.screen.connect_for_each_screen(function(s)
 					widget = s.mytaglist,
 				},
 				{
-					batt_container,
 					right_container,
 					spacing = dpi(10),
 					layout = wibox.layout.fixed.horizontal,
@@ -372,7 +289,9 @@ awful.screen.connect_for_each_screen(function(s)
 			widget = wibox.container.margin,
 		},
 		bg = beautiful.wibar_bg,
-		shape = helpers.rrect(beautiful.border_radius),
+		shape = function (cr, width, height)
+                        gears.shape.rectangle(cr, width, height)
+                end,
 		widget = wibox.container.background,
 	})
 end)
