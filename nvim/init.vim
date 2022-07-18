@@ -88,9 +88,9 @@ nnoremap <leader>fr <cmd>Telescope gradle<cr>
 
 nmap <silent> <leader>q <cmd>bp<bar>sp<bar>bn<bar>bd<cr>
 
-nnoremap <leader>g <cmd>Magit<cr>
+nnoremap <leader>g <cmd>Neogit kind=vsplit<cr>
 
-nnoremap <silent> zs <cmd>term<space>zsh<cr>a
+nnoremap <silent> zs <cmd>term zsh<cr>a
 
 " }}}
 " -------------------------------------------------------
@@ -109,10 +109,11 @@ nnoremap <silent> zs <cmd>term<space>zsh<cr>a
                         
                         " {{{ Extra Functionality
                         Plug 'nvim-telescope/telescope.nvim'
-                        Plug 'nvim-telescope/telescope-fzf-native.nvim'
+                        Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+                        Plug 'nvim-telescope/telescope-frecency.nvim'
                         Plug 'aloussase/telescope-gradle.nvim'
                         Plug 'ggandor/leap.nvim' 
-                        Plug 'jreybert/vimagit'
+                        Plug 'TimUntersberger/neogit'
                         Plug 'tpope/vim-vinegar'
                         Plug 'mbbill/undotree'
                         " }}}
@@ -120,7 +121,7 @@ nnoremap <silent> zs <cmd>term<space>zsh<cr>a
                 Plug 'junegunn/vim-plug'
                 Plug 'nvim-lua/plenary.nvim'
                 Plug 'lewis6991/impatient.nvim'
-                Plug 'vim-syntastic/syntastic'
+                Plug 'tami5/sqlite.lua'
                 Plug 'jiangmiao/auto-pairs'
                 " }}}
                 
@@ -156,7 +157,6 @@ nnoremap <silent> zs <cmd>term<space>zsh<cr>a
                 " }}}
                 
                 " {{{ ColorSchemes
-                " Plug 'arcticicestudio/nord-vim'
                 Plug 'shaunsingh/nord.nvim'
                 Plug 'tanvirtin/monokai.nvim'
                 " }}}
@@ -186,54 +186,6 @@ let g:syntastic_check_on_wq = 0
 
 set guifont=JetBrainsMono_Nerd_Font_Mono:h13
 
-let g:dashboard_default_executive = 'telescope'
-
-let g:dashboard_custom_header =<< trim END
-=================     ===============     ===============   ========  ========
-\\ . . . . . . .\\   //. . . . . . .\\   //. . . . . . .\\  \\. . .\\// . . //
-||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\/ . . .||
-|| . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . ||
-||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .||
-|| . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\ . . . . ||
-||. . ||   ||-'  || ||  `-||   || . .|| ||. . ||   ||-'  || ||  `|\_ . .|. .||
-|| . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\ `-_/| . ||
-||_-' ||  .|/    || ||    \|.  || `-_|| ||_-' ||  .|/    || ||   | \  / |-_.||
-||    ||_-'      || ||      `-_||    || ||    ||_-'      || ||   | \  / |  `||
-||    `'         || ||         `'    || ||    `'         || ||   | \  / |   ||
-||            .===' `===.         .==='.`===.         .===' /==. |  \/  |   ||
-||         .=='   \_|-_ `===. .==='   _|_   `===. .===' _-|/   `==  \/  |   ||
-||      .=='    _-'    `-_  `='    _-'   `-_    `='  _-'   `-_  /|  \/  |   ||
-||   .=='    _-'          '-__\._-'         '-_./__-'         `' |. /|  |   ||
-||.=='    _-'                                                     `' |  /==.||
-=='    _-'                        N E O V I M                         \/   `==
-\   _-'                                                                `-_   /
- `''                                                                      ``'
-END
-
-" let g:dashboard_custom_header = [
-"                         \' =================     ===============     ===============   ========  ======== ',
-"                         \' \\ . . . . . . .\\   //. . . . . . .\\   //. . . . . . .\\  \\. . .\\// . . // ',
-"                         \' ||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\/ . . .|| ',
-"                         \' || . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . || ',
-"                         \' ||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .|| ',
-"                         \' || . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\ . . . . || ',
-"                         \' ||. . ||   ||-'  || ||  `-||   || . .|| ||. . ||   ||-'  || ||  `|\_ . .|. .|| ',
-"                         \' || . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\ `-_/| . || ',
-"                         \' ||_-' ||  .|/    || ||    \|.  || `-_|| ||_-' ||  .|/    || ||   | \  / |-_.|| ',
-"                         \' ||    ||_-'      || ||      `-_||    || ||    ||_-'      || ||   | \  / |  `|| ',
-"                         \' ||    `'         || ||         `'    || ||    `'         || ||   | \  / |   || ',
-"                         \' ||            .===' `===.         .==='.`===.         .===' /==. |  \/  |   || ',
-"                         \' ||         .=='   \_|-_ `===. .==='   _|_   `===. .===' _-|/   `==  \/  |   || ',
-"                         \' ||      .=='    _-'    `-_  `='    _-'   `-_    `='  _-'   `-_  /|  \/  |   || ',
-"                         \' ||   .=='    _-'          '-__\._-'         '-_./__-'         `' |. /|  |   || ',
-"                         \' ||.=='    _-'                                                     `' |  /==.|| ',
-"                         \' =='    _-'                        N E O V I M                         \/   `== ',
-"                         \' \   _-'                                                                `-_   / ',
-"                         \'  `''                                                                      ``' ',
-"         ]
-
-let g:org_indent = 1
-
 let g:neovide_cursor_vfx_mode = "wireframe"
 let g:neovide_cursor_vfx_opacity = 200.0
 let g:neovide_cursor_vfx_particle_lifetime = 0.5
@@ -246,14 +198,13 @@ let g:neovide_cursor_unfocused_outline_width = 0.125
 " -------------------------------------------------------
 " {{{ Highlights
 
-hi Headline1 guifg=#88c0d0 guibg=#3b4252 gui=bold
-hi link Headline2 Headline1
-hi link Headline3 Headline1
-hi link Headline4 Headline1
-hi link Headline5 Headline1
-hi link Headline6 Headline1
-
-" hi DashboardHeader guifg=#b48dac guibg=NONE ctermfg=Magenta
+hi Headline guifg=#88c0d0 guibg=#3b4252 gui=bold
+hi link Headline1 Headline
+hi link Headline2 Headline
+hi link Headline3 Headline
+hi link Headline4 Headline
+hi link Headline5 Headline
+hi link Headline6 Headline
 
 " }}}
 " -------------------------------------------------------
@@ -584,7 +535,7 @@ nnoremap <silent> K :Lspsaga hover_doc<CR>
 nnoremap <silent> gs :Lspsaga signature_help<CR>
 nnoremap <silent> gd :Lspsaga preview_definition<CR>
 nnoremap <silent> gr :Lspsaga rename<CR>
-nnoremap <silent><leader>cc <cmd>lua require'lspsaga.diagnostic'.show_cursor_diagnostics()<CR>
+nnoremap <silent> <leader>cc <cmd>lua require'lspsaga.diagnostic'.show_cursor_diagnostics()<CR>
 
 nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
 nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
@@ -630,22 +581,53 @@ dash.preview_command = 'cat | lolcat -F 0.03 -s 90 -p 2 -a -d 2'
 dash.preview_file_path = '~/.config/nvim/dashboard_header.txt'
 dash.preview_file_height = 20
 dash.preview_file_width = 80
+
+dash.custom_center = {
+        { desc = "Find files", action = "Telescope find_files" },
+        { desc = "File Browser", action = "Telescope file_browser" },
+        { desc = "Find word", action = "Telescope live_grep" }
+        }
 END
 
 
 " }}}
 " -------------------------------------------------------
-" {{{ Misc Lua Configs
+" {{{ Telescope
 
 lua << END
 local telescope = require('telescope')
 
+telescope.setup({
+defaults = {
+        layout_config = {
+                vertical = { width = 0.5 }
+                },
+        preview = false,
+        },
+pickers = {
+        find_files = {
+                theme = "dropdown",
+                },
+        live_grep = {
+                theme = "dropdown",
+                }
+        },
+})
+
+telescope.load_extension('fzf')
 telescope.load_extension('gradle')
+telescope.load_extension('frecency')
 END
+
+" }}}
+" -------------------------------------------------------
+" {{{ Misc Lua Configs
+
 
 lua << END
 require('orgmode').setup({
         org_agenda_files = {'~/Documents/**/*'},
+        org_indent_mode = "noindent",
 })
 
 require('headlines').setup({
