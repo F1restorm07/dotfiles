@@ -120,7 +120,6 @@ nnoremap <silent> zs <cmd>term<space>zsh<cr>a
                 Plug 'junegunn/vim-plug'
                 Plug 'nvim-lua/plenary.nvim'
                 Plug 'lewis6991/impatient.nvim'
-                Plug 'vim-syntastic/syntastic'
                 Plug 'jiangmiao/auto-pairs'
                 " }}}
                 
