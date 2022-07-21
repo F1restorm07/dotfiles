@@ -6,3 +6,4 @@ nvim/undodir/
 htop/
 iterm2/
 yarn/
+nvim/plugged/**

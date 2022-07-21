@@ -79,12 +79,27 @@ line height:
 
 live_config_reload: true
 
+# shell:
+#         program: /opt/homebrew/bin/tmux
+#         args:
+#                 - source /Users/lukegardner/.config/tmux/.tmux.conf \; new -As main
 shell:
+<<<<<<< HEAD
         program: tmux
         args:
                 - new
                 - -A
                 - -s main
+=======
+  program: /opt/homebrew/bin/tmux
+  args:
+    - source
+    - ~/.config/tmux/.tmux.conf 
+    - /;
+    - new
+    - -A  
+    - -s main  
+>>>>>>> a40d5d739e25cba549cc3902f46d9ace2f2dca3c
 
 unfocused_hollow: true
 
