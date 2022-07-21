@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 
-WEATHER="$(curl -s 'wttr.in/Denver?format=%c%f')"
-LABEL="$(echo $WEATHER | cut -d " " -f 2)"
-ICON="$(echo "${WEATHER:0:1}")"
+WEATHER="$(curl 'wttr.in/highlands_ranch?u&format=%t')"
+ICON="$(curl 'wttr.in/highlands_ranch?u&format=%c')"
 
-echo $LABEL
+echo $WEATHER
 echo $ICON
 
-sketchybar -m --set $NAME label=$LABEL
+sketchybar -m --set $NAME label=$WEATHER icon=$ICON
 
