@@ -376,7 +376,13 @@ require'lspconfig'.elixirls.setup {
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = {'rust_analyzer', 'crystalline', 'kotlin_language_server', 'elixirls', 'sumneko_lua'} 
+local servers = {'rust_analyzer',
+                'crystalline',
+                'kotlin_language_server',
+                'elixirls',
+                'sumneko_lua',
+                'ccls'
+        } 
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,
@@ -503,7 +509,13 @@ lua << END
 
   -- Setup lspconfig.
   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  local servers = {'rust_analyzer', 'crystalline', 'elixirls', 'kotlin_language_server', 'sumneko_lua'}
+  local servers = {'rust_analyzer',
+                'crystalline',
+                'elixirls',
+                'kotlin_language_server',
+                'sumneko_lua',
+                'ccls'
+        }
   for _, lsp in pairs(servers) do
     require('lspconfig')[lsp].setup {
       capabilities = capabilities
