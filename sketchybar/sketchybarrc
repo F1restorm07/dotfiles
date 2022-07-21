@@ -36,86 +36,86 @@ sketchybar -m --add item logo left \
                     click_script="sketchybar -m --update"
 
 ############## PRIMARY DISPLAY SPACES ##############
-sketchybar -m --add space productivity left \
-              --set productivity associated_space=1 \
-                         associated_display=1 \
-                         icon= \
-                         click_script="yabai -m space --focus 1" \
-                         background.color=0xffD8DEE9 \
-                         background.drawing=off \
-              --subscribe productivity mouse.entered mouse.exited \
-                                                                 \
-              --add space browser left \
-              --set browser associated_display=1 \
-                         associated_space=2 \
-                         icon=爵 \
-                         click_script="yabai -m space --focus 2" \
-                         background.color=0xffD8DEE9 \
-                         background.drawing=off \
-              --subscribe browser mouse.entered mouse.exited \
-                                                                 \
-              --add space messaging left \
-              --set messaging associated_display=1 \
-                         associated_space=3 \
-                         icon= \
-                         click_script="yabai -m space --focus 3" \
-                         background.color=0xffD8DEE9 \
-                         background.drawing=off \
-              --subscribe messaging mouse.entered mouse.exited \
-                                                                 \
-              --add space reference left \
-              --set reference associated_display=1 \
-                         associated_space=4 \
-                         icon= \
-                         click_script="yabai -m space --focus 4" \
-                         background.color=0xffD8DEE9 \
-                         background.drawing=off \
-              --subscribe reference mouse.entered mouse.exited \
-                                                                 \
-              --add space code left \
-              --set code associated_display=1 \
-                         associated_space=5 \
-                         icon= \
-                         click_script="yabai -m space --focus 5" \
-                         background.color=0xffD8DEE9 \
-                         background.drawing=off \
-              --subscribe code mouse.entered mouse.exited \
-                                                                 \
-              --add space media left \
-              --set media associated_display=1 \
-                         associated_space=6 \
-                         icon= \
-                         click_script="yabai -m space --focus 6" \
-                         background.color=0xffD8DEE9 \
-                         background.drawing=off \
-              --subscribe media mouse.entered mouse.exited \
-                                                                 \
-              --add space feed left \
-              --set feed associated_display=1 \
-                         associated_space=7 \
-                         icon= \
-                         click_script="yabai -m space --focus 7" \
-                         background.color=0xffD8DEE9 \
-                         background.drawing=off \
-              --subscribe feed mouse.entered mouse.exited \
-                                                                 \
-              --add space system left \
-              --set system associated_display=1 \
-                         associated_space=8 \
-                         icon= \
-                         click_script="yabai -m space --focus 8" \
-                         background.color=0xffD8DEE9 \
-                         background.drawing=off \
-              --subscribe system mouse.entered mouse.exited \
-                                                                 \
-              --add space vm left \
-              --set vm associated_display=1 \
-                         associated_space=9 \
-                         icon= \
-                         click_script="yabai -m space --focus 9" \
-                         background.color=0xffD8DEE9 \
-                         background.drawing=off \
-              --subscribe vm mouse.entered mouse.exited
+# sketchybar -m --add space productivity left \
+#               --set productivity associated_space=1 \
+#                          associated_display=1 \
+#                          icon= \
+#                          click_script="yabai -m space --focus 1" \
+#                          background.color=0xffD8DEE9 \
+#                          background.drawing=off \
+#               --subscribe productivity mouse.entered mouse.exited \
+#                                                                  \
+#               --add space browser left \
+#               --set browser associated_display=1 \
+#                          associated_space=2 \
+#                          icon=爵 \
+#                          click_script="yabai -m space --focus 2" \
+#                          background.color=0xffD8DEE9 \
+#                          background.drawing=off \
+#               --subscribe browser mouse.entered mouse.exited \
+#                                                                  \
+#               --add space messaging left \
+#               --set messaging associated_display=1 \
+#                          associated_space=3 \
+#                          icon= \
+#                          click_script="yabai -m space --focus 3" \
+#                          background.color=0xffD8DEE9 \
+#                          background.drawing=off \
+#               --subscribe messaging mouse.entered mouse.exited \
+#                                                                  \
+#               --add space reference left \
+#               --set reference associated_display=1 \
+#                          associated_space=4 \
+#                          icon= \
+#                          click_script="yabai -m space --focus 4" \
+#                          background.color=0xffD8DEE9 \
+#                          background.drawing=off \
+#               --subscribe reference mouse.entered mouse.exited \
+#                                                                  \
+#               --add space code left \
+#               --set code associated_display=1 \
+#                          associated_space=5 \
+#                          icon= \
+#                          click_script="yabai -m space --focus 5" \
+#                          background.color=0xffD8DEE9 \
+#                          background.drawing=off \
+#               --subscribe code mouse.entered mouse.exited \
+#                                                                  \
+#               --add space media left \
+#               --set media associated_display=1 \
+#                          associated_space=6 \
+#                          icon= \
+#                          click_script="yabai -m space --focus 6" \
+#                          background.color=0xffD8DEE9 \
+#                          background.drawing=off \
+#               --subscribe media mouse.entered mouse.exited \
+#                                                                  \
+#               --add space feed left \
+#               --set feed associated_display=1 \
+#                          associated_space=7 \
+#                          icon= \
+#                          click_script="yabai -m space --focus 7" \
+#                          background.color=0xffD8DEE9 \
+#                          background.drawing=off \
+#               --subscribe feed mouse.entered mouse.exited \
+#                                                                  \
+#               --add space system left \
+#               --set system associated_display=1 \
+#                          associated_space=8 \
+#                          icon= \
+#                          click_script="yabai -m space --focus 8" \
+#                          background.color=0xffD8DEE9 \
+#                          background.drawing=off \
+#               --subscribe system mouse.entered mouse.exited \
+#                                                                  \
+#               --add space vm left \
+#               --set vm associated_display=1 \
+#                          associated_space=9 \
+#                          icon= \
+#                          click_script="yabai -m space --focus 9" \
+#                          background.color=0xffD8DEE9 \
+#                          background.drawing=off \
+#               --subscribe vm mouse.entered mouse.exited
 
 # sketchybar -m --add item yabai_logo left \
 #               --set yabai_logo icon="" \
@@ -267,7 +267,7 @@ sketchybar -m --add item stats_logo right \
 #                         script="~/.config/sketchybar/plugins/vpn.sh"
 
 sketchybar -m --add item weather right \
-              --set weather update_freq=3600 \
+              --set weather update_freq=300 \
                             script="~/.config/sketchybar/plugins/weather.sh" \
                             click_script="open https://darksky.net/forecast/39.5398,-105.0148/us12/en"
 
