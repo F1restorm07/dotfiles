@@ -7245,3 +7245,35 @@
 11:31:51.734659 version@stat F·[3 31 12] S·190MiB[6MiB 66MiB 117MiB] Sc·[0.75 0.67 0.12]
 11:31:51.788151 table@compaction committed F-1 S-4KiB Ke·0 D·610 T·222.548879ms
 11:31:51.788252 table@remove removed @3062
+13:05:02.887936 db@close closing
+13:05:02.888082 db@close done T·144.849µs
+=============== Jul 21, 2022 (MDT) ===============
+15:01:05.143371 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+15:01:05.198963 version@stat F·[3 31 12] S·190MiB[6MiB 66MiB 117MiB] Sc·[0.75 0.67 0.12]
+15:01:05.198982 db@open opening
+15:01:05.199054 journal@recovery F·1
+15:01:05.199484 journal@recovery recovering @3064
+15:01:05.304145 memdb@flush created L0@3067 N·749 S·6KiB "\x03KN..ion,v8420462":"\r\xf6\x8a..\xa2\xfe\xc4,d8419749"
+15:01:05.304446 version@stat F·[4 31 12] S·190MiB[6MiB 66MiB 117MiB] Sc·[1.00 0.67 0.12]
+15:01:05.471770 db@janitor F·50 G·1
+15:01:05.471781 db@janitor removing table-3063
+15:01:05.471802 db@open done T·272.816744ms
+15:01:05.472005 table@compaction L0·1 -> L1·8 S·16MiB Q·8420463
+15:01:05.694274 table@build created L1@3070 N·50585 S·2MiB "\x02\x00\x00..oud,v8184547":"\v\x00\x00..\x00\x83\x10,v4968023"
+15:01:05.847298 table@build created L1@3071 N·82026 S·2MiB "\v\x00\x00..\x00\x83\x11,v4968027":"\v\x00\x00..\x01\xe3K,v5831156"
+15:01:05.967075 table@build created L1@3072 N·76276 S·2MiB "\v\x00\x00..\x01\xe3L,v5831163":"\v\x00\x00..\x03\rG,v6644320"
+15:01:06.086048 table@build created L1@3073 N·71079 S·2MiB "\v\x00\x00..\x03\rH,v6644326":"\v\x00\x00..\x04#\t,v7247569"
+15:01:06.216993 table@build created L1@3074 N·71078 S·2MiB "\v\x00\x00..\x04#\n,v7247575":"\v\x00\x00..\x058\xe2,v7857339"
+15:01:06.347937 table@build created L1@3075 N·62189 S·2MiB "\v\x00\x00..\x058\xe3,v7857345":"\r\v\xe1..\x9a\xe5I,v503350"
+15:01:06.467750 table@build created L1@3076 N·2481 S·2MiB "\r\f\x00..\x83\xca\x15,v6116602":"\r\xae\x98..\xf5ʜ,v178251"
+15:01:06.575706 table@build created L1@3077 N·15164 S·1MiB "\r\xae\x99..~\xae\x99,v5977688":"\x0e\x00\x00..ify,v7365136"
+15:01:06.575745 version@stat F·[3 31 12] S·190MiB[6MiB 66MiB 117MiB] Sc·[0.75 0.67 0.12]
+15:01:06.618204 table@compaction committed F-1 S-77KiB Ke·0 D·784 T·1.146185455s
+15:01:06.618334 table@remove removed @3066
+15:01:06.618439 table@remove removed @3038
+15:01:06.618525 table@remove removed @3039
+15:01:06.618619 table@remove removed @3040
+15:01:06.618689 table@remove removed @3041
+15:01:06.618798 table@remove removed @3042
+15:01:06.618853 table@remove removed @3043
+15:01:06.618909 table@remove removed @3044
