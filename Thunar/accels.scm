@@ -76,6 +76,7 @@
 ; (gtk_accel_path "<Actions>/ThunarWindow/new-window" "<Primary>n")
 ; (gtk_accel_path "<Actions>/ThunarStandardView/forward" "<Alt>Right")
 ; (gtk_accel_path "<Actions>/ThunarLauncher/copy" "<Primary>c")
+; (gtk_accel_path "<Actions>/ThunarBookmarks/dd21adc56c299634e1fa0326dbcc02ec" "")
 ; (gtk_accel_path "<Actions>/ThunarWindow/file-menu" "")
 ; (gtk_accel_path "<Actions>/ThunarStandardView/make-link" "")
 ; (gtk_accel_path "<Actions>/ThunarStandardView/sort-descending" "")
