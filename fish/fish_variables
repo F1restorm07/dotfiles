@@ -1,6 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export CARGO_TARGET_DIR:\x7e/\x2ecargo/builds
+SETUVAR --export XCURSOR_THEME:oreo_nord_snow_1_cursors
 SETUVAR __fish_initialized:3400
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
