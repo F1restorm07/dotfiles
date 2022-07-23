@@ -1,5 +1,0 @@
-{
-        "clangd.semanticHighlighting": true,
-        "python.jediEnabled": false,
-        "rust-analyzer.checkOnSave.allFeatures": true
-}
