@@ -1,3 +1,0 @@
-[2022-04-30 20:27:39.167] [renderer1] [info] Ignoring configured affinity for 'pub.name' because the extension is unknown or cannot execute.
-[2022-04-30 20:27:39.445] [renderer1] [info] Ignoring configured affinity for 'pub.name' because the extension is unknown or cannot execute.
-[2022-04-30 20:27:44.432] [renderer1] [warning] [lifecycle] onWillShutdown is taking a long time, pending operations: join.closeStorage
