@@ -221,3 +221,13 @@ Jul 22 21:06 : zeroconf: No global port, disabling zeroconf
 Jul 22 21:06 : config: option 'buffer_time' on line 128 was not recognized
 Jul 22 21:06 : config: option 'max_client' on line 152 was not recognized
 Jul 22 22:10 : server_socket: bind to '0.0.0.0:8000' failed (continuing anyway, because binding to '[::]:8000' succeeded): Failed to bind socket: Address already in use
+Jul 22 22:40 : player: played "LemKuuja - What's a Future Funk.mp3"
+Jul 22 23:31 : zeroconf: No global port, disabling zeroconf
+Jul 22 23:31 : config: option 'buffer_time' on line 128 was not recognized
+Jul 22 23:31 : config: option 'max_client' on line 152 was not recognized
+Jul 22 23:31 : server_socket: bind to '0.0.0.0:8000' failed (continuing anyway, because binding to '[::]:8000' succeeded): Failed to bind socket: Address already in use
+Jul 22 23:42 : player: played "LemKuuja - What's a Future Funk.mp3"
+Jul 23 17:39 : zeroconf: No global port, disabling zeroconf
+Jul 23 17:39 : config: option 'buffer_time' on line 128 was not recognized
+Jul 23 17:39 : config: option 'max_client' on line 152 was not recognized
+Jul 23 17:39 : server_socket: bind to '0.0.0.0:8000' failed (continuing anyway, because binding to '[::]:8000' succeeded): Failed to bind socket: Address already in use
