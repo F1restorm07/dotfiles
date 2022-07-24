@@ -2,6 +2,7 @@
 
 syntax enable " enables syntax highlighting
 set t_Co=256 " extend the terminal color palette
+set t_ut= " diable background color erase
 set nocompatible " make vim more or less vi-compatible
 
 set visualbell " use visual bell instead of beeping
@@ -121,10 +122,7 @@ nnoremap <silent> zs <cmd>term zsh<cr>a
                 Plug 'junegunn/vim-plug'
                 Plug 'nvim-lua/plenary.nvim'
                 Plug 'lewis6991/impatient.nvim'
-<<<<<<< HEAD
-=======
                 Plug 'tami5/sqlite.lua'
->>>>>>> a40d5d739e25cba549cc3902f46d9ace2f2dca3c
                 Plug 'jiangmiao/auto-pairs'
                 " }}}
                 

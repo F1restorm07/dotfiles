@@ -86,9 +86,6 @@ live_config_reload: true
 shell:
   program: /usr/bin/tmux
   args:
-    - source
-    - ~/.config/tmux/.tmux.conf 
-    - /;
     - new
     - -A  
     - -s main  
