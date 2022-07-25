@@ -84,7 +84,7 @@ live_config_reload: true
 #         args:
 #                 - source /Users/lukegardner/.config/tmux/.tmux.conf \; new -As main
 shell:
-  program: /usr/bin/tmux
+  program: /usr/bin/tmux  
   args:
     - new
     - -A  
