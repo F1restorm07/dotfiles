@@ -1,0 +1,35 @@
+(defwindow bar
+        :monitor 0
+        :geometry (geometry :x "0"
+                        :y "0"
+                        :width "80px"
+                        :length "1920px"
+                        :anchor "top center")
+        :stacking "fg"
+        (bar)
+)
+
+(defwidget bar []
+        (box :class "bar" :orientation "h"
+        (left)
+        (right)
+        )
+)
+
+(defwidget left []
+        (box :class "left" :orientation "h" :halign "start" :spacing "1" :space-evenly "false"
+                (logo)
+                (workspaces)
+        )
+)
+
+(defwidget logo []
+        
+)
+
+(defwidget workspaces []
+        (literal :content workspace_listener)
+)
+
+(defpoll workspace_listener :interval "1s" "~/.config/eww/scripts/workspace.lua")
+
