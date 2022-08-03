@@ -16,8 +16,10 @@ wezterm.on(
             foreground = '#3b4151'
     end
 
+    local index = tab.tab_index
     local edge_foreground = background
-    local title = wezterm.truncate_right(tab.active_pane.title, max_width - 2)
+    local title = tab.active_pane.title
+    title = wezterm.truncate_right(string.format(' %d  %s ', index, title), max_width - 2)
 
     return {
         { Background = { Color = edge_background } },
@@ -57,12 +59,12 @@ local keys = {
         {
                 key = 's',
                 mods = 'LEADER',
-                action = wezterm.action.SplitVertical -- "CurrentPaneDomain"
+                action = wezterm.action.SplitVertical
         },
         {
                 key = 'v',
                 mods = 'LEADER',
-                action = wezterm.action.SplitHorizontal -- "CurrentPaneDomain"
+                action = wezterm.action.SplitHorizontal
         },
         {
                 key = '1',
@@ -188,28 +190,28 @@ return {
         },
 
         use_fancy_tab_bar = false,
-        tab_bar_style = {
-                active_tab_left = wezterm.format {
-                        { Background = { Color = '#88bfcf' } },
-                        { Foreground = { Color = '#3b4151' } },
-                        { Text = LEFT_DOWN_SLANT },
-                },
-                -- active_tab_right = wezterm.format {
-                --         { Background = { Color = '#88bfcf' } },
-                --         { Foreground = { Color = '#3b4151' } },
-                --         { Text = RIGHT_UP_SLANT },
-                -- },
-                -- inactive_tab_left = wezterm.format {
-                --         { Background = { Color = '#4c5569' } },
-                --         { Foreground = { Color = '#e5e8ef' } },
-                --         { Text = LEFT_DOWN_SLANT },
-                -- },
-                -- inactive_tab_right = wezterm.format {
-                --         { Background = { Color = '#4c5569' } },
-                --         { Foreground = { Color = '#e5e8ef' } },
-                --         { Text = RIGHT_UP_SLANT },
-                -- },
-        },
+        -- tab_bar_style = {
+        --         active_tab_left = wezterm.format {
+        --                 { Background = { Color = '#88bfcf' } },
+        --                 { Foreground = { Color = '#3b4151' } },
+        --                 { Text = LEFT_DOWN_SLANT },
+        --         },
+        --         -- active_tab_right = wezterm.format {
+        --         --         { Background = { Color = '#88bfcf' } },
+        --         --         { Foreground = { Color = '#3b4151' } },
+        --         --         { Text = RIGHT_UP_SLANT },
+        --         -- },
+        --         -- inactive_tab_left = wezterm.format {
+        --         --         { Background = { Color = '#4c5569' } },
+        --         --         { Foreground = { Color = '#e5e8ef' } },
+        --         --         { Text = LEFT_DOWN_SLANT },
+        --         -- },
+        --         -- inactive_tab_right = wezterm.format {
+        --         --         { Background = { Color = '#4c5569' } },
+        --         --         { Foreground = { Color = '#e5e8ef' } },
+        --         --         { Text = RIGHT_UP_SLANT },
+        --         -- },
+        -- },
         tab_bar_at_bottom = true,
 
         -- unix_domains = {
