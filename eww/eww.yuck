@@ -6,6 +6,7 @@
                         :length "1920px"
                         :anchor "top center")
         :stacking "fg"
+        :exclusive "true"
         (bar)
 )
 
@@ -24,7 +25,7 @@
 )
 
 (defwidget logo []
-        
+        (button :class "arch-logo" '')      
 )
 
 (defwidget workspaces []
@@ -33,3 +34,16 @@
 
 (defpoll workspace_listener :interval "1s" "~/.config/eww/scripts/workspace.lua")
 
+(defwidget right []
+        (box :class "right" :orientation "h" :halign "end" :spacing "0" :space-evenly "false"
+                (time)
+        )
+)
+
+(defpoll time :interval "1s" "date '+%H %M'")
+
+(defwidget time []
+        (box :class "time"
+                time
+        )
+)

@@ -7714,3 +7714,46 @@
 17:40:09.167062 table@remove removed @3213
 17:40:09.167189 table@remove removed @3214
 17:40:09.168676 table@remove removed @3027
+19:22:07.151558 db@close closing
+19:22:07.151894 db@close done T·335.498µs
+=============== Aug 2, 2022 (MDT) ===============
+14:18:18.619749 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+14:18:18.679880 version@stat F·[3 34 68] S·210MiB[6MiB 67MiB 137MiB] Sc·[0.38 0.67 0.14]
+14:18:18.679892 db@open opening
+14:18:18.679995 journal@recovery F·1
+14:18:18.680867 journal@recovery recovering @3210
+14:18:18.790391 memdb@flush created L0@3285 N·180 S·4KiB "\x03KN..ion,v8728330":"\r\xfcS..\xd7;.,d8728228"
+14:18:18.791012 version@stat F·[4 34 68] S·210MiB[6MiB 67MiB 137MiB] Sc·[0.50 0.67 0.14]
+14:18:18.906104 db@janitor F·109 G·1
+14:18:18.906113 db@janitor removing table-3209
+14:18:18.906368 db@open done T·226.473851ms
+14:18:32.392261 table@compaction L0·1 -> L1·8 S·16MiB Q·8728331
+14:18:39.014280 table@build created L1@3288 N·426639 S·13MiB "\x02\x00\x00..u.o,v7247057":"\x0e\x00\x00...js,v5664037"
+14:18:39.014315 version@stat F·[3 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.38 0.65 0.14]
+14:18:39.145104 table@compaction committed F-8 S-2MiB Ke·0 D·256 T·6.752809427s
+14:18:39.145265 table@remove removed @3221
+14:18:39.145367 table@remove removed @3222
+14:18:39.145464 table@remove removed @3223
+14:18:39.145582 table@remove removed @3224
+14:18:39.145708 table@remove removed @3225
+14:18:39.145796 table@remove removed @3226
+14:18:39.145942 table@remove removed @3197
+14:18:39.146037 table@remove removed @3198
+16:14:20.047480 db@close closing
+16:14:20.051400 db@close done T·3.920108ms
+=============== Aug 2, 2022 (MDT) ===============
+23:34:57.582207 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:34:57.627196 version@stat F·[3 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.38 0.65 0.14]
+23:34:57.627211 db@open opening
+23:34:57.627384 journal@recovery F·1
+23:34:57.628250 journal@recovery recovering @3286
+23:34:57.734636 memdb@flush created L0@3289 N·122 S·1KiB "\x03KN..ion,v8728453":"\rAW..\xbe\xb3\xf3,d8728333"
+23:34:57.735318 version@stat F·[4 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.50 0.65 0.14]
+23:34:57.900882 db@janitor F·102 G·1
+23:34:57.900891 db@janitor removing table-3285
+23:34:57.900913 db@open done T·273.698995ms
+23:34:59.589889 table@compaction L0·1 -> L1·1 S·13MiB Q·8728454
+23:35:00.083729 table@build created L1@3292 N·426638 S·13MiB "\x02\x00\x00..u.o,v7247057":"\x0e\x00\x00...js,v5664037"
+23:35:00.083774 version@stat F·[3 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.38 0.65 0.14]
+23:35:00.181756 table@compaction committed F-1 S-1KiB Ke·0 D·123 T·591.842182ms
+23:35:00.182575 table@remove removed @3288
