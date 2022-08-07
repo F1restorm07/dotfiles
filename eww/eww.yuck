@@ -25,25 +25,30 @@
 )
 
 (defwidget logo []
-        (button :class "arch-logo" '')      
+        (button :onclick "sudo pacman -Syu && sudo aura -u" :class "arch-logo" '')      
 )
+
+(deflisten workspace_listener "scripts/workspaces.sh")
 
 (defwidget workspaces []
         (literal :content workspace_listener)
 )
 
-(defpoll workspace_listener :interval "1s" "~/.config/eww/scripts/workspace.lua")
 
 (defwidget right []
         (box :class "right" :orientation "h" :halign "end" :spacing "0" :space-evenly "false"
+                (date)
                 (time)
         )
 )
 
+(defpoll date :interval "1s" "date '+%m %d'")
 (defpoll time :interval "1s" "date '+%H %M'")
 
+(defwidget date []
+        (box :class "date" date)
+)
+
 (defwidget time []
-        (box :class "time"
-                time
-        )
+        (box :class "time" time)
 )

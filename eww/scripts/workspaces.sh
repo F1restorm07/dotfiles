@@ -14,17 +14,17 @@ workspaces() {
                 export f"$num"="$num"
         done
 
-        echo "(event box :onscroll \"echo {} | sed -e 's/up/-1/g' -e s/down/+1/g | xargs hyprctl dispatch workspace\" \
-                (box :class \"workspaces\" :orientation \"h\" :spacing 5 :spaces-evenly \"true\"                      \
-                        (button :onclick \"~/.config/hypr/workspace 1\" :class \"0$o1$f1\" \"\")\
-                        (button :onclick \"~/.config/hypr/workspace 2\" :class \"0$o2$f2\" \"\")\
-                        (button :onclick \"~/.config/hypr/workspace 3\" :class \"0$o3$f3\" \"\")\
-                        (button :onclick \"~/.config/hypr/workspace 4\" :class \"0$o4$f4\" \"\")\
-                        (button :onclick \"~/.config/hypr/workspace 5\" :class \"0$o5$f5\" \"\")\
-                        (button :onclick \"~/.config/hypr/workspace 6\" :class \"0$o6$f6\" \"\")\
-                        (button :onclick \"~/.config/hypr/workspace 7\" :class \"0$o7$f7\" \"\")\
-                        (button :onclick \"~/.config/hypr/workspace 8\" :class \"0$o8$f8\" \"\")\
-                        (button :onclick \"~/.config/hypr/workspace 9\" :class \"0$o9$f9\" \"\")\
+        echo "(eventbox :onscroll \"echo {} | sed -e 's/up/-1/g' -e s/down/+1/g | xargs hyprctl dispatch workspace\" \
+                (box :class \"workspaces\" :orientation \"h\" :spacing 5 :space-evenly \"true\"                      \
+                        (button :onclick \"~/.config/eww/scripts/workspace 1\" :class \"0$o1$f1\" \"\")\
+                        (button :onclick \"~/.config/eww/scripts/workspace 2\" :class \"0$o2$f2\" \"\")\
+                        (button :onclick \"~/.config/eww/scripts/workspace 3\" :class \"0$o3$f3\" \"\")\
+                        (button :onclick \"~/.config/eww/scripts/workspace 4\" :class \"0$o4$f4\" \"\")\
+                        (button :onclick \"~/.config/eww/scripts/workspace 5\" :class \"0$o5$f5\" \"\")\
+                        (button :onclick \"~/.config/eww/scripts/workspace 6\" :class \"0$o6$f6\" \"\")\
+                        (button :onclick \"~/.config/eww/scripts/workspace 7\" :class \"0$o7$f7\" \"\")\
+                        (button :onclick \"~/.config/eww/scripts/workspace 8\" :class \"0$o8$f8\" \"\")\
+                        (button :onclick \"~/.config/eww/scripts/workspace 9\" :class \"0$o9$f9\" \"\")\
                 )\
         )"
 }

@@ -7757,3 +7757,137 @@
 23:35:00.083774 version@stat F·[3 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.38 0.65 0.14]
 23:35:00.181756 table@compaction committed F-1 S-1KiB Ke·0 D·123 T·591.842182ms
 23:35:00.182575 table@remove removed @3288
+=============== Aug 3, 2022 (MDT) ===============
+00:54:17.371789 db@close closing
+00:54:17.375210 db@close done T·3.419397ms
+=============== Aug 3, 2022 (MDT) ===============
+13:08:26.609535 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+13:08:26.657935 version@stat F·[3 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.38 0.65 0.14]
+13:08:26.657950 db@open opening
+13:08:26.658075 journal@recovery F·1
+13:08:26.658857 journal@recovery recovering @3290
+13:08:26.725045 memdb@flush created L0@3293 N·86 S·1KiB "\x03KN..ion,v8728540":"\x04ob..can,v8728455"
+13:08:26.725648 version@stat F·[4 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.50 0.65 0.14]
+13:08:26.865179 db@janitor F·102 G·1
+13:08:26.865186 db@janitor removing table-3289
+13:08:26.865208 db@open done T·207.254813ms
+13:50:32.886897 db@close closing
+13:50:32.889701 db@close done T·2.804315ms
+=============== Aug 6, 2022 (MDT) ===============
+00:44:31.557673 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+00:44:31.603247 version@stat F·[4 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.50 0.65 0.14]
+00:44:31.603261 db@open opening
+00:44:31.603381 journal@recovery F·1
+00:44:31.604125 journal@recovery recovering @3294
+00:44:31.676102 memdb@flush created L0@3296 N·3 S·206B "\x04do..can,v8728544":"\nla..ime,v8728543"
+00:44:31.676676 version@stat F·[5 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.62 0.65 0.14]
+00:44:31.807506 db@janitor F·102 G·0
+00:44:31.807518 db@open done T·204.253738ms
+00:44:33.554757 table@compaction L0·2 -> L1·1 S·13MiB Q·8728545
+00:44:48.534493 table@build created L1@3299 N·426638 S·13MiB "\x02\x00\x00..u.o,v7247057":"\x0e\x00\x00...js,v5664037"
+00:44:48.534549 version@stat F·[3 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.38 0.65 0.14]
+00:44:48.841669 table@compaction committed F-2 S-1KiB Ke·0 D·89 T·15.286881936s
+00:44:48.841739 table@remove removed @3293
+00:44:48.842257 table@remove removed @3292
+01:37:44.215876 db@close closing
+01:37:44.678805 db@close done T·462.925872ms
+=============== Aug 6, 2022 (MDT) ===============
+09:38:53.843798 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+09:38:53.894792 version@stat F·[3 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.38 0.65 0.14]
+09:38:53.894806 db@open opening
+09:38:53.894927 journal@recovery F·1
+09:38:53.895649 journal@recovery recovering @3297
+09:38:54.022121 memdb@flush created L0@3300 N·48 S·759B "\x03KN..ion,v8728593":"\nla..ime,v8728548"
+09:38:54.022780 version@stat F·[4 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.50 0.65 0.14]
+09:38:54.180878 db@janitor F·102 G·1
+09:38:54.180887 db@janitor removing table-3296
+09:38:54.180910 db@open done T·286.100936ms
+09:38:56.235157 table@compaction L0·1 -> L1·1 S·13MiB Q·8728594
+09:39:31.875247 table@build created L1@3303 N·426638 S·13MiB "\x02\x00\x00..u.o,v7247057":"\x0e\x00\x00...js,v5664037"
+09:39:31.875291 version@stat F·[3 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.38 0.65 0.14]
+09:39:32.592042 table@compaction committed F-1 S-753B Ke·0 D·48 T·36.356859417s
+09:39:32.592801 table@remove removed @3299
+11:38:35.871892 db@close closing
+11:38:35.874439 db@close done T·2.545416ms
+=============== Aug 6, 2022 (MDT) ===============
+15:54:49.681981 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+15:54:49.738894 version@stat F·[3 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.38 0.65 0.14]
+15:54:49.738913 db@open opening
+15:54:49.739045 journal@recovery F·1
+15:54:49.739748 journal@recovery recovering @3301
+15:54:49.852733 memdb@flush created L0@3304 N·78 S·1KiB "\x03KN..ion,v8728672":"\x04ob..can,v8728595"
+15:54:49.853438 version@stat F·[4 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.50 0.65 0.14]
+15:54:50.033128 db@janitor F·102 G·1
+15:54:50.033136 db@janitor removing table-3300
+15:54:50.033159 db@open done T·294.2429ms
+=============== Aug 6, 2022 (MDT) ===============
+16:07:48.480012 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+16:07:48.533513 version@stat F·[4 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.50 0.65 0.14]
+16:07:48.533532 db@open opening
+16:07:48.533640 journal@recovery F·1
+16:07:48.534379 journal@recovery recovering @3305
+16:07:48.640047 memdb@flush created L0@3307 N·3 S·206B "\x04do..can,v8728676":"\nla..ime,v8728675"
+16:07:48.640702 version@stat F·[5 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.62 0.65 0.14]
+16:07:48.778648 db@janitor F·102 G·0
+16:07:48.778666 db@open done T·245.130449ms
+16:08:13.242663 table@compaction L0·2 -> L1·1 S·13MiB Q·8728677
+16:08:16.583884 table@build created L1@3310 N·426638 S·13MiB "\x02\x00\x00..u.o,v7247057":"\x0e\x00\x00...js,v5664037"
+16:08:16.583923 version@stat F·[3 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.38 0.65 0.14]
+16:08:16.725157 table@compaction committed F-2 S-1KiB Ke·0 D·81 T·3.482467897s
+16:08:16.725233 table@remove removed @3304
+16:08:16.725938 table@remove removed @3303
+16:45:04.578854 db@close closing
+16:45:04.581307 db@close done T·2.45249ms
+=============== Aug 6, 2022 (MDT) ===============
+17:42:14.817776 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:42:14.874960 version@stat F·[3 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.38 0.65 0.14]
+17:42:14.874973 db@open opening
+17:42:14.875099 journal@recovery F·1
+17:42:14.876090 journal@recovery recovering @3308
+17:42:14.968415 memdb@flush created L0@3311 N·25 S·501B "\x03KN..ion,v8728702":"\x04ob..can,v8728678"
+17:42:14.968671 version@stat F·[4 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.50 0.65 0.14]
+17:42:15.101943 db@janitor F·102 G·1
+17:42:15.101953 db@janitor removing table-3307
+17:42:15.101976 db@open done T·226.99932ms
+17:43:03.602835 db@close closing
+17:43:03.603013 db@close done T·176.798µs
+=============== Aug 6, 2022 (MDT) ===============
+17:43:50.749876 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:43:50.799205 version@stat F·[4 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.50 0.65 0.14]
+17:43:50.799219 db@open opening
+17:43:50.799342 journal@recovery F·1
+17:43:50.799952 journal@recovery recovering @3312
+17:43:50.912904 memdb@flush created L0@3314 N·1 S·147B "\x04ob..can,v8728704":"\x04ob..can,v8728704"
+17:43:50.913532 version@stat F·[5 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.62 0.65 0.14]
+17:43:51.042416 db@janitor F·102 G·0
+17:43:51.042428 db@open done T·243.206305ms
+=============== Aug 6, 2022 (MDT) ===============
+18:12:57.562279 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+18:12:57.613265 version@stat F·[5 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.62 0.65 0.14]
+18:12:57.613284 db@open opening
+18:12:57.613418 journal@recovery F·1
+18:12:57.614229 journal@recovery recovering @3315
+18:12:57.702285 memdb@flush created L0@3317 N·2 S·175B "\x04do..can,v8728707":"\x04ob..can,v8728706"
+18:12:57.702946 version@stat F·[6 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.75 0.65 0.14]
+18:12:57.839880 db@janitor F·103 G·0
+18:12:57.839897 db@open done T·226.608065ms
+18:59:39.522626 db@close closing
+18:59:39.526689 db@close done T·4.060657ms
+=============== Aug 6, 2022 (MDT) ===============
+19:22:06.101349 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+19:22:06.209867 version@stat F·[6 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.75 0.65 0.14]
+19:22:06.209884 db@open opening
+19:22:06.210009 journal@recovery F·1
+19:22:06.210807 journal@recovery recovering @3318
+19:22:06.576480 memdb@flush created L0@3320 N·52 S·779B "\x03KN..ion,v8728760":"\x04ob..can,v8728709"
+19:22:06.767317 version@stat F·[7 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.88 0.65 0.14]
+19:22:16.221308 db@janitor F·104 G·0
+19:22:16.221334 db@open done T·10.011445461s
+20:10:41.825589 table@compaction L0·4 -> L1·1 S·13MiB Q·8728763
+20:10:42.147808 table@build created L1@3323 N·426638 S·13MiB "\x02\x00\x00..u.o,v7247057":"\x0e\x00\x00...js,v5664037"
+20:10:42.147847 version@stat F·[3 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.38 0.65 0.14]
+20:10:42.179156 table@compaction committed F-4 S-1KiB Ke·0 D·80 T·353.535634ms
+20:10:42.179223 table@remove removed @3317
+20:10:42.179245 table@remove removed @3314
+20:10:42.179262 table@remove removed @3311
+20:10:42.180041 table@remove removed @3310
