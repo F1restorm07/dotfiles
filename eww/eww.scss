@@ -45,3 +45,15 @@ $nord15: #b48ead; // magenta
 .011, .022, .033, .044, .055, .066, .077, .088, .099 {
         color: #fff;
 }
+
+.memory scale trough {
+        all: unset;
+        background-color: #666;
+        min-height: 20px;
+        min-width: 20px;
+}
+
+.memory scale trough highlight {
+        all: unset;
+        background-color: #666;
+}

@@ -7891,3 +7891,16 @@
 20:10:42.179245 table@remove removed @3314
 20:10:42.179262 table@remove removed @3311
 20:10:42.180041 table@remove removed @3310
+20:26:00.530118 db@close closing
+20:26:00.534144 db@close done T·4.025817ms
+=============== Aug 7, 2022 (MDT) ===============
+12:26:18.587165 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+12:26:18.622577 version@stat F·[3 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.38 0.65 0.14]
+12:26:18.622590 db@open opening
+12:26:18.622707 journal@recovery F·1
+12:26:18.623356 journal@recovery recovering @3321
+12:26:18.722634 memdb@flush created L0@3324 N·11 S·371B "\x03KN..ion,v8728772":"\x04ob..can,v8728762"
+12:26:18.723234 version@stat F·[4 27 68] S·207MiB[6MiB 64MiB 137MiB] Sc·[0.50 0.65 0.14]
+12:26:18.870611 db@janitor F·102 G·1
+12:26:18.870620 db@janitor removing table-3320
+12:26:18.870969 db@open done T·248.375159ms
