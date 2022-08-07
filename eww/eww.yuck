@@ -13,6 +13,7 @@
 (defwidget bar []
         (box :class "bar" :orientation "h"
         (left)
+        (center)
         (right)
         )
 )
@@ -24,26 +25,39 @@
         )
 )
 
+(deflisten workspace_listener "scripts/workspaces.sh")
+
 (defwidget logo []
         (button :onclick "sudo pacman -Syu && sudo aura -u" :class "arch-logo" '')      
 )
-
-(deflisten workspace_listener "scripts/workspaces.sh")
 
 (defwidget workspaces []
         (literal :content workspace_listener)
 )
 
+(defwidget center []
+        (box :class "center" :orientation "h" :halign "center" :spacing "0" :space-evenly "false"
+                ()
+        )
+)
+
 
 (defwidget right []
         (box :class "right" :orientation "h" :halign "end" :spacing "0" :space-evenly "false"
+                (memory)
+                (cpu)
                 (date)
                 (time)
         )
 )
 
+(defpoll memory :interval "10s" "free | grep Mem | awk '{print $3/$2 * 100.0}'")
 (defpoll date :interval "1s" "date '+%m %d'")
 (defpoll time :interval "1s" "date '+%H %M'")
+
+(defwidget memory []
+        (progress :class "memory" :orientation "h" :value memory)
+)
 
 (defwidget date []
         (box :class "date" date)

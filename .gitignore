@@ -17,6 +17,7 @@ dwm/
 emacs/
 ferium/
 fontconfig/
+foot/
 galculator/
 gammyconf
 gtk-*/
@@ -27,6 +28,7 @@ iterm2/
 legendary/
 libfm/
 lutris/
+macchina/
 menus/
 mimeapps.list
 nano/
@@ -37,6 +39,7 @@ pavucontrol.ini
 pcmanfm/
 pulse/
 qt5ct/
+QtProject.conf
 raycast/
 sonic-pi.net/
 systemd/
@@ -48,3 +51,4 @@ volumeicon/
 xfce4/
 yad.conf
 yarn/
+
