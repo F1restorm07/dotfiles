@@ -35,7 +35,7 @@ nano/
 nomacs/
 nvim/plugged/**
 nvim/plugin/**
-nvim/undodir/
+nvim/undodir/**
 pavucontrol.ini
 pcmanfm/
 pulse/
