@@ -3,6 +3,8 @@ local LEFT_DOWN_SLANT = utf8.char(0xe0b8)
 local RIGHT_DOWN_SLANT = utf8.char(0xe0ba)
 local LEFT_UP_SLANT = utf8.char(0xe0bc)
 local RIGHT_UP_SLANT = utf8.char(0xe0be)
+local LEFT_HALF_CIRCLE = ' ' .. utf8.char(0xe0b6)
+local RIGHT_HALF_CIRCLE = utf8.char(0xe0b4) .. ' '
 
 wezterm.on(
   'format-tab-title',
@@ -19,18 +21,18 @@ wezterm.on(
     local index = tab.tab_index
     local edge_foreground = background
     local title = tab.active_pane.title
-    title = wezterm.truncate_right(string.format(' %d  %s ', index, title), max_width - 2)
+    title = wezterm.truncate_right(string.format(' %d  %s ', index, title), max_width - 2)
 
     return {
         { Background = { Color = edge_background } },
         { Foreground = { Color = edge_foreground } },
-        { Text = RIGHT_UP_SLANT },
+        { Text = RIGHT_DOWN_SLANT },
         { Background = { Color = background } },
         { Foreground = { Color = foreground } },
         { Text = title },
         { Background = { Color = edge_background } },
         { Foreground = { Color = edge_foreground } },
-        { Text = LEFT_DOWN_SLANT },
+        { Text = LEFT_UP_SLANT },
     }
     end
 )
@@ -174,9 +176,8 @@ local keys = {
 }
 
 return {
-        -- defualt_prog = {"tmux", "new", "-A", "-s main"},
-        -- default_prog = {"tmux", "new"},
-        font = wezterm.font "JetBrainsMono Nerd Font Mono",
+        font = wezterm.font_with_fallback { "JetBrainsMono Nerd Font Mono", "nonicons" },
+        font_dirs = { './nonicons/dist' },
         color_scheme = "nord",
         colors = {
                 tab_bar = {
@@ -188,30 +189,10 @@ return {
                         },
                 }
         },
+        window_background_opacity = 0.9,
+        -- text_background_opacity = 0.9,
 
         use_fancy_tab_bar = false,
-        -- tab_bar_style = {
-        --         active_tab_left = wezterm.format {
-        --                 { Background = { Color = '#88bfcf' } },
-        --                 { Foreground = { Color = '#3b4151' } },
-        --                 { Text = LEFT_DOWN_SLANT },
-        --         },
-        --         -- active_tab_right = wezterm.format {
-        --         --         { Background = { Color = '#88bfcf' } },
-        --         --         { Foreground = { Color = '#3b4151' } },
-        --         --         { Text = RIGHT_UP_SLANT },
-        --         -- },
-        --         -- inactive_tab_left = wezterm.format {
-        --         --         { Background = { Color = '#4c5569' } },
-        --         --         { Foreground = { Color = '#e5e8ef' } },
-        --         --         { Text = LEFT_DOWN_SLANT },
-        --         -- },
-        --         -- inactive_tab_right = wezterm.format {
-        --         --         { Background = { Color = '#4c5569' } },
-        --         --         { Foreground = { Color = '#e5e8ef' } },
-        --         --         { Text = RIGHT_UP_SLANT },
-        --         -- },
-        -- },
         tab_bar_at_bottom = true,
 
         -- unix_domains = {
