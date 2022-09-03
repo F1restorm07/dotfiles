@@ -35,7 +35,7 @@ set.foldmethod = "marker"
 
 set.swapfile = false
 set.backup = false
-set.undodir = "~/.config/nvim/undodir"
+set.undodir = "./undodir"
 set.undofile = true
 
 set.colorcolumn = "100"

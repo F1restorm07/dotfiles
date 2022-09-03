@@ -1,7 +1,7 @@
 # Neovim Configuration
+---
+<!-- ## Plugins -->
 
-## Plugins
+<!-- ### Utilities -->
 
-### Utilities
-
-- *numToStr/Comment.nvim*
+<!-- - *numToStr/Comment.nvim* -->
