@@ -35,7 +35,6 @@ set.foldmethod = "marker"
 
 set.swapfile = false
 set.backup = false
-set.undodir = "./undodir"
 set.undofile = true
 
 set.colorcolumn = "100"
