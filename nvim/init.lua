@@ -99,8 +99,8 @@ keymap('n', "gd", "<cmd>Lspsaga preview_definition<cr>")
 keymap('n', "[d", "<cmd>Lspsaga dianostic_jump_next<cr>")
 keymap('n', "]d", "<cmd>Lspsaga diagnostic_jump_prev<cr>")
 
-keymap('n', "[D", "<cmd>lua require('lspsaga.diagnostic').goto_next({ severity = vim.diagnostic.severity.ERROR })cr>")
-keymap('n', "]D", "<cmd>lua require('lspsaga.diagnostic').goto_prev({ severity = vim.diagnostic.severity.ERROR })cr>")
+keymap('n', "[D", "<cmd>lua require('lspsaga.diagnostic').goto_next({ severity = vim.diagnostic.severity.ERROR })<cr>")
+keymap('n', "]D", "<cmd>lua require('lspsaga.diagnostic').goto_prev({ severity = vim.diagnostic.severity.ERROR })<cr>")
 
 keymap('n', "<leader>o", "<cmd>LSoutlineToggle<cr>")
 keymap('n', "K", "<cmd>Lspsaga hover_doc<cr>")
@@ -124,21 +124,20 @@ vim.cmd[[ runtime! lua/**.lua ]]
 --  -------------------------------------------------------
 --  {{{ Variables
 
+
 set.sessionoptions:append { "winpos,terminal,folds" }
+-- set.formatoptions:gsub ("co", '')
 
 --  }}}
 --  -------------------------------------------------------
---  {{{ Highlights
+--  {{{ Functions
 
--- vim.cmd[[
--- hi Headline guifg=#88c0d0 guibg=#3b4252 gui=bold
--- hi link Headline1 Headline
--- hi link Headline2 Headline
--- hi link Headline3 Headline
--- hi link Headline4 Headline
--- hi link Headline5 Headline
--- hi link Headline6 H
--- ]]
+-- local function trim_whitespace()
+--         local save = winsaveview()
+--         vim.cmd[[ %s/\\\@<!\s\+$//e]]
+--         winrestview(save)
+-- end
+
 
 --  }}}
 --  -------------------------------------------------------

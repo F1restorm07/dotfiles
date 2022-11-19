@@ -42,7 +42,8 @@ local servers = {'rust_analyzer',
                 'crystalline',
                 'kotlin_language_server',
                 'elixirls',
-                'sumneko_lua'
+                'sumneko_lua',
+                'denols'
         }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {

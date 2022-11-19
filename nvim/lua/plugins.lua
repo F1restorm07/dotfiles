@@ -37,7 +37,9 @@ return require('packer').startup({function(use)
         -- }}}
 
         -- {{{ Extra Functionality
-                use{'rcarriga/nvim-notify'}
+                use{'rcarriga/nvim-notify',
+                        config = function() require('editor.notify') end
+                }
                 use{'nvim-telescope/telescope.nvim',
                         cmd = 'Telescope',
                         module = 'telescope',
@@ -136,7 +138,10 @@ return require('packer').startup({function(use)
                 event = "BufRead Cargo.toml",
                 config = function() require('crates').setup() end
         }
-        use{'ixru/nvim-markdown', ft = 'markdown'}
+        use{'ixru/nvim-markdown',
+                ft = 'markdown',
+                config = function() vim.g.vim_markdown_conceal = 2 end
+        }
 -- }}}
 
 -- {{{ Aesthetics

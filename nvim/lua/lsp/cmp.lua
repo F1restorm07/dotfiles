@@ -13,8 +13,9 @@ cmp.setup({
                                 maxwidth = 50,
                                 symbol_map = symbol_map
                         })(entry, vim_item)
-                        local strings = vim.split(kind.kind, "%s", { trimempty = true })
-                        kind.kind = ' ' .. strings[1] .. '  '
+                        -- local strings = vim.split(kind.kind, "%s", { trimempty = true })
+                        -- kind.kind = ' ' .. strings[1] .. '  '
+                        kind.kind = ' ' .. kind.kind .. '  '
                         kind.dup = ({
                                 luasnip = 0,
                                 nvim_lsp = 0,
@@ -93,6 +94,7 @@ local servers = {'rust_analyzer',
         'kotlin_language_server',
         'sumneko_lua',
         'ccls',
+        'denols'
 }
 for _, lsp in pairs(servers) do
         require('lspconfig')[lsp].setup {
