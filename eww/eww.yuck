@@ -1,15 +1,15 @@
 (include "./widgets/time.yuck")
-(defwindow bar
-        :monitor 0
-        :geometry (geometry :x "0"
-                        :y "0"
-                        :width "5%"
-                        :length "100%"
-                        :anchor "top center")
-        :stacking "fg"
-        :exclusive "true"
-        (bar)
-)
+;; (defwindow bar
+;;        :monitor 0
+;;        :geometry (geometry :x "0"
+;;                        :y "0"
+;;                        :width "5%"
+;;                        :length "100%"
+;;                        :anchor "top center")
+;;        :stacking "fg"
+;;        :exclusive "true"
+;;        (bar)
+;; )
 
 (defwidget bar []
         (box :class "bar" :orientation "h"
