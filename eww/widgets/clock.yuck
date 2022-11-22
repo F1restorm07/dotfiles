@@ -49,6 +49,7 @@
         )
         :stacking "bg"
         :exclusive "false"
+        :monitor 0
 
         (clock)
 )
