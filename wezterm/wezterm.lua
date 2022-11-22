@@ -177,7 +177,7 @@ local keys = {
 
 return {
         font = wezterm.font_with_fallback { "JetBrainsMono Nerd Font Mono", "nonicons" },
-        font_dirs = { './nonicons/dist' },
+        -- font_dirs = { './nonicons/dist' },
         color_scheme = "nord",
         colors = {
                 tab_bar = {
