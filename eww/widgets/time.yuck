@@ -39,7 +39,7 @@
 
 ;; ---------------------------------------------------
 
-(defwindow clock []
+(defwindow clock
         :geometry (geometry
                 :x "4%"
                 :y "4%"
