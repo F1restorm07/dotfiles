@@ -65,6 +65,7 @@
                         ;; :draw-value "true"
                         :active "false"
                         )
+        )
 )
 
 (defwidget date []
