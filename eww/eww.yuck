@@ -53,8 +53,8 @@
 )
 
 (defpoll memory :interval "10s" "free | grep Mem | awk '{print $3/$2 * 100.0}'")
-(defpoll date :interval "1s" "date '+%m %d'")
-(defpoll time :interval "1s" "date '+%H %M'")
+;; (defpoll date :interval "1s" "date '+%m %d'")
+;; (defpoll time :interval "1s" "date '+%H %M'")
 
 (defwidget memory []
         (box :class "memory" :orientation "h" :vexpand "false" :hexpand "false" :halign "center"
