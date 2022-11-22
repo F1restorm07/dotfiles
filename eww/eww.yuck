@@ -1,3 +1,4 @@
+(include "./widgets/time.yuck")
 (defwindow bar
         :monitor 0
         :geometry (geometry :x "0"
