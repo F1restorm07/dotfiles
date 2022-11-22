@@ -57,3 +57,6 @@ $nord15: #b48ead; // magenta
         all: unset;
         background-color: #666;
 }
+
+// --- Imports
+@import "widgets/clock.scss";

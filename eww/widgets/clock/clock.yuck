@@ -10,11 +10,10 @@
                 :spacing 0
                 :space-evenly "false"
 
-                (label
+                (literal
                         :class "clock_time"
                         :halign "start"
-                        :limit-width 10
-                        :text time
+                        :content time
                 )
                 (box
                         :class "clock_misc"
@@ -24,14 +23,12 @@
                         (literal
                                 :class "clock_date"
                                 :halign "start"
-                                :limit-width 25
-                                :text date
+                                :content date
                         )
                         (literal
                                 :class "clock_weather"
                                 :halign "end"
-                                :limit-width 10
-                                :text weather
+                                :content weather
                         )
                 )
         )

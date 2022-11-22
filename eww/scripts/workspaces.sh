@@ -15,7 +15,7 @@ workspaces() {
         done
 
         echo "(eventbox :onscroll \"echo {} | sed -e 's/up/-1/g' -e s/down/+1/g | xargs hyprctl dispatch workspace\" \
-                (box :class \"workspaces\" :orientation \"h\" :spacing 5 :space-evenly \"true\"                      \
+                (box :class \"workspaces\" :orientation \"v\" :spacing 5 :space-evenly \"true\"                      \
                         (button :onclick \"~/.config/eww/scripts/workspace 1\" :class \"0$o1$f1\" \"\")\
                         (button :onclick \"~/.config/eww/scripts/workspace 2\" :class \"0$o2$f2\" \"\")\
                         (button :onclick \"~/.config/eww/scripts/workspace 3\" :class \"0$o3$f3\" \"\")\
