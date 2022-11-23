@@ -1,4 +1,4 @@
-(deflisten workspace "../scripts/workspace.sh")
+(deflisten workspace "../scripts/workspaces.sh")
 
 (defwidget bar_layout []
         (box
@@ -15,13 +15,20 @@
        (box
                 :class "bar_icon"
                 :orientation "vertical"
-
+                
        ) 
 )
 
 (defwidget bar_workspace []
         (literal
                 :content workspace
+        )
+)
+
+(defwidget bar_misc []
+        (box
+                :class "bar_misc"
+                :orientation "vertical"
         )
 )
 
