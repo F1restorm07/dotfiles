@@ -1,6 +1,6 @@
 (defpoll time :interval "5s" `date +\"%H:%M\"`)
 (defpoll date :interval "5s" `date +\"%d %b\"`)
-;; (defpoll weather :interval "1m" `curl wttr.in/\?\&format=\"%t\"`)
+(defpoll temperature :interval "1m" `curl wttr.in/\?format=j1 | jq '.current_condition[0].temp_F`)
 
 
 (defwidget clock []
@@ -28,12 +28,12 @@
                                 
                                 date
                         )
-                        ;;(box
-                        ;;        :class "clock_weather"
-                        ;;        :halign "end"
-                        ;;        
-                        ;;        weather
-                        ;;)
+                        (box
+                                :class "clock_weather"
+                                :halign "end"
+                                
+                                "${temperature}°F"
+                        )
                 )
         )
 )

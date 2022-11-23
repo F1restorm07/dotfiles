@@ -1,4 +1,6 @@
-(deflisten workspace "../scripts/workspaces.sh")
+(deflisten workspace "scripts/workspaces.sh 0")
+(defpoll package_count :interval "5m" `pacman -Qq | wc -l`)
+(defpoll wifi_name `iwgetid -r`)
 
 (defwidget bar_layout []
         (box
@@ -12,6 +14,7 @@
         )
 )
 
+;; name of running application, text is parallel to bar
 (defwidget bar_icon []
        (box
                 :class "bar_icon"
@@ -22,18 +25,64 @@
 
 (defwidget bar_workspace []
         (literal
+                :class "bar_workspace"
                 :content workspace
         )
 )
 
 ;; will have shorthand content, click to reveal full content box
-;; notifications plus other stuff
+;; section includes package info, bluetooth, volume, num of notifications, plus weather and time
 (defwidget bar_misc []
         (box
                 :class "bar_misc"
                 :orientation "vertical"
+                :halign "center"
+                :valign "start"
+                
+                (box
+                        :class "bar_package_count"
+                        :orientation "vertical"
+
+                        (literal
+                                :class "bar_package_icon"
+                                :content "ﰩ"
+                        )
+                        
+                        package_count
+                )
+                (box
+                        :class "bar_sys_misc"
+                        :orientation "vertical"
+
+                        (box
+                                :class "bar_sys_bluetooth"
+                                :orientation "vertical"
+
+                        )
+
+                        (box
+                                :class "bar_sys_volume"
+                                :orientation "vertical"
+
+                                (literal
+                                        :class "bar_sys_volume_icon"
+                                        :content ""
+                                )              
+                        )
+                        (box
+                                :class "bar_sys_notification"
+                                :orientation "vertical"
+
+                                (literal
+                                        :class "bar_sys_notification_icon"
+                                        :content ""
+                                )
+                        )
+                )
         )
 )
+
+;; includes brightness and volume; cpu, ram, and disk usage; and notifications
 (defwidget bar_misc_reveal []
         (box
                 :class "bar_misc_reveal"
