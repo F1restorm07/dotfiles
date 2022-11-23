@@ -10,25 +10,28 @@
                 :spacing 0
                 :space-evenly "false"
 
-                (literal
+                (box
                         :class "clock_time"
                         :halign "start"
-                        :content time
+                        
+                        time
                 )
                 (box
                         :class "clock_misc"
                         :orientation "horizontal"
                         :spacing 0
 
-                        (literal
+                        (box
                                 :class "clock_date"
                                 :halign "start"
-                                :content date
+                                
+                                date
                         )
-                        (literal
+                        (box
                                 :class "clock_weather"
                                 :halign "end"
-                                :content weather
+                                
+                                weather
                         )
                 )
         )
