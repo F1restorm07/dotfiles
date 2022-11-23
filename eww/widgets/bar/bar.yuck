@@ -27,10 +27,17 @@
 )
 
 ;; will have shorthand content, click to reveal full content box
+;; notifications plus other stuff
 (defwidget bar_misc []
         (box
                 :class "bar_misc"
                 :orientation "vertical"
+        )
+)
+(defwidget bar_misc_reveal []
+        (box
+                :class "bar_misc_reveal"
+                :orientation "horizontal"
         )
 )
 
