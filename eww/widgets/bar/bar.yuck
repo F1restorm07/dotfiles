@@ -1,4 +1,5 @@
 (deflisten workspace "scripts/workspaces.sh 0")
+(deflisten activewindow "hyprctl activewindow | grep title | awk '{print $1}")
 (defpoll package_count :interval "5m" `pacman -Qq | wc -l`)
 ;; (defpoll wifi_name `iwgetid -r`)
 
@@ -19,6 +20,11 @@
        (box
                 :class "bar_icon"
                 :orientation "vertical"
+
+                (literal
+                        :class "bar_activewindow"
+                        :content activewindow
+                )
                 
        ) 
 )
@@ -48,7 +54,9 @@
                                 :content "ﰩ"
                         )
                         
-                        package_count
+                        (literal
+                                :content package_count
+                        )
                 )
                 (box
                         :class "bar_sys_misc"
@@ -57,6 +65,11 @@
                         (box
                                 :class "bar_sys_bluetooth"
                                 :orientation "vertical"
+
+                                (literal
+                                        :class "bar_sys_bluetooth_icon"
+                                        :content ""
+                                )
 
                         )
 
