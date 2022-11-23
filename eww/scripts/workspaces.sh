@@ -2,10 +2,10 @@
 # https://github.com/taylor85345/garden-hyprland-dotfiles/blob/master/hypr/garden/bar/scripts/workspace
 # https://github.com/IllustratedMan-code/dotfiles/blob/main/eww/scripts/workspace.sh
 
-$MONITOR=$1
+# $MONITOR=$1
 active() {
-        ic=(0    )
-        class=(0 inactive inactive inactive inactive)
+        ic=(0     )
+        class=(0 inactive inactive inactive inactive inactive)
         activeworkspace=$(hyprctl monitors | awk '/active workspace:/ {print $4}')
 
         ic[$activeworkspace]=""

@@ -21,10 +21,7 @@
                 :class "bar_icon"
                 :orientation "vertical"
 
-                (literal
-                        :class "bar_activewindow"
-                        :content activewindow
-                )
+                activewindow
                 
        ) 
 )
@@ -32,6 +29,7 @@
 (defwidget bar_workspace []
         (literal
                 :class "bar_workspace"
+                :valign "center"
                 :content workspace
         )
 )
@@ -43,7 +41,7 @@
                 :class "bar_misc"
                 :orientation "vertical"
                 :halign "center"
-                :valign "start"
+                :valign "end"
                 
                 (box
                         :class "bar_package_count"
@@ -95,7 +93,7 @@
         )
 )
 
-;; includes brightness and volume; cpu, ram, and disk usage; and notifications
+;; includes brightness and volume; cpu, ram, and disk usage; and notifications (wip)
 (defwidget bar_misc_reveal []
         (box
                 :class "bar_misc_reveal"
