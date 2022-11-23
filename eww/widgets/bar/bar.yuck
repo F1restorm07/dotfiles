@@ -1,6 +1,6 @@
 (deflisten workspace "scripts/workspaces.sh 0")
 (defpoll package_count :interval "5m" `pacman -Qq | wc -l`)
-(defpoll wifi_name `iwgetid -r`)
+;; (defpoll wifi_name `iwgetid -r`)
 
 (defwidget bar_layout []
         (box
