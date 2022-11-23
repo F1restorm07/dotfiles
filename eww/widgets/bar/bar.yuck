@@ -7,7 +7,7 @@
                 :space-evenly "false"
                 
                 (bar_icon)
-                (bar_workspcace)
+                (bar_workspace)
         )
 )
 
