@@ -13,7 +13,7 @@
                 (box
                         :class "clock_time"
                         :halign "start"
-                        :width 100%
+                        :width 100
                         
                         time
                 )
