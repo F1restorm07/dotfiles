@@ -1,5 +1,5 @@
 (deflisten workspace "scripts/workspaces.sh 0")
-(deflisten activewindow "hyprctl activewindow | awk '/title:/ {$1 = ""; print $0}'")
+(deflisten activewindow "hyprctl activewindow | awk '/title:/ {$1 = \"\"; print $0}'")
 (defpoll package_count :interval "5m" `pacman -Qq | wc -l`)
 ;; (defpoll wifi_name `iwgetid -r`)
 
