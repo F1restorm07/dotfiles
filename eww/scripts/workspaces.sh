@@ -6,13 +6,11 @@ $MONITOR=$1
 active() {
         ic=(0    )
         class=(0 inactive inactive inactive inactive)
+        activeworkspace=$(hyprctl monitors | awk '/active workspace:/ {print $4}')
 
-        for workspace in $(hyprctl monitors | awk 'BEGIN{RS="\n\n"}; {print $4$10}'); do
-                if [ ${workspace:0:1} == $MONITOR ]; then
-                        ic[${workspace:0-1}]=""
-                        class[${workspace:0-1}]="active"
-                fi
-        done
+        ic[$activeworkspace]=""
+        class[$activeworkspace]="active"
+
         export ic
         export class
 }
