@@ -4,10 +4,10 @@
 ;; (defpoll wifi_name `iwgetid -r`)
 
 (defwidget bar_layout []
-        (box
+        (centerbox
                 :class "bar_layout"
                 :orientation "vertical"
-                :space-evenly "false"
+                ;; :space-evenly false
                 
                 (bar_icon)
                 (bar_workspace)
@@ -20,6 +20,8 @@
        (box
                 :class "bar_icon"
                 :orientation "vertical"
+                :vexpand true
+                :hexpand false
 
                 activewindow
                 

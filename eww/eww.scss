@@ -34,29 +34,29 @@ $nord15: #b48ead; // magenta
         background-color: $nord0;
 }
 
-.workspaces {
-        background: #000;
-}
+// .workspaces {
+//         background: #000;
+// }
 
-.01, .02, .03, .04, .05, .06, .07, .08, .09 {
-        color: #fff;
-}
-
-.011, .022, .033, .044, .055, .066, .077, .088, .099 {
-        color: #fff;
-}
-
-.memory scale trough {
-        all: unset;
-        background-color: #666;
-        min-height: 20px;
-        min-width: 20px;
-}
-
-.memory scale trough highlight {
-        all: unset;
-        background-color: #666;
-}
+// .01, .02, .03, .04, .05, .06, .07, .08, .09 {
+//         color: #fff;
+// }
+//
+// .011, .022, .033, .044, .055, .066, .077, .088, .099 {
+//         color: #fff;
+// }
+//
+// .memory scale trough {
+//         all: unset;
+//         background-color: #666;
+//         min-height: 20px;
+//         min-width: 20px;
+// }
+//
+// .memory scale trough highlight {
+//         all: unset;
+//         background-color: #666;
+// }
 
 // --- Imports
 @import "widgets/clock/clock.scss";
