@@ -25,7 +25,7 @@
                 :hexpand false
 
                 (transform
-                        :rotate 0.25
+                        :rotate -90
 
                         activewindow
                 )
@@ -59,8 +59,9 @@
                                 :content "ﰩ"
                         )
                         
-                        (literal
+                        (transform
                                 :class "bar_packages"
+                                :rotate -90
                                 :content package_count
                         )
                 )
