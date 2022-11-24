@@ -23,7 +23,11 @@
                 :vexpand true
                 :hexpand false
 
-                activewindow
+                (transform
+                        :rotate -0.25
+
+                        activewindow
+                )
                 
        ) 
 )
