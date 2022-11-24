@@ -27,10 +27,13 @@
 
                 (transform
                         :class "bar_activewindow"
-                        :rotate -90
-                        :translate-x "10px"
+                        :rotate 270
+                        :translate-x "20px"
                         :valign "center"
-                        activewindow
+
+                        (literal
+                                :content activewindow
+                        )
                 )
                 
        ) 
@@ -67,7 +70,10 @@
                                 :rotate 270
                                 :valign "center"
                                 :height 100
-                                package_count
+
+                                (literal
+                                        :content package_count
+                                )
                         )
                 )
                 (box
