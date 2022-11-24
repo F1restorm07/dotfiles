@@ -27,7 +27,7 @@
 
                 (transform
                         :class "bar_activewindow"
-                        :rotate 270
+                        :rotate 75
                         :translate-x "20px"
                         :valign "center"
 
@@ -67,9 +67,10 @@
                         
                         (transform
                                 :class "bar_packages"
-                                :rotate 270
+                                :rotate 75
                                 :valign "center"
                                 :height 100
+                                :width 100
 
                                 (literal
                                         :content package_count
