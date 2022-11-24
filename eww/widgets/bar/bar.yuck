@@ -20,11 +20,12 @@
        (box
                 :class "bar_icon"
                 :orientation "vertical"
+                :valign "start"
                 :vexpand true
                 :hexpand false
 
                 (transform
-                        :rotate -0.25
+                        :rotate 0.25
 
                         activewindow
                 )
@@ -91,10 +92,10 @@
                                 :class "bar_sys_notification"
                                 :orientation "vertical"
 
-                                (literal
-                                        :class "bar_sys_notification_icon"
-                                        :content ""
-                                )
+                                ;;(literal
+                                ;;        :class "bar_sys_notification_icon"
+                                ;;        :content ""
+                                ;;)
                         )
                 )
         )
