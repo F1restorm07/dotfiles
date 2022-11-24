@@ -25,6 +25,7 @@
                 :hexpand false
 
                 (transform
+                        :class "bar_activewindow"
                         :rotate -90
 
                         activewindow
@@ -62,7 +63,7 @@
                         (transform
                                 :class "bar_packages"
                                 :rotate -90
-                                :content package_count
+                                package_count
                         )
                 )
                 (box
