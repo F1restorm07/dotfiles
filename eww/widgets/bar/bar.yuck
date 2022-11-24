@@ -55,14 +55,16 @@
                         :class "bar_misc_package_count"
                         :orientation "vertical"
 
-                        (literal
+                        (box
                                 :class "bar_package_icon"
-                                :content "ﰩ"
+                                "ﰩ"
                         )
                         
                         (transform
                                 :class "bar_packages"
                                 :rotate 270
+                                :valign "center"
+                                :height "100%"
                                 package_count
                         )
                 )
@@ -74,9 +76,9 @@
                                 :class "bar_sys_bluetooth"
                                 :orientation "vertical"
 
-                                (literal
+                                (box
                                         :class "bar_sys_bluetooth_icon"
-                                        :content ""
+                                        ""
                                 )
 
                         )
@@ -85,19 +87,19 @@
                                 :class "bar_sys_volume"
                                 :orientation "vertical"
 
-                                (literal
+                                (box
                                         :class "bar_sys_volume_icon"
-                                        :content ""
+                                        ""
                                 )              
                         )
                         (box
                                 :class "bar_sys_notification"
                                 :orientation "vertical"
 
-                                ;;(literal
-                                ;;        :class "bar_sys_notification_icon"
-                                ;;        :content ""
-                                ;;)
+                                (box
+                                        :class "bar_sys_notification_icon"
+                                        ""
+                                )
                         )
                 )
         )
