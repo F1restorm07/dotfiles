@@ -17,19 +17,17 @@
 
 ;; name of running application, text is parallel to bar
 (defwidget bar_icon []
-       (box
+       (transform
                 :class "bar_icon"
                 :orientation "vertical"
                 :valign "start"
                 :vexpand true
                 :hexpand false
-
-                (transform
-                        :class "bar_activewindow"
                         :rotate 270
+
+                (box
+                        :class "bar_activewindow"
                         :valign "center"
-                        ;;:width 100
-                        :height 100
                         activewindow
                 )
                 
