@@ -46,7 +46,7 @@
                 :valign "end"
                 
                 (box
-                        :class "bar_package_count"
+                        :class "bar_misc_package_count"
                         :orientation "vertical"
 
                         (literal
@@ -55,11 +55,12 @@
                         )
                         
                         (literal
+                                :class "bar_packages"
                                 :content package_count
                         )
                 )
                 (box
-                        :class "bar_sys_misc"
+                        :class "bar_misc_sys"
                         :orientation "vertical"
 
                         (box

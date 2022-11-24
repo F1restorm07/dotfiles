@@ -1,3 +1,7 @@
 * {
         all: unset;
 }
+
+.bar_activewindow, .bar_misc_* {
+        transform: rotate(-90deg);
+}
