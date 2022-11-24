@@ -23,6 +23,7 @@
                 :valign "start"
                 :vexpand true
                 :hexpand false
+                :height 100
 
                 (transform
                         :class "bar_activewindow"
@@ -57,7 +58,7 @@
                         :orientation "vertical"
 
                         (box
-                                :class "bar_package_icon"
+                                :class "icon"
                                 "ﰩ"
                         )
                         
@@ -66,7 +67,6 @@
                                 :rotate 270
                                 :valign "center"
                                 :height 100
-                                ;;:width 100
                                 package_count
                         )
                 )
@@ -79,7 +79,7 @@
                                 :orientation "vertical"
 
                                 (box
-                                        :class "bar_sys_bluetooth_icon"
+                                        :class "icon"
                                         ""
                                 )
 
@@ -90,7 +90,7 @@
                                 :orientation "vertical"
 
                                 (box
-                                        :class "bar_sys_volume_icon"
+                                        :class "icon"
                                         ""
                                 )              
                         )
@@ -99,7 +99,7 @@
                                 :orientation "vertical"
 
                                 (box
-                                        :class "bar_sys_notification_icon"
+                                        :class "icon"
                                         ""
                                 )
                         )
