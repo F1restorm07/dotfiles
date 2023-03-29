@@ -1,0 +1,116 @@
+{
+  "document": {
+    "block_prefix": "\n",
+    "block_suffix": "\n",
+    "color": "#d8dee9",
+    "margin": 2
+  },
+  "block_quote": {
+    "color": "#88c0d0",
+    "italic": true,
+    "indent": 1,
+    "indent_token": "│ "
+  },
+  "paragraph": {},
+  "list": {
+    "level_indent": 2
+  },
+  "heading": {
+    "block_suffix": "\n",
+    "color": "#81a1c1",
+    "bold": true
+  },
+  "h1": {
+    "prefix": "# ",
+    "color": "#88c0d0",
+    "background_color": "#3d3c44"
+  },
+  "h2": {
+    "prefix": "## ",
+    "color": "#bf616a",
+    "background_color": "#3f4247"
+  },
+  "h3": {
+    "prefix": "### ",
+    "color": "#a3be8c",
+    "background_color": "#394147"
+  },
+  "h4": {
+    "prefix": "#### ",
+    "color": "#81a1c1",
+    "background_color": "#363e4c"
+  },
+  "h5": {
+    "prefix": "##### ",
+    "color": "#b48ead",
+    "background_color": "#3a3c4a"
+  },
+  "h6": {
+    "prefix": "###### ",
+    "color": "#d8dee9",
+    "background_color": "#3d434f"
+  },
+  "text": {},
+  "strikethrough": {
+    "crossed_out": true
+  },
+  "emph": {
+    "color": "#5e81ac",
+    "italic": true
+  },
+  "strong": {
+    "color": "#5e81ac",
+    "bold": true
+  },
+  "hr": {
+    "color": "#8fbcbb",
+    "format": "\n--------\n"
+  },
+  "item": {
+    "block_prefix": "• "
+  },
+  "enumeration": {
+    "block_prefix": ". "
+  },
+  "task": {
+    "ticked": "[✓] ",
+    "unticked": "[ ] "
+  },
+  "link": {
+    "color": "#a3be8c",
+    "underline": true
+  },
+  "link_text": {
+    "color": "#8fbcbb",
+    "italic": true
+  },
+  "image": {
+    "color": "#a3be8c",
+    "underline": true
+  },
+  "image_text": {
+    "color": "#8fbcbb",
+    "format": "Image: {{.text}} →"
+  },
+  "code": {
+    "background_color": "#3b4252"
+  },
+  "code_block": {
+    "color": "#d8dee9",
+    "theme": "nord",
+    "margin": 2
+
+  },
+  "table": {
+    "center_separator": "┼",
+    "column_separator": "│",
+    "row_separator": "─"
+  },
+  "definition_list": {},
+  "definition_term": {},
+  "definition_description": {
+    "block_prefix": "\n🠶 "
+  },
+  "html_block": {},
+  "html_span": {}
+}

@@ -1,0 +1,168 @@
+// https://github.com/adi1090x/rofi/blob/master/files/launchers/type-2/style-2.rasi
+// https://github.com/adi1090x/rofi
+
+configuration {
+        modi: "drun";
+        show-icons: true;
+        display-drun: "";
+        drun-display-format: "{name}";
+}
+
+window {
+        transparency: "real";
+        location: center;
+        anchor: center;
+        fullscreen: false;
+        width: 400px;
+        x-offset: 0;
+        y-offset: 0;
+        enabled: true;
+        margin: 0;
+        padding: 0;
+        border: 0 solid;
+        border-radius: 12px;
+        border-color: #81a1caff;
+        background-color: #2e3440ff;
+        cursor: "default";
+}
+
+mainbox {
+        enabled: true;
+        spacing: 10px;
+        margin: 0;
+        padding: 20px;
+        border: 0 solid;
+        border-radius: 0;
+        border-color: #81a1c1ff;
+        background-color: transparent;
+        children: [ "inputbar", "listview" ];
+}
+
+// ---------------------------------------------------
+
+inputbar {
+        enabled: true;
+        spacing: 10px;
+        margin: 0;
+        padding: 15px;
+        border: 0 solid;
+        border-radius: 0;
+        border-color: #81a1c1ff;
+        background-color: #81a1c1ff;
+        text-color: #2e3440ff;
+        children: [ "prompt", "entry" ];
+}
+
+prompt {
+        enabled: true;
+        background-color: inherit;
+        text-color: inherit;
+}
+
+textbox-prompt-colon {
+        enabled: true;
+        expand: false;
+        str: "::";
+        background-color: inherit;
+        text-color: inherit;
+}
+
+entry {
+        enabled: true;
+        background-color: inherit;
+        text-color: inherit;
+        cursor: text;
+        placeholder: "Search";
+        placeholder-color: inherit;
+}
+
+// ---------------------------------------------------
+
+listview {
+        enabled: true;
+        columns: 1;
+        lines: 6;
+        cycle: true;
+        dynamic: true;
+        scrollbar: false;
+        layout: vertical;
+        reverse: false;
+        fixed-columns: true;
+        fixed-height: true;
+        spacing: 5px;
+        margin: 0;
+        padding: 0;
+        border: 0 solid;
+        border-radius: 0;
+        border-color: #81a1c1ff;
+        background-color: transparent;
+        text-color: #e5e9f0ff;
+        cursor: "default";
+}
+
+scrollbar {
+        handle-width: 5px;
+        handle-color: #81a1c1ff;
+        border-radius: 0;
+        background-color: #383e4aff;
+}
+
+// ---------------------------------------------------
+
+element {
+        enabled: true;
+        spacing: 10px;
+        margin: 0;
+        padding: 8px;
+        border: 0 solid;
+        border-radius: 0;
+        border-color: #81a1c1ff;
+        background-color: transparent;
+        text-color: #e5e9f0ff;
+        cursor: pointer;
+}
+
+element normal.normal {
+        background-color: #2e3440ff;
+        text-color: #e5e9f0ff;
+}
+
+element selected.normal {
+        background-color: #81a1c1ff;
+        text-color: #2e3440ff;
+}
+
+element-icon {
+        background-color: transparent;
+        text-color: inherit;
+        size: 32px;
+        cursor: inherit;
+}
+
+element-text {
+        background-color: transparent;
+        text-color: inherit;
+        highlight: inherit;
+        cursor: inherit;
+        vertical-align: 0.5;
+        horizontal-align: 0.0;
+}
+
+// ---------------------------------------------------
+
+error-message {
+        padding: 15px;
+        border: 2px solid;
+        border-radius: 12px;
+        border-color: #81a1caff;
+        background-color: #2e3440ff;
+        text-color: #e5e9f0ff;
+}
+
+textbox {
+        background-color: #2e3440ff;
+        text-color: #e5e9f0ff;
+        vertical-align: 0.5;
+        horizontal-align: 0.0;
+        highlight: none;
+}

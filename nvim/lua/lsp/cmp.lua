@@ -2,8 +2,6 @@ local symbol_map = require('icons').symbol_map
 local cmp = require'cmp'
 local lspkind = require('lspkind')
 
-
-
 cmp.setup({
         formatting = {
                 fields = { "kind", "abbr" },
@@ -13,13 +11,11 @@ cmp.setup({
                                 maxwidth = 50,
                                 symbol_map = symbol_map
                         })(entry, vim_item)
-                        -- local strings = vim.split(kind.kind, "%s", { trimempty = true })
-                        -- kind.kind = ' ' .. strings[1] .. '  '
+
                         kind.kind = ' ' .. kind.kind .. '  '
                         kind.dup = ({
                                 luasnip = 0,
                                 nvim_lsp = 0,
-                                nvim_lua = 0,
                                 buffer = 0,
                         })[entry.source.name] or 0
 
@@ -34,12 +30,9 @@ cmp.setup({
         },
         window = {
                 completion = {
-                        winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None,PmenuSel:PmenuSel",
+                        winhighlight = "Normal:Pmenu",
                         col_offest = -3,
                         side_padding = 0,
-                         -- border = {
-                         --                '╭', '─', '╮', '│', '╯', '─', '╰', '│'
-                         --        },
                 },
                 documentation = cmp.config.window.bordered(),
         },
@@ -48,7 +41,7 @@ cmp.setup({
                 ['<C-f>'] = cmp.mapping.scroll_docs(4),
                 ['<C-Space>'] = cmp.mapping.complete(),
                 ['<C-e>'] = cmp.mapping.abort(),
-                ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+                ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         }),
         sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
@@ -87,13 +80,11 @@ cmp.setup.cmdline(':', {
 })
 
 -- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-local servers = {'rust_analyzer',
-        'crystalline',
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local servers = {
+        'rust_analyzer',
         'elixirls',
-        'kotlin_language_server',
-        'sumneko_lua',
-        'ccls',
+        'lua_ls',
         'denols'
 }
 for _, lsp in pairs(servers) do
@@ -102,3 +93,4 @@ for _, lsp in pairs(servers) do
         }
 end
 
+cmp.event:on('confirm_done', require('nvim-autopairs.completion.cmp').on_confirm_done())

@@ -42,9 +42,8 @@ local header = {
 local buttons = {
         type = "group",
         val = {
-                button('f', "Find Files", ":Telescope find_files<cr>"),
-                button('s', "Open Previous Session", ":SessionManager load_session<cr>"),
-                button('g', "Find Word", ":Telescope live_grep<cr>")
+                button('f', "Find Files", ":FzfLua files<cr>"),
+                button('g', "Find Word", ":FzfLua grep<cr>")
         },
         opts = {
                 spacing = 1,

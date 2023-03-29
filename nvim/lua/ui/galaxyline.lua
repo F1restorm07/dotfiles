@@ -32,22 +32,23 @@ local modes = setmetatable(
 {
         n      = { text = ' NORMAL ',   color = colors.nord9 },
         no     = { text = ' NORMAL ',   color = colors.nord9 },
+        nt     = { text = ' NORMAL ',   color = colors.nord9 },
+        ntT    = { text = ' NORMAL ',   color = colors.nord9 },
         i      = { text = ' INSERT ',   color = colors.nord15 },
         ic     = { text = ' INSERT ',   color = colors.nord15 },
         c      = { text = ' COMMAND ',  color = colors.nord12 },
-        v      = { text = ' VISUAL ',   color = colors.nord11 },
-        V      = { text = ' LINVIS ',   color = colors.nord11 },
-        [""]   = { text = ' BLKVIS ',   color = colors.nord11 },
+        v      = { text = ' VISUAL ',   color = colors.nord7 },
+        V      = { text = ' LINVIS ',   color = colors.nord7 },
+        [''] = { text = ' BLKVIS ',   color = colors.nord7 },
         s      = { text = ' SELECT ',   color = colors.nord13 },
         S      = { text = ' SELECT ',   color = colors.nord13 },
-        ['']   = { text = ' SELECT ',   color = colors.nord13 },
         R      = { text = ' REPLACE ',  color = colors.nord14 },
         ['r?'] = { text = ' REPLACE ',  color = colors.nord14 },
         Rv     = { text = ' REPLACE ',  color = colors.nord14 },
         r      = { text = ' REPLACE ',  color = colors.nord14 },
         rm     = { text = ' REPLACE ',  color = colors.nord14 },
         t      = { text = ' TERMINAL ', color = colors.nord9 },
-        ['!']  = { text = ' ! ',        color = colors.nord11 },
+        ['!']  = { text = ' SHELL ',    color = colors.nord11 },
         },
         { -- fallback function
                 __index = function()
@@ -74,7 +75,7 @@ gls.left[1] = {
                                 colors.nord1,
                                 modes[curr_mode].color
                         ))
-                        return " " .. modes[curr_mode].text 
+                        return " " .. modes[curr_mode].text
                         end,
                 separator = " ",
                 separator_highlight = "GalaxyViModeReverse",
@@ -108,14 +109,6 @@ gls.left[4] = {
 }
 
 gls.left[5] = {
-        FileIcon = {
-                provider = "FileIcon",
-                condition = condition.buffer_not_empty,
-                highlight = "GalaxyViMode",
-        }
-}
-
-gls.left[6] = {
         FileName = {
                 provider = "FileName",
                 condition = condition.buffer_not_empty,
@@ -134,7 +127,7 @@ gls.right[1] = {
                 provider = function() return "" end,
                 condition = condition.check_git_workspace,
                 separator = "",
-                separator_highlight = "GalaxyViModeReverse",
+                separator_highlight = "GalaxyViModeReverseBg",
                 highlight = "GalaxyViMode",
         }
 }
@@ -187,6 +180,7 @@ gls.right[6] = {
 gls.right[7] = {
         WhiteSpace = {
                 provider = function() return " " end,
+                condition = condition.check_git_workspace,
                 separator = " ",
                 separator_highlight = "GalaxyViModeReverse",
                 highlight = "GalaxyViMode",

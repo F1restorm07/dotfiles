@@ -1,10 +1,10 @@
 local wezterm = require 'wezterm'
-local LEFT_DOWN_SLANT = utf8.char(0xe0b8)
+-- local LEFT_DOWN_SLANT = utf8.char(0xe0b8)
 local RIGHT_DOWN_SLANT = utf8.char(0xe0ba)
 local LEFT_UP_SLANT = utf8.char(0xe0bc)
-local RIGHT_UP_SLANT = utf8.char(0xe0be)
-local LEFT_HALF_CIRCLE = ' ' .. utf8.char(0xe0b6)
-local RIGHT_HALF_CIRCLE = utf8.char(0xe0b4) .. ' '
+-- local RIGHT_UP_SLANT = utf8.char(0xe0be)
+-- local LEFT_HALF_CIRCLE = ' ' .. utf8.char(0xe0b6)
+-- local RIGHT_HALF_CIRCLE = utf8.char(0xe0b4) .. ' '
 
 wezterm.on(
   'format-tab-title',
@@ -20,8 +20,8 @@ wezterm.on(
 
     local index = tab.tab_index
     local edge_foreground = background
-    local title = tab.active_pane.title
-    title = wezterm.truncate_right(string.format(' %d  %s ', index, title), max_width - 2)
+    local title = tab.active_pane.foreground_process_name
+    title = wezterm.truncate_right(string.format(' %d  %s ', index, string.gsub(title, '(.*[/\\])(.*)', '%2')), max_width - 2)
 
     return {
         { Background = { Color = edge_background } },
@@ -177,6 +177,48 @@ local keys = {
 
 return {
         font = wezterm.font_with_fallback { "JetBrainsMono Nerd Font Mono", "nonicons" },
+        font_rules = {
+                {
+                        intensity = 'Bold',
+                        italic = false,
+                        font = wezterm.font_with_fallback {
+                                {
+                                        family = "JetBrainsMono Nerd Font Mono",
+                                        weight = "Bold",
+                                        stretch = "Normal",
+                                        style = "Normal"
+                                },
+                                "nonicons"
+                        }
+                },
+                {
+                        intensity = 'Normal',
+                        italic = true,
+                        font = wezterm.font_with_fallback {
+                                {
+                                        family = "JetBrainsMono Nerd Font Mono",
+                                        weight = "Regular",
+                                        stretch = "Normal",
+                                        style = "Italic"
+                                },
+                                "nonicons"
+                        }
+                },
+                {
+                        intensity = 'Bold',
+                        italic = true,
+                        font = wezterm.font_with_fallback {
+                                {
+                                        family = "JetBrainsMono Nerd Font Mono",
+                                        weight = "Bold",
+                                        stretch = "Normal",
+                                        style = "Italic"
+                                },
+                                "nonicons"
+                        }
+                },
+
+      },
         -- font_dirs = { './nonicons/dist' },
         color_scheme = "nord",
         colors = {
@@ -189,17 +231,8 @@ return {
                         },
                 }
         },
-        window_background_opacity = 0.9,
-        -- text_background_opacity = 0.9,
-
         use_fancy_tab_bar = false,
         tab_bar_at_bottom = true,
-
-        -- unix_domains = {
-        --         { name = 'unix' },
-        -- },
-        -- default_gui_startup_args = { "connect", "unix" },
-
         leader = { key = 'b', mods = 'CTRL' },
         keys = keys,
 }

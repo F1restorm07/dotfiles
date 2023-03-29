@@ -1,0 +1,4 @@
+style: "nord.json"
+pager: true
+width: 100
+local: true

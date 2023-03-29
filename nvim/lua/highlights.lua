@@ -32,27 +32,8 @@ local function highlight(name, opts)
         vim.api.nvim_set_hl(0, name, opts)
 end
 
--- Telescope
-highlight("TelescopeBorder", { bg=H.colors.bg, fg=H.colors.bg })
-highlight("TelescopePromptBorder", { bg=H.colors.nord2, fg=H.colors.nord2 })
-highlight("TelescopePreviewBorder", { bg=H.colors.bg, fg=H.colors.bg })
-highlight("TelescopeResultsBorder", { bg=H.colors.bg, fg=H.colors.bg })
-
-highlight("TelescopePromptNormal", { bg=H.colors.nord2, fg=H.colors.nord4 })
-highlight("TelescopePromptPrefix", { bg=H.colors.nord2, fg=H.colors.nord11 })
-
-highlight("TelescopeNormal", { bg=H.colors.bg })
-highlight("TelescopePreviewNormal", { bg=H.colors.bg })
-
-highlight("TelescopePreviewTitle", { bg=H.colors.nord14, fg=H.colors.bg, bold=true })
-highlight("TelescopePromptTitle", { bg=H.colors.nord11, fg=H.colors.bg, bold=true })
-highlight("TelescopeResultsTitle", { bg=H.colors.nord9, fg=H.colors.bg, bold=true })
-highlight("TelescopeSelection", { bg=H.colors.bg, fg=H.colors.nord9 })
-highlight("TelescopeSelectionCaret", { bg=H.colors.bg, fg=H.colors.nord9 })
-highlight("TelescopePreviewLine", { bg=H.colors.nord3 })
-
 -- Nvim-cmp
-highlight("PmenuSel", { bg=H.colors.nord8, fg=H.colors.bg, nocombine=true })
+highlight("PmenuSel", { bg=H.colors.nord8 , fg=H.colors.bg })
 highlight("Pmenu", { bg=H.colors.nord0, fg=H.colors.nord4 })
 
 highlight("CmpItemAbbrDeprecated", { fg=H.colors.nord3, strikethrough=true })
@@ -60,42 +41,50 @@ highlight("CmpItemAbbrMatch", { fg=H.colors.nord7, bold=true })
 highlight("CmpItemAbbrMatchFuzzy", { fg=H.colors.nord7, bold=true })
 highlight("CmpItemMenu", { fg=H.colors.nord4, italic=true })
 
-highlight("CmpItemKindField", { bg=H.colors.nord11, fg=H.colors.nord4 })
-highlight("CmpItemKindProperty", { bg=H.colors.nord11, fg=H.colors.nord4 })
-highlight("CmpItemKindEvent", { bg=H.colors.nord11, fg=H.colors.nord4 })
+highlight("CmpItemKindField", { bg=H.colors.nord11, fg=H.colors.bg })
+highlight("CmpItemKindProperty", { bg=H.colors.nord11, fg=H.colors.bg })
+highlight("CmpItemKindEvent", { bg=H.colors.nord11, fg=H.colors.bg  })
 
-highlight("CmpItemKindText", { bg=H.colors.nord7, fg=H.colors.nord4 })
-highlight("CmpItemKindEnum", { bg=H.colors.nord7, fg=H.colors.nord4 })
-highlight("CmpItemKindKeyword", { bg=H.colors.nord7, fg=H.colors.nord4 })
+highlight("CmpItemKindText", { bg=H.colors.nord7, fg=H.colors.bg })
+highlight("CmpItemKindEnum", { bg=H.colors.nord7, fg=H.colors.bg })
+highlight("CmpItemKindKeyword", { bg=H.colors.nord7, fg=H.colors.bg })
 
-highlight("CmpItemKindConstant", { bg=H.colors.nord10, fg=H.colors.nord4 })
-highlight("CmpItemKindConstructor", { bg=H.colors.nord10, fg=H.colors.nord4 })
-highlight("CmpItemKindReference", { bg=H.colors.nord10, fg=H.colors.nord4 })
+highlight("CmpItemKindConstant", { bg=H.colors.nord10, fg=H.colors.bg })
+highlight("CmpItemKindConstructor", { bg=H.colors.nord10, fg=H.colors.bg })
+highlight("CmpItemKindReference", { bg=H.colors.nord10, fg=H.colors.bg })
 
-highlight("CmpItemKindFunction", { bg=H.colors.nord15, fg=H.colors.nord4 })
-highlight("CmpItemKindStruct", { bg=H.colors.nord15, fg=H.colors.nord4 })
-highlight("CmpItemKindClass", { bg=H.colors.nord15, fg=H.colors.nord4 })
-highlight("CmpItemKindModule", { bg=H.colors.nord15, fg=H.colors.nord4 })
-highlight("CmpItemKindOperator", { bg=H.colors.nord15, fg=H.colors.nord4 })
+highlight("CmpItemKindFunction", { bg=H.colors.nord15, fg=H.colors.bg })
+highlight("CmpItemKindStruct", { bg=H.colors.nord15, fg=H.colors.bg })
+highlight("CmpItemKindClass", { bg=H.colors.nord15, fg=H.colors.bg })
+highlight("CmpItemKindModule", { bg=H.colors.nord15, fg=H.colors.bg })
+highlight("CmpItemKindOperator", { bg=H.colors.nord15, fg=H.colors.bg })
 
-highlight("CmpItemKindVariable", { bg=H.colors.nord3, fg=H.colors.nord4 })
-highlight("CmpItemKindFile", { bg=H.colors.nord3, fg=H.colors.nord4 })
+highlight("CmpItemKindVariable", { bg=H.colors.nord3, fg=H.colors.fg })
+highlight("CmpItemKindFile", { bg=H.colors.nord3, fg=H.colors.fg })
 
-highlight("CmpItemKindUnit", { bg=H.colors.nord12, fg=H.colors.nord4 })
-highlight("CmpItemKindSnippet", { bg=H.colors.nord12, fg=H.colors.nord4 })
-highlight("CmpItemKindFolder", { bg=H.colors.nord12, fg=H.colors.nord4 })
+highlight("CmpItemKindUnit", { bg=H.colors.nord12, fg=H.colors.bg })
+highlight("CmpItemKindSnippet", { bg=H.colors.nord12, fg=H.colors.bg })
+highlight("CmpItemKindFolder", { bg=H.colors.nord12, fg=H.colors.bg })
 
-highlight("CmpItemKindMethod", { bg=H.colors.nord9, fg=H.colors.nord4 })
-highlight("CmpItemKindValue", { bg=H.colors.nord9, fg=H.colors.nord4 })
-highlight("CmpItemKindEnumMember", { bg=H.colors.nord9, fg=H.colors.nord4 })
+highlight("CmpItemKindMethod", { bg=H.colors.nord9, fg=H.colors.bg })
+highlight("CmpItemKindValue", { bg=H.colors.nord9, fg=H.colors.bg })
+highlight("CmpItemKindEnumMember", { bg=H.colors.nord9, fg=H.colors.bg })
 
-highlight("CmpItemKindInterface", { bg=H.colors.nord8, fg=H.colors.nord4 })
-highlight("CmpItemKindColor", { bg=H.colors.nord8, fg=H.colors.nord4 })
-highlight("CmpItemKindTypeParameter", { bg=H.colors.nord8, fg=H.colors.nord4 })
+highlight("CmpItemKindInterface", { bg=H.colors.nord8, fg=H.colors.bg })
+highlight("CmpItemKindColor", { bg=H.colors.nord8, fg=H.colors.bg })
+highlight("CmpItemKindTypeParameter", { bg=H.colors.nord8, fg=H.colors.bg })
 
 -- Alpha
 highlight("AlphaHeader", { fg=H.colors.nord9 })
 highlight("AlphaButton", { fg=H.colors.nord8 })
 highlight("AlphaFooter", { fg=H.colors.nord9 })
+
+-- Lspsaga
+highlight("SagaBorder", { bg=H.colors.nord0 })
+highlight("TitleString", { bg=H.colors.nord14, fg=H.colors.bg, bold=true })
+highlight("TitleSymbol", { bg=H.colors.bg, fg=H.colors.nord14 })
+highlight("TitleIcon", { bg=H.colors.nord14, fg=H.colors.bg })
+highlight("TitleFileIcon", { bg=H.colors.nord14, fg=H.colors.bg })
+
 
 return H
