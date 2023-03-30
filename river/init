@@ -1,0 +1,9 @@
+#!/bin/sh
+
+mod="Mod4"
+
+riverctl map normal $mod Return spawn wezterm
+riverctl map normal $mod Q close
+riverctl map normal $mod+Shift Q exit
+
+riverctl map normal $mod W spawn nyxt
