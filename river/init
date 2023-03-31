@@ -3,7 +3,17 @@
 mod="Mod4"
 
 riverctl map normal $mod Return spawn wezterm
+riverctl map normal $mod W spawn nyxt
+
 riverctl map normal $mod Q close
 riverctl map normal $mod+Shift Q exit
 
-riverctl map normal $mod W spawn nyxt
+riverctl map normal $mod J focus-view next
+riverctl map normal $mod K focus-view previous
+
+riverctl default-layout rivertile
+exec rivertile -view-padding 5  \
+        -outer-padding 5        \
+        -main-location left
+        # -main-count 1           \
+        # -main-ratio 0.50        \
