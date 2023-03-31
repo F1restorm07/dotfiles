@@ -141,7 +141,7 @@ export FZF_DEFAULT_OPTS="
 "
 export FZF_DEFAULT_COMMAND="fd -t f -t l -H --exclude .git --exclude node_modules"
 
-export PATH="/bin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
+export PATH="/bin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:$HOME/builds/bin"
 export PATH="$BREW/bin:$BREW/sbin:$PATH"
 export PATH="$BREW/opt/git/bin:$BREW/opt/util-linux/bin:$HOME/.cargo/bin:$BREW/opt/llvm/bin:$PATH"
 

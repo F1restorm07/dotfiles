@@ -1,6 +1,6 @@
 (deflisten workspace "scripts/workspaces.sh 0")
 (deflisten activewindow "scripts/activewindow.sh")
-(defpoll package_count :interval "5m" `pacman -Qq | wc -l`)
+;; (defpoll package_count :interval "5m" `pacman -Qq | wc -l`)
 ;; (defpoll wifi_name `iwgetid -r`)
 
 (defwidget bar_layout []
@@ -14,6 +14,12 @@
                 (bar_misc)
         )
 )
+;; set top/left, middle, bottom/right containers
+;; left -> workspaces, current application
+;; middle -> misc,
+;; right -> system stats (volume, bluetooth, brightness, wifi, time and date)
+;; popout sidebar for notifs
+;; zen mode?
 
 ;; name of running application, text is parallel to bar
 (defwidget bar_icon []
