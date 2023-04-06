@@ -55,6 +55,7 @@ keymap('n', "tp", "gT", opts)
 keymap('n', ";s", "<cmd>new<cr>", opts)
 keymap('n', ";v", "<cmd>vnew<cr>", opts)
 keymap('n', ";o", "<c-w>o", opts)
+keymap('n', ";d", "<cmd>call delete(@%) | bdelete!<cr>")
 
 keymap('n', ";j", "<cmd>lua require('smart-splits').move_cursor_down()<cr>")
 keymap('n', ";k", "<cmd>lua require('smart-splits').move_cursor_up()<cr>")

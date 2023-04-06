@@ -1,5 +1,7 @@
-(deflisten workspace "scripts/workspaces.sh 0")
+;; (deflisten workspace "scripts/workspaces.sh 0")
 (deflisten activewindow "scripts/activewindow.sh")
+(deflisten active_app "ristate --title")
+(deflisten all_tags "ristate --views-tag")
 ;; (defpoll package_count :interval "5m" `pacman -Qq | wc -l`)
 ;; (defpoll wifi_name `iwgetid -r`)
 
@@ -18,8 +20,41 @@
 ;; left -> workspaces, current application
 ;; middle -> misc,
 ;; right -> system stats (volume, bluetooth, brightness, wifi, time and date)
-;; popout sidebar for notifs
-;; zen mode?
+;; popout sidebar for notifs (click datetime)
+;; zen mode/do not disturb
+;; night shift (click brightness icon)
+
+(defwidget left []
+        (tags)
+        (current_application)
+)
+
+(defwidget tags []
+        
+)
+
+(defwidget current_application []
+        (box
+                :class "curr_app"
+                :orientation "h"
+                :valign "center"
+                :halign "start"
+                :hexpand true
+                :width 100
+
+                (literal
+                        :content active_app
+                )
+        )
+)
+
+(defwidget right []
+        (volume)
+        (brightness)
+        (bluetooth)
+        (wifi)
+        (datetime)
+)
 
 ;; name of running application, text is parallel to bar
 (defwidget bar_icon []
