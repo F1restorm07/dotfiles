@@ -1,21 +1,90 @@
 #!/bin/sh
 
-mod="Mod4"
+super="Mod4"
+alt="Mod1"
 
-riverctl map normal $mod Return spawn wezterm
-riverctl map normal $mod W spawn nyxt
+#TODO: autostart
+# riverctl spawn "waybar"
+# riverctl spawn "kanshi"
+# riverctl spawn "wired"
 
-riverctl map normal $mod Q close
-riverctl map normal $mod+Shift Q exit
+#gsettings cmds
+gsettings set org.gnome.desktop.wm.preferences button-layout ""
 
-riverctl map normal $mod J focus-view next
-riverctl map normal $mod K focus-view previous
+# app cmds
+riverctl map normal $super Return spawn wezterm
+riverctl map normal $super W spawn nyxt
+
+riverctl map normal $super Q close
+riverctl map normal $super+Shift Q exit
+#riverctl map normal $super Space spawn wofi
+
+# send focused view to the top of the layout stack
+riverctl map normal $super T zoom
+riverctl map normal $super+Shift F toggle-float
+
+riverctl map normal $super J focus-view next
+riverctl map normal $super K focus-view previous
+riverctl map normal $super+Shift J swap next
+riverctl map normal $super+Shift K swap previous
+
+# window movement cmds
+riverctl map normal $super+$alt H move left 100
+riverctl map normal $super+$alt J move down 100
+riverctl map normal $super+$alt K move up 100
+riverctl map normal $super+$alt L move right 100
+
+riverctl map normal $super+Shift H resize left 100
+riverctl map normal $super+Shift J resize down 100
+riverctl map normal $super+Shift K resize up 100
+riverctl map normal $super+Shift L resize right 100
+
+riverctl map normal $super+Control H snap left
+riverctl map normal $super+Control J snap down
+riverctl map normal $super+Control K snap up
+riverctl map normal $super+Control L snap right
+
+# rivertile cmds
+riverctl map normal $super Up send-layout-cmd rivertile "main-location up"
+riverctl map normal $super Left send-layout-cmd rivertile "main-location left"
+riverctl map normal $super Right send-layout-cmd rivertile "main-location right"
+riverctl map normal $super Down send-layout-cmd rivertile "main-location down"
+
+riverctl map normal $super H send-layout-cmd rivertile "main-ratio +0.01"
+riverctl map normal $super L send-layout-cmd rivertile "main-ratio -0.01"
+riverctl map normal $super+Shift H send-layout-cmd rivertile "main-count +1"
+riverctl map normal $super+Shift L send-layout-cmd rivertile "main-count -1"
+
+# media
+riverctl map normal F11 XF86MonBrightnessUp spawn "brightnessctl set +5"
+riverctl map normal F12 XF86MonBrightnessUp spawn "brightnessctl set -5"
+
+# floating window conditions
+riverctl float-filter-add app-id wired
+
+# window and background decorations
+riverctl background-color 0x2e3440 #TODO: set wallpaper with wbg (riverctl spawn "wbg <wallpaper>.<ext>")
+riverctl border-color-focused 0x81a1c1
+riverctl border-color-unfocused 0x3b4252
+rivetctl border-width 3
+
+# tags
+for i in $(seq 1 9)
+do
+        tagmask=$((1 << ($i - 1)))
+
+        riverctl map normal $super $i set-focused-tags $tagmask
+        riverctl map normal $super+Shift $i set-view-tags $tagmask
+        riverctl map normal $super+$alt $i toggle-focused-tags $tagmask
+        riverctl map normal $super+$alt+Shift toggle-view-tags $tagmask
+done
+
+alltagmask=$(((1 << 32) - 1))
+
+riverctl map normal $super 0 set-focused-tags $alltagmask
+riverctl map normal $super+Shift 0 set-view-tags $alltagmask
 
 echo "init loaded"
 
 riverctl default-layout rivertile
-rivertile -view-padding 5  \
-        -outer-padding 5        \
-        -main-location left
-        # -main-count 1           \
-        # -main-ratio 0.50        \
+rivertile -view-padding 5 -outer-padding 5 -main-location left
