@@ -1,0 +1,69 @@
+{
+        "layer": "top",
+        "position": "top",
+        "height": 25,
+        "margin": 0,
+        "spacing": 0,
+        "modules_left": [
+                "river/tags",
+                "river/window"
+        ],
+        "modules_right": [
+                "pulseaudio",
+                "backlight",
+                "bluetooth",
+                "network",
+                "clock"
+        ],
+        "river/tags": {
+                "num-tags": 9,
+                "tag-labels": [
+                        "1": "1",
+                        "2": "2",
+                        "3": "3",
+                        "4": "4",
+                        "5": "5",
+                        "6": "6",
+                        "7": "7",
+                        "8": "8",
+                        "9": "9"
+                ]
+        },
+        "river/window": {
+                "format": "{}",
+                "tooltip": false
+        },
+        "pulseaudio": {
+                "format": "{icon} {volume}%",
+                "format-muted": "{icon}",
+                "format-icons": {
+                        "default": "vol"
+                },
+                "tooltip": false
+        },
+        "backlight": {
+                "format": "{icon} {percent}%",
+                "format-icons": "light",
+                "device": "DP-1",
+                "tooltip": false
+        },
+        "bluetooth": {
+                "format": "{icon} {status}",
+                "format-connected": "{icon} {device_alias}",
+                "format-disabled": "",
+                "format-icons": "blth",
+                "tooltip": false
+        },
+        "network": {
+                "format": "{icon} {ifname}",
+                "format-wifi": "{icon} {essid} ({signalStrength}%)",
+                "format-icons": "net",
+                "tooltip": false
+        },
+        "clock": {
+                "format": "{:%m.%d/%H:%M}",
+                "timezone": "America/Denver",
+                "interval": 15,
+                "tooltip": false
+        }
+}

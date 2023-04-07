@@ -1,0 +1,96 @@
+[skin]
+# wip // based on nord terminal theme
+# left side of slash is focused window, right side is unfocused
+
+default = "gray(23) none / gray(20) none"
+tree = "rgb(67, 76, 94) none / rgb(67, 76, 94) none"
+file = "white none / rgb(67, 76, 94) none"
+directory = "blue none bold / rgb(67, 76, 94) none bold"
+exe = "green none bold"
+link = "cyan none"
+pruning = "rgb(76, 86, 106) none" # the unlisted files in a directory
+scrollbar_thumb = "white none / rgb(67, 76, 94) none"
+scrollbar_track = "rgb(67, 76, 94) none / rgb(47, 52, 64) none"
+
+# ----------------------------------------------------
+
+perm__ = "rgb(67, 76, 94) none"
+perm_r = "yellow none"
+perm_w = "red none"
+perm_x = "green none"
+owner = "yellow none"
+group = "blue none"
+count = "blue none"
+dates = "blue none"
+sparse = "rgb(67, 76, 94) none"
+
+# matches for the content in a file
+content_extract = "magenta none bold"
+content_match = "red none bold"
+
+# ----------------------------------------------------
+
+git_branch = "white none"
+git_insertions = "green none"
+git_deletions = "red none"
+git_status_current = "cyan none"
+git_status_modified = "magenta none"
+git_status_new = "blue none"
+git_status_ignored = "rgb(67, 76, 94) none"
+git_status_conflited = "red none"
+git_status_other = "white none"
+
+# ----------------------------------------------------
+
+selected_line = "none rgb(59, 66, 82) / none rgb(47, 52, 64)"
+char_match = "yellow none" # the matched chars in a pattern
+file_error = "red none"
+input = "white none / rgb(76, 86, 106) rgb(47, 52, 64)"
+mode_command_mark = "blue none bold" # the mode at the input line
+staging_area_title = "cyan none bold / blue none bold"
+
+# flags for hidden files, gitignore, etc.
+flag_label = "blue none" 
+flag_value = "cyan none bold"
+flag_error = "red none"
+
+# ----------------------------------------------------
+
+preview = "gray(23) rgb(47, 52, 64) / gray(20) rgb(47, 52, 64)"
+preview_title = "cyan none bold / blue none bold"
+preview_line_number = "white none / white none"
+preview_match = "yellow none"
+
+# ----------------------------------------------------
+
+status_error = "white red"
+status_job = "cyan rgb(59, 66, 82)"
+status_normal = "white rgb(59, 66, 82) / rgb(47, 52, 64) rgb(47, 52, 64)"
+status_italic = "blue rgb(59, 66, 82) italic / rgb(47, 52, 64) rgb(47, 52, 64)"
+status_bold = "blue rgb(59, 66, 82) bold / rgb(47, 52, 64) rgb(47, 52, 64)"
+status_code = "yellow rgb(59, 66, 82) / rgb(47, 52, 64) rgb(47, 52, 64)"
+status_ellipses = "rgb(76, 86, 106) rgb(47, 52, 64) / rgb(47, 52, 64) rgb(47, 52, 64)"
+
+# ----------------------------------------------------
+
+purpose_normal = "white none"
+purpose_italic = "blue none italic"
+purpose_bold = "blue none bold"
+purpose_ellipses = "rgb(76, 86, 106) none"
+
+# ----------------------------------------------------
+
+help_paragraph = "white none"
+help_bold = "blue none bold"
+help_italic = "blue none italic"
+help_code = "yellow none"
+help_headers = "cyan none bold"
+help_table_border = "rgb(67, 76, 94) none"
+
+# ----------------------------------------------------
+
+hex_null = "rgb(67, 76, 94) none"
+hex_ascii_graphic = "yellow none"
+hex_ascii_whitespace = "rgb(67, 76, 94) none"
+hex_ascii_other = "rgb(59, 66, 82) none"
+hex_non_ascii = "rgb(76, 86, 106) none"
