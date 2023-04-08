@@ -2,11 +2,11 @@
         border: none;
         font-family: JetBrainsMono Nerd Font Mono;
         font-size: 14px;
-        color: "#d8dee9";
+        color: #d8dee9;
 }
 
 window#waybar {
-        background-color: "#2e3440";
+        background-color: #2e3440;
         padding: 0;
         margin: 0;
 }
@@ -17,7 +17,7 @@ window#waybar.hidden {
 
 #tags {
         margin: 0 3px;
-        color: transparent;
+	color: transparent;
 }
 
 #tags button {
@@ -26,18 +26,22 @@ window#waybar.hidden {
 }
 
 #tags button.focused {
-        color: "#81a1c1";
+        color: #81a1c1;
 }
 
 #tags button.visible {}
+
+#window {
+	color: #d8dee9;
+}
 
 #pulseaudio,
 #backlight,
 #bluetooth {
         margin: 4px 2px;
         padding: 0 8px;
-        win-width: 8px;
-        background-color: "#3b4252";
+        min-width: 8px;
+        background-color: #3b4252;
 }
 
 #clock {
