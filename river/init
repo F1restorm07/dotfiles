@@ -3,11 +3,6 @@
 super="Mod4"
 alt="Mod1"
 
-#TODO: autostart
-# riverctl spawn "waybar"
-# riverctl spawn "kanshi"
-# riverctl spawn "wired"
-
 #gsettings cmds
 gsettings set org.gnome.desktop.wm.preferences button-layout ""
 
@@ -17,7 +12,7 @@ riverctl map normal $super W spawn nyxt
 
 riverctl map normal $super Q close
 riverctl map normal $super+Shift Q exit
-#riverctl map normal $super Space spawn wofi
+riverctl map normal $super Space spawn wofi
 
 # send focused view to the top of the layout stack
 riverctl map normal $super T zoom
@@ -56,17 +51,29 @@ riverctl map normal $super+Shift H send-layout-cmd rivertile "main-count +1"
 riverctl map normal $super+Shift L send-layout-cmd rivertile "main-count -1"
 
 # media
-riverctl map normal F11 XF86MonBrightnessUp spawn "brightnessctl set +5"
-riverctl map normal F12 XF86MonBrightnessUp spawn "brightnessctl set -5"
+# riverctl map normal F11 XF86MonBrightnessUp spawn "brightnessctl set +5"
+# riverctl map normal F12 XF86MonBrightnessUp spawn "brightnessctl set -5"
+
+# about the brightness:
+# i have searched around the /sys files for anything brightness related and i've only found the dirs
+# pertaining to my keyboard
+# no brightness files related to my external monitor have been found anywhere
+# i can change the brightness among with controls on the monitor itself, but would like to set the
+# actions to keybinds inside linux, any help is appreciated (the port is HDMI-A-1 if that helps any)
 
 # floating window conditions
-riverctl float-filter-add app-id wired
+riverctl float-filter-add app-id mako
 
 # window and background decorations
 riverctl background-color 0x2e3440 #TODO: set wallpaper with wbg (riverctl spawn "wbg <wallpaper>.<ext>")
 riverctl border-color-focused 0x81a1c1
 riverctl border-color-unfocused 0x3b4252
 rivetctl border-width 3
+
+#TODO: autostart
+riverctl spawn "waybar"
+# riverctl spawn "kanshi"
+riverctl spawn "mako"
 
 # tags
 for i in $(seq 1 9)

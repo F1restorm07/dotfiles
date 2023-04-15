@@ -51,22 +51,22 @@ local buttons = {
         }
 }
 
-local footer = {
-        type = "text",
-        val = "loaded " .. #vim.tbl_keys(packer_plugins) .. " plugins",
-        opts = {
-                position = "center",
-                hl = "AlphaFooter"
-        }
-}
+-- local footer = {
+--         type = "text",
+--         val = "loaded " .. #vim.tbl_keys(packer_plugins) .. " plugins",
+--         opts = {
+--                 position = "center",
+--                 hl = "AlphaFooter"
+--         }
+-- }
 
-alpha.setup {
+alpha.setup({
         layout = {
                 { type = "padding", val = 2 },
                 header,
                 { type = "padding", val = 9 },
                 buttons,
                 { type = "padding", val = 2 },
-                footer
+                -- footer
         }
-}
+})

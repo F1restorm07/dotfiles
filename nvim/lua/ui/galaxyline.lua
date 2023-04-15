@@ -1,29 +1,6 @@
 local get = require('icons').get
 local gl = require('galaxyline')
-local colors = {
-        -- Polar Night
-        nord0 = "#2e3440", -- origin color
-        nord1 = "#3b4252", -- nord0 bright
-        nord2 = "#434c5e", -- nord0 bright 2
-        nord3 = "#4c566a", -- nord0 bright 3
-         -- Snow Storm
-        nord4 = "#d8dee9", -- origin color
-        nord5 = "#e5e9f0", -- nord4 bright
-        nord6 = "#eceff4", -- nord4 bright 2
-         -- Frost
-        nord7 = "#8fbcbb", -- frozen polar waters
-        nord8 = "#88c0d0", -- clear ice
-        nord9 = "#81a1c1", -- arctic waters
-        nord10 = "#5e81ac", -- arctic ocean
-         -- Aurora
-        nord11 = "#bf616a", -- red
-        nord12 = "#d08770", -- orange
-        nord13 = "#ebcb8b", -- yellow
-        nord14 = "#a3be8c", -- green
-        nord15 = "#b48ead", -- magenta
-        bg = "#2e3440",
-        fg = "#eceff4",
-        }
+local colors = require('highlights').colors
 local condition = require('galaxyline.condition')
 local gls = gl.section
 gl.short_line_list = {'*'}
@@ -68,7 +45,7 @@ gls.left[1] = {
                                 colors.nord1
                         ))
                         vim.cmd(string.format("hi GalaxyViModeReverseBg guibg=%s guifg=%s",
-                                colors.bg,
+                                colors.nord0,
                                 modes[curr_mode].color
                         ))
                         vim.cmd(string.format("hi GalaxyViModeReverse guibg=%s guifg=%s",
@@ -135,7 +112,7 @@ gls.right[1] = {
 gls.right[2] = {
         DiffAdd = {
                 provider = "DiffAdd",
-                icon = get("plus-circle") .. ' ',
+                icon = "" .. ' ',
                 condition = condition.check_git_workspace,
                 highlight = "GalaxyViMode",
         }
@@ -144,7 +121,7 @@ gls.right[2] = {
 gls.right[3] = {
         DiffModified = {
                 provider = "DiffModified",
-                icon = get("issue-opened") .. ' ',
+                icon = "" .. ' ',
                 condition = condition.check_git_workspace,
                 highlight = "GalaxyViMode",
         }
@@ -153,7 +130,7 @@ gls.right[3] = {
 gls.right[4] = {
         DiffRemove = {
                 provider = "DiffRemove",
-                icon = get("skip") .. ' ',
+                icon = "" .. ' ',
                 condition = condition.check_git_workspace,
                 highlight = "GalaxyViMode",
         }
@@ -190,7 +167,7 @@ gls.right[7] = {
 gls.right[8] = {
         DiagnosticInfo = {
                 provider = "DiagnosticInfo",
-                icon = get("info") .. ' ',
+                icon = "" .. ' ',
                 highlight = "GalaxyViMode",
         }
 }
@@ -198,7 +175,7 @@ gls.right[8] = {
 gls.right[9] = {
         DiagnosticHint = {
                 provider = "DiagnosticHint",
-                icon = get("question") .. ' ',
+                icon = "" .. ' ',
                 highlight = "GalaxyViMode",
         }
 }
@@ -206,7 +183,7 @@ gls.right[9] = {
 gls.right[10] = {
         DiagnosticWarn = {
                 provider = "DiagnosticWarn",
-                icon = get("no-entry") .. ' ',
+                icon = "" .. ' ',
                  highlight = "GalaxyViMode",
         }
 }
@@ -214,7 +191,7 @@ gls.right[10] = {
 gls.right[11] = {
         DiagnosticError = {
                 provider = "DiagnosticError",
-                icon = get("x-circle") .. ' ',
+                icon = "" .. ' ',
                 highlight = "GalaxyViMode",
         }
 }
@@ -225,7 +202,7 @@ gls.short_line_left[1] = {
         BufferType = {
                 provider = "FileName",
                 separator = "",
-                separator_highlight = { colors.nord1, colors.bg },
+                separator_highlight = { colors.nord1, colors.nord0 },
                 highlight = { colors.nord9, colors.nord1 },
                 event = ""
         }

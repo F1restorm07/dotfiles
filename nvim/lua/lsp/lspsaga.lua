@@ -1,56 +1,58 @@
-local get = require('icons').get
-local colors = require('highlights').colors
-local custom_kind = require('icons').symbol_map
-local saga = require 'lspsaga'
-
-saga.setup({
+require('lspsaga').setup({
         border_style = "rounded",
-        diagnostic_header = { get("x-circle"), get("no-entry"), get("question"), get("info") },
+        diagnostic_header = { "", "", "", "" },
         lightbulb = {
                 enable = false,
         },
         symbol_in_winbar = {
                 enable = true,
-                separator = get("chevron-right") .. ' ',
+                separator = ' ' .. '' .. ' ',
                 folder_level = 0,
         },
         ui = {
                 kind = {
-                        ["Class"] = {custom_kind.Class .. ' ', colors.nord15},
-                        ["Constant"] = {custom_kind.Constant .. ' ', colors.nord8},
-                        ["Constructor"] = {custom_kind.Constructor .. ' ', colors.nord7},
-                        ["Enum"] = {custom_kind.Enum .. ' ', colors.nord14},
-                        ["EnumMember"] = {custom_kind.EnumMember .. ' ', colors.nord14},
-                        ["Event"] = {custom_kind.Event .. ' ', colors.nord15},
-                        ["Field"] = {custom_kind.Field .. ' ', colors.nord10},
-                        ["File"] = {custom_kind.File .. ' ', colors.fg},
-                        ["Function"] = {custom_kind.Function .. ' ', colors.nord15},
-                        ["Interface"] = {custom_kind.Interface .. ' ', colors.nord12},
-                        ["Key"] = {custom_kind.Keyword .. ' ', colors.nord11},
-                        ["Method"] = {custom_kind.Method .. ' ', colors.nord15},
-                        ["Module"] = {custom_kind.Module .. ' ', colors.nord7},
-                        ["Operator"] = {custom_kind.Operator .. ' ', colors.nord14},
-                        ["Property"] = {custom_kind.Property .. ' ', colors.nord8},
-                        ["Struct"] = {custom_kind.Struct .. ' ', colors.nord15},
-                        ["String"] = {custom_kind.Text .. ' ', colors.nord14},
-                        ["TypeParameter"] = {custom_kind.TypeParameter .. ' ', colors.nord14},
-                        ["Variable"] = {custom_kind.Variable .. ' ', colors.nord7}
+                        ["Class"]         = {"" .. ' ',           "@lsp.type.class"},
+                        ["Constant"]      = {"" .. ' ',           "@constant"},
+                        ["Constructor"]   = {"" .. ' ',           "@constructor"},
+                        ["Enum"]          = {"" .. ' ',           "@lsp.type.enum"},
+                        ["EnumMember"]    = {"" .. ' ',           "@lsp.type.enumMember"},
+                        ["Event"]         = {"" .. ' ',           ""},
+                        ["Field"]         = {"" .. ' ',           "@field"},
+                        ["File"]          = {"" .. ' ',           ""},
+                        ["Function"]      = {"" .. ' ',           "@function"},
+                        ["Interface"]     = {"" .. ' ',           "@lsp.type.interface"},
+                        ["Key"]           = {"" .. ' ',           "@keyword"},
+                        ["Method"]        = {"" .. ' ',           "@lsp.type.method"},
+                        ["Module"]        = {"" .. ' ',           "@namespace"},
+                        ["Operator"]      = {"" .. ' ',           "@operator"},
+                        ["Property"]      = {"" .. ' ',           "@lsp.type.property"},
+                        ["Struct"]        = {"" .. ' ',           "@lsp.type.struct"},
+                        ["String"]        = {"" .. ' ',           "@string"},
+                        ["TypeParameter"] = {"" .. ' ',           "@lsp.type.typeParameter"},
+                        ["Variable"]      = {"" .. ' ',           "@variable"},
+                        ["Namespace"]     = {"" .. ' ',           "@namespace"},
+                        ["Package"]       = {"" .. ' ',           ""},
+                        ["Number"]        = {"" .. ' ',           "@number"},
+                        ["Boolean"]       = {"" .. ' ',           "@boolean"},
+                        ["Array"]         = {"" .. ' ',           "@type"},
+                        ["Object"]        = {"" .. ' ',           "@constant"},
                 },
                 colors = {
                         normal_bg = "#2e3440",
-                        title_bg = "#2e3440",
-                        red = "#bf616a",
-                        orange = "#d08770",
-                        yellow = "#ebcb8b",
-                        green = "#a3be8c",
-                        blue = "#81a1c1",
-                        purple = "#8fbcbb",
-                        magenta = "#b48ead",
-                        white = "#eceff4",
-                        black = "#2e3440"
+                        title_bg  = "#2e3440",
+                        red       = "#bf616a",
+                        orange    = "#d08770",
+                        yellow    = "#ebcb8b",
+                        green     = "#a3be8c",
+                        blue      = "#81a1c1",
+                        purple    = "#8fbcbb",
+                        magenta   = "#b48ead",
+                        white     = "#eceff4",
+                        black     = "#2e3440"
                 },
                 border = "rounded",
                 title = false,
 
         }
 })
+

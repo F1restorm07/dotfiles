@@ -1,52 +1,84 @@
 local wezterm = require 'wezterm'
--- local LEFT_DOWN_SLANT = utf8.char(0xe0b8)
-local RIGHT_DOWN_SLANT = utf8.char(0xe0ba)
-local LEFT_UP_SLANT = utf8.char(0xe0bc)
--- local RIGHT_UP_SLANT = utf8.char(0xe0be)
--- local LEFT_HALF_CIRCLE = ' ' .. utf8.char(0xe0b6)
--- local RIGHT_HALF_CIRCLE = utf8.char(0xe0b4) .. ' '
+local LEFT_SEMI_CIRCLE = utf8.char(0xe0b6)
+local RIGHT_SEMI_CIRCLE = utf8.char(0xe0b4)
 
 wezterm.on(
   'format-tab-title',
   function(tab, tabs, panes, config, hover, max_width)
-        local edge_background = '#3b4151'
-        local background = '#4c5569'
-        local foreground = '#e5e8ef'
+        local background = '#4c556a'
+        local foreground = '#d8dee9'
 
     if tab.is_active then
-            background = '#88bfcf'
-            foreground = '#3b4151'
+            background = '#8fbcbb'
+            foreground = '#3b4252'
     end
 
-    local index = tab.tab_index
+    local edge_background = '#4c566a'
     local edge_foreground = background
+
+    if tab.tab_index + 1 == #tabs then
+        edge_background = '#3b4252'
+    elseif tabs[tab.tab_index + 2].is_active then -- tab_index is zero-based, lua arrays are one-based
+        edge_background = '#8fbcbb'
+    end
+
     local title = tab.active_pane.foreground_process_name
-    title = wezterm.truncate_right(string.format(' %d  %s ', index, string.gsub(title, '(.*[/\\])(.*)', '%2')), max_width - 2)
+    title = wezterm.truncate_right(string.format(' %d %s ', tab.tab_index, string.gsub(title, '(.*[/\\])(.*)', '%2 ')), max_width - 2)
 
     return {
-        { Background = { Color = edge_background } },
-        { Foreground = { Color = edge_foreground } },
-        { Text = RIGHT_DOWN_SLANT },
         { Background = { Color = background } },
         { Foreground = { Color = foreground } },
         { Text = title },
         { Background = { Color = edge_background } },
         { Foreground = { Color = edge_foreground } },
-        { Text = LEFT_UP_SLANT },
+        { Text = RIGHT_SEMI_CIRCLE },
     }
     end
 )
+
+wezterm.on("update-status", function(window, pane)
+        local sections = {}
+        local date = wezterm.strftime("%m.%d/%H:%M")
+
+        local cwd_uri = pane:get_current_working_dir() -- cwd and hostname
+        if cwd_uri then
+                cwd_uri = cwd_uri:sub(8)
+
+                local home_dir,n = cwd_uri:gsub('/Users/[^/]*', '~')
+                if n == 0 then
+                        home_dir,n = cwd_uri:gsub('/home/[^/]*', '~')
+                end
+
+                local cwd = home_dir
+
+                table.insert(sections, cwd)
+        end
+        table.insert(sections, date)
+
+        local elements = {}
+
+        -- cwd
+        table.insert(elements, { Foreground = { Color = '#81a1c1' }})
+        table.insert(elements, { Background = { Color = '#3b4252' }})
+        table.insert(elements, { Text = table.remove(sections, 1) .. ' ' })
+
+        -- date
+        table.insert(elements, { Foreground = { Color = '#8fbcbb' }})
+        table.insert(elements, { Background = { Color = '#3b4252' }})
+        table.insert(elements, { Text = LEFT_SEMI_CIRCLE })
+        table.insert(elements, { Foreground = { Color = '#3b4252' }})
+        table.insert(elements, { Background = { Color = '#8fbcbb' }})
+        table.insert(elements, { Text = ' ' .. table.remove(sections, 1) .. ' ' })
+
+        window:set_right_status(wezterm.format(elements));
+end)
 
 local keys = {
         {
                 key = 'x',
                 mods = 'LEADER',
                 action = wezterm.action.CloseCurrentPane { confirm = true },
-        },
-        {
-                key = 'd',
-                mods = 'LEADER',
-                action = wezterm.action.CloseCurrentPane { confirm = true },
+
         },
         {
                 key = '&',
@@ -219,15 +251,14 @@ return {
                 },
 
       },
-        -- font_dirs = { './nonicons/dist' },
         color_scheme = "nord",
         colors = {
                 tab_bar = {
-                        background = '#3b4151',
+                        background = '#3b4252',
 
                         new_tab = {
-                                bg_color = '#3b4151',
-                                fg_color = '#3b4151',
+                                bg_color = '#3b4252',
+                                fg_color = '#3b4252',
                         },
                 }
         },

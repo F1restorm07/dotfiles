@@ -1,6 +1,6 @@
 -- {{{ System Config
 
-require('impatient').enable_profile()
+vim.loader.enable()
 
 local set = vim.opt
 
@@ -35,7 +35,6 @@ set.swapfile = false
 set.backup = false
 set.undofile = true
 
--- set.colorcolumn = "100"
 set.completeopt = "menu,menuone,noselect"
 
 set.hidden = true
@@ -48,20 +47,6 @@ set.formatoptions = "jrql"
 set.sessionoptions = "blank,curdir,folds,help,winsize,winpos,terminal,tabpages"
 set.signcolumn = "yes"
 
---  }}}
---  -------------------------------------------------------
---  {{{ Plugin Setup Commands
-
-set.termguicolors = true
-set.guifont = 'JetBrainsMono Nerd Font Mono,nonicons:h13'
-vim.cmd.colorscheme('nord')
-vim.g.nord_borders = true
-
-vim.cmd [[packadd packer.nvim]]
-require('highlights')
-require('keymaps')
-
---  }}}
 --  -------------------------------------------------------
 --  {{{ Variables
 
@@ -76,10 +61,24 @@ vim.g.loaded_2html_plugin = 1
 
 --  }}}
 --  -------------------------------------------------------
+--  {{{ Plugin Setup Commands
+
+set.rtp:prepend(vim.fn.stdpath('data') .. '/lazy/lazy.nvim')
+require('plugins')
+
+set.termguicolors = true
+set.guifont = 'JetBrainsMono Nerd Font Mono:h13'
+vim.cmd.colorscheme('nord')
+
+require('highlights')
+require('keymaps')
+
+--  }}}
+--  -------------------------------------------------------
 --  {{{ Autocommands
 
 vim.api.nvim_create_augroup("numbertoggle", { clear = true })
-vim.api.nvim_create_augroup("alpha_nvim", { clear = true })
+vim.api.nvim_create_augroup("alphanvim", { clear = true })
 
 -- numbertoggle
 vim.api.nvim_create_autocmd(
@@ -98,7 +97,7 @@ vim.api.nvim_create_autocmd(
                 vim.opt.showtabline = 0
                 vim.opt.cmdheight = 0
         end,
-        group = "alpha_nvim"
+        group = "alphanvim"
         }
 )
 vim.api.nvim_create_autocmd(
@@ -108,6 +107,6 @@ vim.api.nvim_create_autocmd(
                 vim.opt.showtabline = 2
                 vim.opt.cmdheight = 1
         end,
-        group = "alpha_nvim"
+        group = "alphanvim"
         }
 )

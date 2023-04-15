@@ -2,11 +2,10 @@
         "layer": "top",
         "position": "top",
         "height": 25,
-        "margin": "5, 0, 2, 0",
+        "margin": 0,
         "spacing": 0,
         "modules_left": [
                 "river/tags",
-                "river/window"
         ],
         "modules_right": [
                 "pulseaudio",
@@ -17,10 +16,6 @@
         ],
 	"river/tags": {
 		"num-tags": 9
-        },
-        "river/window": {
-                "format": "{}",
-                "tooltip": false
         },
         "pulseaudio": {
                 "format": "{icon} {volume}%",
@@ -33,7 +28,7 @@
         "backlight": {
                 "format": "{icon} {percent}%",
                 "format-icons": "light",
-                "device": "DP-1",
+                "device": "HDMI-A-1",
                 "tooltip": false
         },
         "bluetooth": {

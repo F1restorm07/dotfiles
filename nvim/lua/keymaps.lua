@@ -25,10 +25,11 @@ keymap('n', '$', '<nop>', { noremap = true })
 keymap('n', ";w", "<cmd>w<cr>", opts)
 keymap('n', ";q", "<cmd>q<cr>", opts)
 
-keymap('n', 'U', '<c-r>', { noremap = true })
-keymap('n', 'K', '<c-u>', { noremap = true })
-keymap('n', 'J', '<c-d>', { noremap = true })
+keymap('n', 'U', '<c-r>', { noremap = true }) -- redo
+keymap('n', 'K', '<c-u>', { noremap = true }) -- scroll up n lines
+keymap('n', 'J', '<c-d>', { noremap = true }) -- scroll down n lines
 
+-- insert newline before/after current line
 keymap('n', '<S-cr>', "<cmd>put! =repeat(nr2char(10), v:count1)|silent ']+1<cr>", opts)
 keymap('n', '<cr>', "<cmd>put =repeat(nr2char(10), v:count1)|silent '[-1<cr>", opts)
 
@@ -36,7 +37,7 @@ keymap('n', "zs", '<cmd>term zsh<cr>a', opts)
 keymap('t', "<esc>", "<c-\\><c-n>", opts)
 keymap('n', "<leader>g", "<cmd>Git<cr>", opts)
 
-keymap('n', '-', "<cmd>lua require('oil').open_float()<cr>", opts)
+-- keymap('n', '-', "<cmd>lua require('oil').open_float()<cr>", opts)
 
 -- fuzzy finder
 keymap('n', "<leader>ff", "<cmd>FzfLua files<cr>", opts)
@@ -55,7 +56,7 @@ keymap('n', "tp", "gT", opts)
 keymap('n', ";s", "<cmd>new<cr>", opts)
 keymap('n', ";v", "<cmd>vnew<cr>", opts)
 keymap('n', ";o", "<c-w>o", opts)
-keymap('n', ";d", "<cmd>call delete(@%) | bdelete!<cr>")
+keymap('n', ";d", "<cmd>call delete(@%) | bdelete!<cr>") -- deletes current buffer
 
 keymap('n', ";j", "<cmd>lua require('smart-splits').move_cursor_down()<cr>")
 keymap('n', ";k", "<cmd>lua require('smart-splits').move_cursor_up()<cr>")

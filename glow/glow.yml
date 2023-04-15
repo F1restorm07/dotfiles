@@ -1,4 +1,4 @@
-style: "nord.json"
-pager: true
+style: "~/.config/glow/nord.json"
+# pager: true
 width: 100
 local: true
