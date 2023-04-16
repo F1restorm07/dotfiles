@@ -28,14 +28,18 @@ window#waybar.hidden {
 
 #tags button.focused {
         color: #81a1c1;
-        color: #2e3440;
+        background-color: #2e3440;
+}
+
+#tags button:active {
+        color: #81a1c1;
+        background-color: inherit;
 }
 
 #tags button.visible {}
 
 #cpu,
 #memory {
-        /* margin: 4px 2px; */
         padding: 0 8px;
         min-width: 8px;
         background-color: #3b4252;

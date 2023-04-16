@@ -1,0 +1,16 @@
+width=400
+height=400
+anchor=center
+exclusive-zone=-1
+font="JetBrainsMono Nerd Font Mono"
+font-size=12
+padding-top=8
+padding-bottom=8
+padding-left=8
+padding-right=8
+
+text-color=#d8dee9
+background-color=#2e3440
+
+prompt-text="[*.*] "
+

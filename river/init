@@ -12,7 +12,7 @@ riverctl map normal $super W spawn qutebrowser
 
 riverctl map normal $super Q close
 riverctl map normal $super+Shift Q exit
-riverctl map normal $super Space spawn wofi
+riverctl map normal $super Space spawn tofi
 
 # send focused view to the top of the layout stack
 riverctl map normal $super T zoom
@@ -71,8 +71,9 @@ riverctl border-color-unfocused 0x3b4252
 rivetctl border-width 3
 
 #TODO: autostart
+riverctl spawn "dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus"
 riverctl spawn "waybar"
-# riverctl spawn "kanshi"
+riverctl spawn "kanshi"
 riverctl spawn "mako"
 
 # tags
