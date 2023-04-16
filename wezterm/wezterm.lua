@@ -266,4 +266,5 @@ return {
         tab_bar_at_bottom = true,
         leader = { key = 'b', mods = 'CTRL' },
         keys = keys,
+        enable_wayland = true,
 }

@@ -1,11 +1,13 @@
 .DS_Store
 GIMP/
 Thunar/
+bottom/
 coc/
 configstore/
 dconf/
 ferium/
 fontconfig/
+glib-*/
 gtk-*/
 htop/
 inkscape/

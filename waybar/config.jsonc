@@ -1,0 +1,106 @@
+/*
+{
+        "layer": "overlay",
+        "position": "top",
+        "height": 25,
+        "margin": 0,
+        "spacing": 0,
+        "modules_left": [
+                "river/tags"
+        ],
+        "modules_right": [
+                // "pulseaudio",
+                // "backlight",
+                // "bluetooth",
+                "network",
+                "clock"
+        ],
+	"river/tags": {
+		"num-tags": 9
+        },
+        // "pulseaudio": {
+        //         "format": "{icon} {volume}%",
+        //         "format-muted": "{icon}",
+        //         "format-icons": {
+        //                 "default": "vol"
+        //         },
+        //         "tooltip": false
+        // },
+        // "backlight": {
+        //         "format": "{icon} {percent}%",
+        //         "format-icons": "light",
+        //         "device": "HDMI-A-1",
+        //         "tooltip": false
+        // },
+        // "bluetooth": {
+        //         "format": "{icon} {status}",
+        //         "format-connected": "{icon} {device_alias}",
+        //         "format-disabled": "",
+        //         "format-icons": "blth",
+        //         "tooltip": false
+        // },
+        "network": {
+                "format": "{icon} {ifname}",
+                "format-wifi": "{icon} {essid} ({signalStrength}%)",
+                "format-icons": "net",
+                "tooltip": false
+        },
+        "clock": {
+                "format": "{:%m.%d/%H:%M}",
+                "timezone": "America/Denver",
+                "interval": 15,
+                "tooltip": false
+        }
+}
+*/
+{
+        "layer": "overlay",
+        "height": 35,
+        "margin": 0,
+         "modules-left": ["river/tags", "river/mode"],
+        "modules-right": [
+                "pulseaudio",
+                "cpu",
+                "memory",
+                "bluetooth",
+                "network",
+                "clock"
+        ],
+        "pulseaudio": {
+                "format": "{icon} {volume}%",
+                "format-muted": "{icon}",
+                "format-icons": {
+                        "default": "vol:"
+                },
+                "tooltip": false
+        },
+        "cpu": {
+                "format": "{icon} {usage}%",
+                "format-icons": "cpu:",
+                "tooltip": false
+        },
+        "memory": {
+                "format": "{icon} {used}",
+                "format-icons": "mem:",
+                "tooltip": false
+        },
+        "bluetooth": {
+                "format": "{icon} {status}",
+                "format-connected": "{icon} {device_alias}",
+                "format-disabled": "",
+                "format-icons": "blth:",
+                "tooltip": false
+        },
+        "network": {
+                "format": "{icon} {ifname}",
+                "format-wifi": "{icon} {essid} ({signalStrength}%)",
+                "format-icons": "net:",
+                "tooltip": false
+        },
+        "clock": {
+                "format": "{:%m.%d/%H:%M}",
+                "timezone": "America/Denver",
+                "interval": 15,
+                "tooltip": false
+        }
+}

@@ -1,3 +1,4 @@
+
 * {
         border: none;
         font-family: JetBrainsMono Nerd Font Mono;
@@ -27,18 +28,14 @@ window#waybar.hidden {
 
 #tags button.focused {
         color: #81a1c1;
+        color: #2e3440;
 }
 
 #tags button.visible {}
 
-#window {
-	color: #d8dee9;
-}
-
-#pulseaudio,
-#backlight,
-#bluetooth {
-        margin: 4px 2px;
+#cpu,
+#memory {
+        /* margin: 4px 2px; */
         padding: 0 8px;
         min-width: 8px;
         background-color: #3b4252;
@@ -48,3 +45,4 @@ window#waybar.hidden {
         margin: 4px 2px;
         padding: 0 10px;
 }
+
