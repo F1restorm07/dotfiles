@@ -43,6 +43,8 @@ wezterm.on("update-status", function(window, pane)
         local cwd_uri = pane:get_current_working_dir() -- cwd and hostname
         if cwd_uri then
                 cwd_uri = cwd_uri:sub(8)
+                local slash = cwd_uri:find('/')
+                cwd_uri = slash and cwd_uri:sub(slash) or cwd_uri
 
                 local home_dir,n = cwd_uri:gsub('/Users/[^/]*', '~')
                 if n == 0 then
@@ -208,7 +210,7 @@ local keys = {
 }
 
 return {
-        font = wezterm.font_with_fallback { "JetBrainsMono Nerd Font Mono", "nonicons" },
+        font = wezterm.font_with_fallback { "JetBrainsMono Nerd Font Mono" },
         font_rules = {
                 {
                         intensity = 'Bold',
@@ -220,7 +222,6 @@ return {
                                         stretch = "Normal",
                                         style = "Normal"
                                 },
-                                "nonicons"
                         }
                 },
                 {
@@ -233,7 +234,6 @@ return {
                                         stretch = "Normal",
                                         style = "Italic"
                                 },
-                                "nonicons"
                         }
                 },
                 {
@@ -246,7 +246,6 @@ return {
                                         stretch = "Normal",
                                         style = "Italic"
                                 },
-                                "nonicons"
                         }
                 },
 

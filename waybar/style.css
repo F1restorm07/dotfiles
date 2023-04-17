@@ -12,13 +12,10 @@ window#waybar {
         margin: 0;
 }
 
-window#waybar.hidden {
-        opacity: 0.2;
-}
-
 #tags {
         margin: 0 3px;
-	color: transparent;
+	color: #5e81ac;
+        background-color: #3b4252;
 }
 
 #tags button {
@@ -27,21 +24,22 @@ window#waybar.hidden {
 }
 
 #tags button.focused {
-        color: #81a1c1;
-        background-color: #2e3440;
+        color: #b48ead;
 }
 
-#tags button:active {
-        color: #81a1c1;
-        background-color: inherit;
+#tags button.urgent {
+        color: #bf616a;
 }
 
-#tags button.visible {}
+#tags button.occupied {
+        color: #d8dee9;
+}
 
 #cpu,
 #memory {
         padding: 0 8px;
         min-width: 8px;
+        color: #88c0d0;
         background-color: #3b4252;
 }
 
