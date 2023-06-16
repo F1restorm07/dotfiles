@@ -663,21 +663,21 @@ devicons.set_icon {
     color = "#FB9D3B",
     name = "Rss"
   },
-  -- ["sass"] = {
-  --   icon = "",
-  --   color = "#f55385",
-  --   name = "Sass"
-  -- },
+  ["sass"] = {
+    icon = "",
+    color = "#f55385",
+    name = "Sass"
+  },
   ["scala"] = {
     icon = "",
     color = "#cc3e44",
     name = "Scala"
   },
-  -- ["scss"] = {
-  --   icon = "",
-  --   color = "#f55385",
-  --   name = "Scss"
-  -- },
+  ["scss"] = {
+    icon = "",
+    color = "#f55385",
+    name = "Scss"
+  },
   ["sh"] = {
     icon = "",
     color = "#4d5a5e",
@@ -748,6 +748,12 @@ devicons.set_icon {
   --   color = "#8dc149",
   --   name = "Twig"
   -- },
+  ["txt"] = {
+    icon = "",
+    color = "#89e051",
+    cterm_color = "113",
+    name = "Txt",
+  },
   ["vim"] = {
     icon = "",
     color = "#019833",

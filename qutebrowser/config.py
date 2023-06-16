@@ -127,3 +127,13 @@ c.colors.tabs.indicator.system = 'none'
 #################################################
 # Fonts
 c.fonts.default_family = 'JetBrainsMono Nerd Font Mono'
+#################################################
+# Args passed to Qt for perfomance reasons
+c.qt.args += [
+    "ignore-gpu-blacklist",
+    "enable-accelerated-2d-canvas",
+    "enable-gpu-rasterization",
+]
+#################################################
+# Keybinds
+config.bind('yi', 'spawn iina {url}')

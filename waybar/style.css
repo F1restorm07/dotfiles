@@ -3,19 +3,18 @@
         border: none;
         font-family: JetBrainsMono Nerd Font Mono;
         font-size: 14px;
-        color: #d8dee9;
+        color: #88c0d0;
 }
 
 window#waybar {
-        background-color: #2e3440;
+        background-color: #00000000; /* transparent background */
         padding: 0;
         margin: 0;
 }
 
 #tags {
         margin: 0 3px;
-	color: #5e81ac;
-        background-color: #3b4252;
+        background-color: #2e3440;
 }
 
 #tags button {
@@ -32,7 +31,11 @@ window#waybar {
 }
 
 #tags button.occupied {
-        color: #d8dee9;
+        color: #5e81ac;
+}
+
+#window {
+        background-color: #3b4252;
 }
 
 #cpu,

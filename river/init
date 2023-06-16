@@ -3,37 +3,40 @@
 super="Mod4"
 alt="Mod1"
 
-#gsettings cmds
+# gsettings cmds
 gsettings set org.gnome.desktop.wm.preferences button-layout ""
 
-# app cmds
+# app spawning
 riverctl map normal $super Return spawn wezterm
 riverctl map normal $super W spawn qutebrowser
+riverctl map normal $super Space spawn tofi
 
 riverctl map normal $super Q close
 riverctl map normal $super+Shift Q exit
-riverctl map normal $super Space spawn tofi
 
 # send focused view to the top of the layout stack
 riverctl map normal $super T zoom
 riverctl map normal $super+Shift F toggle-float
 
+# changing / swaping focused windows
 riverctl map normal $super J focus-view next
 riverctl map normal $super K focus-view previous
 riverctl map normal $super+Shift J swap next
 riverctl map normal $super+Shift K swap previous
 
-# window movement cmds
+# window movement
 riverctl map normal $super+$alt H move left 100
 riverctl map normal $super+$alt J move down 100
 riverctl map normal $super+$alt K move up 100
 riverctl map normal $super+$alt L move right 100
 
+# window resziing
 riverctl map normal $super+Shift H resize left 100
 riverctl map normal $super+Shift J resize down 100
 riverctl map normal $super+Shift K resize up 100
 riverctl map normal $super+Shift L resize right 100
 
+# snap window to anchor
 riverctl map normal $super+Control H snap left
 riverctl map normal $super+Control J snap down
 riverctl map normal $super+Control K snap up
@@ -59,20 +62,19 @@ riverctl map normal $super+$alt+Shift L send-layout-cmd rivertile "main-count -1
 # pertaining to my keyboard
 # no brightness files related to my external monitor have been found anywhere
 # i can change the brightness among with controls on the monitor itself, but would like to set the
-# actions to keybinds inside linux, any help is appreciated (the port is HDMI-A-1 if that helps any)
+# actions to keybinds inside linux, any help is appreciated (the port is HDMI-A-1 and the brand is msi if that helps any)
 
 # floating window conditions
 riverctl float-filter-add app-id mako
 
 # window and background decorations
-# riverctl background-color 0x2e3440 #TODO: set wallpaper with wbg (riverctl spawn "wbg <wallpaper>.<ext>")
 riverctl border-color-focused 0x81a1c1
 riverctl border-color-unfocused 0x3b4252
 rivetctl border-width 3
 
 #TODO: autostart
 riverctl spawn "exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus"
-riverctl spawn "exec wbg whiteblue_city_highrise.jpg"
+riverctl spawn "exec wbg darkblue_highrise_glow.webp"
 riverctl spawn "exec waybar"
 riverctl spawn "exec kanshi"
 riverctl spawn "exec mako"
@@ -82,8 +84,8 @@ for i in $(seq 1 9)
 do
         tagmask=$((1 << ($i - 1)))
 
-        riverctl map normal $super $i set-focused-tags $tagmask
-        riverctl map normal $super+Shift $i set-view-tags $tagmask
+        riverctl map normal $super $i set-focused-tags $tagmask         # switch to tag
+        riverctl map normal $super+Shift $i set-view-tags $tagmask      # move window to tag
         riverctl map normal $super+$alt $i toggle-focused-tags $tagmask
         riverctl map normal $super+$alt+Shift toggle-view-tags $tagmask
 done

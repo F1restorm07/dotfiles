@@ -1,19 +1,28 @@
+// create custom borders using custom sections containing a single character
 {
-        "layer": "overlay",
+        "layer": "top",
         "height": 35,
         "margin": 0,
-         "modules-left": ["river/tags"],
+         "modules-left": [
+                 "river/tags",
+                 // "custom/border_left",
+                 "river/window"
+         ],
         "modules-right": [
-                "pulseaudio",
+                "wireplumber",
                 "cpu",
+                // "custom/gpu",
                 "memory",
-                "bluetooth",
+                // "bluetooth",
                 "clock"
         ],
         "river/tags": {
                 "disable-click": true
         },
-        "pulseaudio": {
+        "river/window": {
+                "tooltip": false
+        },
+        "wireplumber": {
                 "format": "vol: {volume}%",
                 "format-muted": "vol_muted",
                 "tooltip": false
@@ -21,19 +30,22 @@
         "cpu": {
                 "format": "cpu: {usage}%",
                 "tooltip": false
-        },
+        }
+        // "custom/gpu": { // https://www.reddit.com/r/swaywm/comments/ncjpfz/how_to_add_gpu_usage_to_waybar/
+        //         format: "",
+        // },
         "memory": {
-                "format": "mem: {used}g",
+                "format": "mem: {used}gib",
                 "tooltip": false
-        },
-        "bluetooth": {
-                "format": "blu: {status}",
-                "format-connected": "blu: {device_alias}",
-                "format-disabled": "",
-                "tooltip": false
-        },
+        }
+        // "bluetooth": {
+        //         "format": "blu: {status}",
+        //         "format-connected": "blu: {device_alias}",
+        //         "format-disabled": "",
+        //         "tooltip": false
+        // },
         "clock": {
-                "format": "{:%m.%d/%H:%M}",
+                "format": "{:%H:%M}",
                 "timezone": "America/Denver",
                 "interval": 15,
                 "tooltip": false

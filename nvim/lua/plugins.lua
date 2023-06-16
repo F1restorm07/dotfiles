@@ -40,7 +40,17 @@ return require('lazy').setup({
                                 require('leap').set_default_keymaps()
                         end,
                 },
-                {'RRethy/nvim-treesitter-textsubjects',
+                {'ggandor/flit.nvim',
+                        keys = {
+                                { 'f', mode = 'n' },
+                                { 'F', mode = 'n' },
+                                { 't', mode = 'n' },
+                                { 'T', mode = 'n' },
+                        },
+                        dependencies = 'leap.nvim',
+                        config = function() require('flit').setup() end
+                },
+                {'andymass/vim-matchup',
                         lazy = true,
                         module = {'nvim-treesitter'},
                 },
@@ -49,7 +59,7 @@ return require('lazy').setup({
                 },
                 {'stevearc/overseer.nvim',
                         cmd = { 'OverseerRun', 'OverseerToggle' },
-                        config = function() require('overseer').setup() end
+                        config = function() require('lsp.overseer') end
                 },
                 {'mrjones2014/smart-splits.nvim',
                         lazy = true,
@@ -75,11 +85,8 @@ return require('lazy').setup({
         {'hrsh7th/nvim-cmp',
                 event = {'InsertEnter', 'CmdLineEnter'},
                 dependencies = {
-                        {'onsails/lspkind.nvim',
-                                event = { 'InsertEnter', 'CmdLineEnter'},
-                                lazy = true
-                        },
-                        'rafamadriz/friendly-snippets',
+                        {'onsails/lspkind.nvim', lazy = true},
+                        'friendly-snippets',
                         {'hrsh7th/cmp-nvim-lsp', dependencies = 'nvim-cmp', lazy = true},
                         {'hrsh7th/cmp-buffer', dependencies = 'nvim-cmp', lazy = true},
                         {'hrsh7th/cmp-path', dependencies = 'nvim-cmp', lazy = true},
@@ -88,7 +95,7 @@ return require('lazy').setup({
                 },
                 config = function() require('lsp.cmp') end
         },
-        {'glepnir/lspsaga.nvim',
+        {'nvimdev/lspsaga.nvim',
                 branch = 'main',
                 event = { 'LspAttach' },
                 config = function() require('lsp.lspsaga') end
@@ -99,7 +106,7 @@ return require('lazy').setup({
         },
         {'rafamadriz/friendly-snippets',
                 module = { 'cmp', 'cmp_nvim_lsp' },
-                event = 'InsertEnter',
+                lazy = true,
         },
 -- }}}
 
@@ -111,7 +118,7 @@ return require('lazy').setup({
 -- }}}
 
 -- {{{ Aesthetics
-        {'glepnir/galaxyline.nvim',
+        {'nvimdev/galaxyline.nvim',
                 branch = 'main',
                 event = { 'BufNewFile', 'BufAdd', 'BufReadPost' },
                 config = function() require('ui.galaxyline') end
@@ -155,12 +162,8 @@ return require('lazy').setup({
 plugins to look into
 ***
 
-sidebar-nvim/sidebar.nvim (mpdular, customizable sidebar)
-Idelossa/nvim-ide (complete ide layer -> everything in sidebars)
-ggandor/flit.nvim (enhanced f/t movement -> builds on leap.nvim)
-andymass/vim-matchup (enhanced % movement)
+sidebar-nvim/sidebar.nvim (modular, customizable sidebar)
 chentoast/marks.nvim (enhanced vim marks)
-nvim-treesitter/nvim-treesitter-textobjects
 stevearc/oil.nvim (edit filesystem like a vim buffer)
 epwalsh/obsidian.nvim (nvim integration with obsidian.md)
 

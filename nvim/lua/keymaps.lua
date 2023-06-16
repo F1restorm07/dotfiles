@@ -45,6 +45,7 @@ keymap('n', "<leader>fg", "<cmd>FzfLua grep<cr>", opts)
 keymap('n', "<leader>fb", "<cmd>FzfLua buffers<cr>", opts)
 keymap('n', "<leader>f/", "<cmd>FzfLua grep_curbuf<cr>", opts)
 keymap('n', "<leader>fh", "<cmd>FzfLua help_tags<cr>", opts)
+keymap('n', "<leader>fl", "<cmd>FzfLua lsp_finder<cr>", opts) -- need to show only line num
 
 -- tabs
 keymap('n', "ta", "<cmd>tabnew<cr>", opts)
@@ -74,14 +75,15 @@ keymap('n', '<c-h>', "<cmd>lua require('smart-splits').swap_buf_left()<cr>")
 keymap('n', '<c-l>', "<cmd>lua require('smart-splits').swap_buf_right()<cr>")
 
 -- lsp
-keymap('n', "<leader>lf", "<cmd>Lspsaga lsp_finder<cr>", opts)
+keymap('n', "<leader>lf", "<cmd>Lspsaga lsp_finder<cr>", opts) -- definitions and references
 keymap('n', "<leader>lh", "<cmd>Lspsaga hover_doc<cr>", opts)
+keymap('n', "<leader>lr", "<cmd>Lspsaga rename<cr>", opts)
 
 -- diagnostics
 keymap('n', "<leader>dl", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
 keymap('n', "<leader>dc", "<cmd>Lspsaga show_cursor_diagnostics<cr>", opts)
 keymap('n', "<leader>db", "<cmd>Lspsaga show_buf_diagnostics<cr>", opts)
-keymap('n', "<leader>dn", "<cmd>Lspsaga dianostic_jump_next<cr>", opts)
+keymap('n', "<leader>dn", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
 keymap('n', "<leader>dp", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
 keymap('n', "<leader>dN", "<cmd>lua require('lspsaga.diagnostic').goto_next({ severity = vim.diagnostic.severity.ERROR })<cr>", opts)
 keymap('n', "<leader>dP", "<cmd>lua require('lspsaga.diagnostic').goto_prev({ severity = vim.diagnostic.severity.ERROR })<cr>", opts)

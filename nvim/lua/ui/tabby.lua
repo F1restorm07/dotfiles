@@ -16,7 +16,7 @@ require('tabby.tabline').set(function(line)
 
         return {
                 {
-                        { '  ', hl = theme.head },
+                        { ' ', hl = theme.head },
                         -- line.sep('', theme.head, theme.head),
                 },
                 line.tabs().foreach(function(tab) -- current tab (how to set previous tab hl)
@@ -66,7 +66,7 @@ require('tabby.tabline').set(function(line)
                 end),
                 {
                         -- line.sep(' ', theme.tail, theme.tail),
-                        { '  ', hl = theme.tail },
+                        { ' ', hl = theme.tail },
                 }
         }
 end)

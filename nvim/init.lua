@@ -3,6 +3,7 @@
 vim.loader.enable()
 
 local set = vim.opt
+local g = vim.g
 
 set.visualbell = true
 set.ruler = true
@@ -11,7 +12,7 @@ set.number = true
 set.mouse = 'a'
 set.confirm = true
 
-set.softtabstop = 2
+set.softtabstop = 4
 set.expandtab = true
 set.smartindent = true
 set.wrap = false
@@ -42,7 +43,7 @@ set.cmdheight = 2
 set.showtabline = 2
 set.conceallevel = 2
 set.updatetime = 300
-set.shortmess = "filnxtToOFc"
+set.shortmess = "filnxtToOFcsI"
 set.formatoptions = "jrql"
 set.sessionoptions = "blank,curdir,folds,help,winsize,winpos,terminal,tabpages"
 set.signcolumn = "yes"
@@ -50,14 +51,27 @@ set.signcolumn = "yes"
 --  -------------------------------------------------------
 --  {{{ Variables
 
-vim.g.loaded_netrwPlugin = 1
-vim.g.loaded_netrw = 1
-vim.g.loaded_tutor_mode_plugin = 1
-vim.g.loaded_zipPlugin = 1
-vim.g.loaded_gzip = 1
-vim.g.loaded_tarPlugin = 1
-vim.g.loaded_matchit = 1
-vim.g.loaded_2html_plugin = 1
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
+g.loaded_netrwSettings = 1
+g.loaded_netrwFileHandlers = 1
+
+g.did_load_ftplugin = 1
+g.did_ftplugin = 1
+
+g.loaded_tutor_mode_plugin = 1
+
+g.loaded_zipPlugin = 1
+g.loaded_gzip = 1
+g.loaded_tarPlugin = 1
+
+g.loaded_matchit = 1
+g.loaded_matchparen = 1
+
+g.loaded_2html_plugin = 1
+g.loaded_remote_plugins = 1
+g.loaded_compiler = 1
+g.loaded_man = 1
 
 --  }}}
 --  -------------------------------------------------------
