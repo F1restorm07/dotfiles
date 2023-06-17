@@ -170,3 +170,5 @@ alias cat="bat --theme Nord"
 alias glow="glow --config ~/.config/glow/glow.yml"
 alias fb="buku -p -f5 | column -ts $'\t' | fzf -m | cut -d ' ' -f1 | buku -o"
 alias fa="fd .  -t x -t l $(echo $PATH | sed 's_:_\ _g') | grep -o '[^/]*$' | fzf --preview='man {}'"
+
+source /home/f1restorm/.config/broot/launcher/bash/br

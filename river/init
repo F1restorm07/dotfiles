@@ -54,6 +54,9 @@ riverctl map normal $super+$alt+Shift H send-layout-cmd rivertile "main-count +1
 riverctl map normal $super+$alt+Shift L send-layout-cmd rivertile "main-count -1"
 
 # media
+riverctl map normal None XF86AudioRaiseVolume spawn 'pactl set-sink-volume @DEFAULT_SINK@ +5%'
+riverctl map normal None XF86AudioLowerVolume spawn 'pactl set-sink-volume @DEFAULT_SINK@ -5%'
+riverctl map normal None XF86AudioMute spawn 'pactl set-sink-volume @DEFAULT_SINK@ 0%'
 # riverctl map normal F11 XF86MonBrightnessUp spawn "brightnessctl set +5"
 # riverctl map normal F12 XF86MonBrightnessUp spawn "brightnessctl set -5"
 
@@ -74,6 +77,8 @@ rivetctl border-width 3
 
 #TODO: autostart
 riverctl spawn "exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus"
+riverctl spawn "exec pipewire"
+riverctl spawn "exec wireplumber"
 riverctl spawn "exec wbg darkblue_highrise_glow.webp"
 riverctl spawn "exec waybar"
 riverctl spawn "exec kanshi"

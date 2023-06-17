@@ -11,9 +11,8 @@
         "modules-right": [
                 "wireplumber",
                 "cpu",
-                // "custom/gpu",
+                "custom/gpu",
                 "memory",
-                // "bluetooth",
                 "clock"
         ],
         "river/tags": {
@@ -30,22 +29,20 @@
         "cpu": {
                 "format": "cpu: {usage}%",
                 "tooltip": false
-        }
-        // "custom/gpu": { // https://www.reddit.com/r/swaywm/comments/ncjpfz/how_to_add_gpu_usage_to_waybar/
-        //         format: "",
-        // },
+        },
+        // https://www.reddit.com/r/swaywm/comments/ncjpfz/how_to_add_gpu_usage_to_waybar/
+        "custom/gpu": {
+                "exec": "cat /sys/class/hwmon/hwmon1/device/gpu_busy_percent",
+                "return-type": "",
+                "interval": 1,
+                "format": "gpu: {}%"
+        },
         "memory": {
-                "format": "mem: {used}gib",
+                "format": "mem: {used} gib",
                 "tooltip": false
-        }
-        // "bluetooth": {
-        //         "format": "blu: {status}",
-        //         "format-connected": "blu: {device_alias}",
-        //         "format-disabled": "",
-        //         "tooltip": false
-        // },
+        },
         "clock": {
-                "format": "{:%H:%M}",
+                "format": "{:%m.%d/%H:%M}",
                 "timezone": "America/Denver",
                 "interval": 15,
                 "tooltip": false
