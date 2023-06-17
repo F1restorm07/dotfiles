@@ -9,7 +9,7 @@ gsettings set org.gnome.desktop.wm.preferences button-layout ""
 # app spawning
 riverctl map normal $super Return spawn wezterm
 riverctl map normal $super W spawn qutebrowser
-riverctl map normal $super Space spawn tofi
+riverctl map normal $super Space spawn tofi-drun
 
 riverctl map normal $super Q close
 riverctl map normal $super+Shift Q exit
@@ -79,7 +79,7 @@ rivetctl border-width 3
 riverctl spawn "exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus"
 riverctl spawn "exec pipewire"
 riverctl spawn "exec wireplumber"
-riverctl spawn "exec wbg darkblue_highrise_glow.webp"
+riverctl spawn "exec wbg ~/.config/river/darkblue_freeway_night.jpg"
 riverctl spawn "exec waybar"
 riverctl spawn "exec kanshi"
 riverctl spawn "exec mako"

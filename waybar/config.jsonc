@@ -1,30 +1,45 @@
 // create custom borders using custom sections containing a single character
 {
         "layer": "top",
-        "height": 35,
         "margin": 0,
          "modules-left": [
-                 "river/tags",
-                 // "custom/border_left",
-                 "river/window"
+                "river/tags",
+                "custom/border_left",
+                "river/window",
+                "custom/border_left_end"
          ],
         "modules-right": [
+                "custom/border_right_end",
                 "wireplumber",
+                 "custom/border_right_light",
                 "cpu",
                 "custom/gpu",
                 "memory",
+                 "custom/border_right_dark",
                 "clock"
         ],
         "river/tags": {
                 "disable-click": true
         },
+        "custom/border_left": {
+                "format": ""
+        },
         "river/window": {
                 "tooltip": false
+        },
+        "custom/border_left_end": {
+                "format": ""
+        },
+        "custom/border_right_end": {
+                "format": ""
         },
         "wireplumber": {
                 "format": "vol: {volume}%",
                 "format-muted": "vol_muted",
                 "tooltip": false
+        },
+        "custom/border_right_light": {
+                "format": ""
         },
         "cpu": {
                 "format": "cpu: {usage}%",
@@ -40,6 +55,9 @@
         "memory": {
                 "format": "mem: {used} gib",
                 "tooltip": false
+        },
+        "custom/border_right_dark": {
+                "format": ""
         },
         "clock": {
                 "format": "{:%m.%d/%H:%M}",
