@@ -8,7 +8,6 @@ configstore/
 dconf/
 fontconfig/
 glib-*/
-gtk-*/
 htop/
 inkscape/
 legendary/
