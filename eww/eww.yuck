@@ -1,2 +1,4 @@
-(include "./widgets/clock/clock.yuck")
+;; (include "./widgets/clock/clock.yuck")
 (include "./widgets/bar/bar.yuck")
+;; (include "./widgets/disk/disk.yuck")
+;; (include "./widgets/dashboard/dashboard.yuck")

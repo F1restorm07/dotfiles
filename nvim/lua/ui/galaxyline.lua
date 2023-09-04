@@ -100,25 +100,17 @@ gls.left[5] = {
 -- {{{ Right Side
 
 gls.right[1] = {
-        WhiteSpace = {
-                provider = function() return "" end,
+        DiffAdd = {
+                provider = "DiffAdd",
+                icon = ' ' .. "" .. ' ',
                 condition = condition.check_git_workspace,
+                highlight = "GalaxyViMode",
                 separator = "",
                 separator_highlight = "GalaxyViModeReverseBg",
-                highlight = "GalaxyViMode",
         }
 }
 
 gls.right[2] = {
-        DiffAdd = {
-                provider = "DiffAdd",
-                icon = "" .. ' ',
-                condition = condition.check_git_workspace,
-                highlight = "GalaxyViMode",
-        }
-}
-
-gls.right[3] = {
         DiffModified = {
                 provider = "DiffModified",
                 icon = "" .. ' ',
@@ -127,7 +119,7 @@ gls.right[3] = {
         }
 }
 
-gls.right[4] = {
+gls.right[3] = {
         DiffRemove = {
                 provider = "DiffRemove",
                 icon = "" .. ' ',
@@ -136,7 +128,7 @@ gls.right[4] = {
         }
 }
 
-gls.right[5] = {
+gls.right[4] = {
         WhiteSpace = {
                 provider = function() return "" end,
                 condition = condition.check_git_workspace,
@@ -146,7 +138,7 @@ gls.right[5] = {
         }
 }
 
-gls.right[6] = {
+gls.right[5] = {
         GitBranch = {
                 provider = "GitBranch",
                 condition = condition.check_git_workspace,
@@ -154,17 +146,17 @@ gls.right[6] = {
         }
 }
 
-gls.right[7] = {
+gls.right[6] = {
         WhiteSpace = {
                 provider = function() return " " end,
-                condition = condition.check_git_workspace,
+                condition = condition.check_active_lsp,
                 separator = " ",
                 separator_highlight = "GalaxyViModeReverse",
                 highlight = "GalaxyViMode",
         }
 }
 
-gls.right[8] = {
+gls.right[7] = {
         DiagnosticInfo = {
                 provider = "DiagnosticInfo",
                 icon = "" .. ' ',
@@ -172,7 +164,7 @@ gls.right[8] = {
         }
 }
 
-gls.right[9] = {
+gls.right[8] = {
         DiagnosticHint = {
                 provider = "DiagnosticHint",
                 icon = "" .. ' ',
@@ -180,7 +172,7 @@ gls.right[9] = {
         }
 }
 
-gls.right[10] = {
+gls.right[9] = {
         DiagnosticWarn = {
                 provider = "DiagnosticWarn",
                 icon = "" .. ' ',
@@ -188,7 +180,7 @@ gls.right[10] = {
         }
 }
 
-gls.right[11] = {
+gls.right[10] = {
         DiagnosticError = {
                 provider = "DiagnosticError",
                 icon = "" .. ' ',

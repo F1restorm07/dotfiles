@@ -39,6 +39,7 @@ wezterm.on(
 wezterm.on("update-status", function(window, pane)
         local sections = {}
         local date = wezterm.strftime("%m.%d/%H:%M")
+        local battery = wezterm.battery_info()[1] -- battery info for builtin battery
 
         local cwd_uri = pane:get_current_working_dir() -- cwd and hostname
         if cwd_uri then
@@ -70,7 +71,12 @@ wezterm.on("update-status", function(window, pane)
         table.insert(elements, { Text = LEFT_SEMI_CIRCLE })
         table.insert(elements, { Foreground = { Color = '#3b4252' }})
         table.insert(elements, { Background = { Color = '#8fbcbb' }})
-        table.insert(elements, { Text = ' ' .. table.remove(sections, 1) .. ' ' })
+        table.insert(elements, { Text = ' ' .. table.remove(sections, 1) })
+
+        -- battery
+        table.insert(elements, { Foreground = { Color = '#3b4252' }})
+        table.insert(elements, { Background = { Color = '#8fbcbb' }})
+        table.insert(elements, { Text = string.format(' %.0f%% ', battery.state_of_charge*100)})
 
         window:set_right_status(wezterm.format(elements));
 end)

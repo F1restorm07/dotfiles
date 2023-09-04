@@ -1,165 +1,201 @@
-;; (deflisten workspace "scripts/workspaces.sh 0")
-(deflisten activewindow "scripts/activewindow.sh")
-(deflisten active_app "ristate --title")
-(deflisten all_tags "ristate --views-tag")
-;; (defpoll package_count :interval "5m" `pacman -Qq | wc -l`)
-;; (defpoll wifi_name `iwgetid -r`)
+(defpoll volume
+        :interval "5s"
+        `pactl get-sink-volume @DEFAULT_SINK@ | grep "Volume:" | awk -F'/' '{print $2}'`)
+(defpoll datetime
+        :interval "1s"
+        `date +%m.%d/%H:%M`
+)
 
 (defwidget bar_layout []
-        (centerbox
-                :class "bar_layout"
-                :orientation "vertical"
-                ;; :space-evenly false
-                
-                (bar_icon)
-                (bar_workspace)
-                (bar_misc)
+        (box
+                ;; :orientation "v"
+                (box
+                        :class "bar"
+                        :orientation "h"
+                        ;; :space-evenly false
+                        
+                        (bar_left)
+                        ;; (bar_right)
+                )
         )
 )
 ;; set top/left, middle, bottom/right containers
-;; left -> workspaces, current application
-;; middle -> misc,
-;; right -> system stats (volume, bluetooth, brightness, wifi, time and date)
-;; popout sidebar for notifs (click datetime)
-;; zen mode/do not disturb
-;; night shift (click brightness icon)
+;; left -> current workspace, current window
+;; right -> system stats (volume, bluetooth, brightness, memory, cpu, datetime, battery)
 
-(defwidget left []
-        (tags)
-        (current_application)
-)
-
-(defwidget tags []
-        
-)
-
-(defwidget current_application []
+(defwidget bar_left []
         (box
-                :class "curr_app"
+                :class "bar_left"
                 :orientation "h"
                 :valign "center"
                 :halign "start"
-                :hexpand true
-                :width 100
-
-                (literal
-                        :content active_app
-                )
-        )
-)
-
-(defwidget right []
-        (volume)
-        (brightness)
-        (bluetooth)
-        (wifi)
-        (datetime)
-)
-
-;; name of running application, text is parallel to bar
-(defwidget bar_icon []
-       (box
-                :class "bar_icon"
-                :orientation "vertical"
-                :valign "start"
-                :vexpand true
                 :hexpand false
-                :height 100
+                :space-evenly false
 
-                (transform
-                        :class "bar_activewindow"
-                        :rotate 75
-                        :translate-x "20px"
-                        :valign "center"
+                (box
+                        :class "datetime"
+                        :orientation "h"
+                        :hexpand false
 
-                        (literal
-                                :content activewindow
+                        ;; (box :class "datetime_info" {formattime(EWW_TIME, "%m.%d/%H:%M")})
+                        (box :class "datetime_info" datetime)
+                )
+
+                (box
+                        :class "battery"
+                        :orientation "h"
+                        :hexpand false
+                        ;; include status as well
+
+                        (box
+                                :class {EWW_BATTERY.macsmc-battery.status == "Charging" ? "batt_charging": ""}
+                                {"batt[${EWW_BATTERY.macsmc-battery.capacity}%]"}
                         )
                 )
-                
-       ) 
+
+        )
 )
 
-(defwidget bar_workspace []
-        (literal
-                :class "bar_workspace"
+(defwidget bar_right []
+        (box
+                :class "bar_right"
+                :orientation "h"
                 :valign "center"
-                :content workspace
+                :halign "end"
+                :hexpand false
+                :space-evenly false
+
+                (box
+                        :class "volume"
+                        :halign "end"
+                        :orientation "v"
+                        :hexpand false
+                        
+                        (box :class "volume_info" {"${volume}"})
+                        (label :class "bar_title" :halign "end" :text "vol")
+                )
+
+                ;; insert separator
+
+                (sys_stats)
+
+                ;; insert separator
+
+                (box
+                        :class "datetime"
+                        :orientation "v"
+                        :hexpand false
+
+                        ;; (box :class "datetime_info" {formattime(EWW_TIME, "%m.%d/%H:%M")})
+                        (label :class "bar_title" :halign "end" :text "datetime")
+                )
+                (box
+                        :class "battery"
+                        :orientation "v"
+                        :hexpand false
+
+                        (box :class "battery_info" {"${EWW_BATTERY.macsmc-battery.capacity}%"})
+                        (label :class "bar_title" :halign "end" :text "batt")
+                )
         )
 )
 
-;; will have shorthand content, click to reveal full content box
-;; section includes package info, bluetooth, volume, num of notifications, plus weather and time
-(defwidget bar_misc []
+(defwidget sys_stats []
         (box
-                :class "bar_misc"
-                :orientation "vertical"
-                :halign "center"
-                :valign "end"
+                :class "sys_stats"
+                :orientation "h"
+                :valign "center"
+                :halign "end"
+                :hexpand false
+                :space-evenly false
                 
                 (box
-                        :class "bar_misc_package_count"
-                        :orientation "vertical"
-
-                        (box
-                                :class "icon"
-                                "ﰩ"
-                        )
+                        :class "cpu"
+                        :halign "end"
+                        :orientation "v"
+                        :hexpand false
                         
-                        (transform
-                                :class "bar_packages"
-                                :rotate 75
-                                :valign "center"
-                                :height 100
-                                :width 100
-
-                                (literal
-                                        :content package_count
-                                )
-                        )
+                        (box :class "cpu_info" {"${round(EWW_CPU.avg, 1)}%"})
+                        (label :class "bar_title" :halign "end" :text "cpu")
                 )
+                ;; insert gpu section here
                 (box
-                        :class "bar_misc_sys"
-                        :orientation "vertical"
-
-                        (box
-                                :class "bar_sys_bluetooth"
-                                :orientation "vertical"
-
-                                (box
-                                        :class "icon"
-                                        ""
-                                )
-
-                        )
-
-                        (box
-                                :class "bar_sys_volume"
-                                :orientation "vertical"
-
-                                (box
-                                        :class "icon"
-                                        ""
-                                )              
-                        )
-                        (box
-                                :class "bar_sys_notification"
-                                :orientation "vertical"
-
-                                (box
-                                        :class "icon"
-                                        ""
-                                )
-                        )
+                        :class "memory"
+                        :halign "end"
+                        :orientation "v"
+                        :hexpand false
+                        
+                        ;; EWW_RAM displays usage in kilobytes, this converts to gigabytes
+                        (box :class "memory_info" {"${round(EWW_RAM.used_mem / 1024 / 1024 / 1024, 2)} gb"})
+                        (label :class "bar_title" :halign "end" :text "mem")
                 )
         )
 )
 
-;; includes brightness and volume; cpu, ram, and disk usage; and notifications (wip)
-(defwidget bar_misc_reveal []
+(defwidget bar_title_right []
         (box
-                :class "bar_misc_reveal"
-                :orientation "horizontal"
+                :class "bar_title_right"
+                :orientation "h"
+                :valign "center"
+                :halign "end"
+                :hexpand false
+                :space-evenly false
+
+                (box
+                        :class "volume"
+                        :halign "end"
+                        :hexpand false
+                        
+                        "volume"
+                )
+
+                ;; insert separator
+
+                (sys_title_stats)
+
+                ;; insert separator
+
+                (box
+                        :class "datetime"
+                        :orientation "h"
+                        :hexpand false
+
+                        "datetime"
+                )
+                (box
+                        :class "battery"
+                        :orientation "h"
+                        :hexpand false
+
+                        "battery"
+                )
+        )
+)
+
+(defwidget sys_title_stats []
+        (box
+                :class "sys_title_stats"
+                :orientation "h"
+                :valign "center"
+                :halign "end"
+                :hexpand false
+                :space-evenly false
+                
+                (box
+                        :class "cpu"
+                        :halign "end"
+                        :hexpand false
+                        
+                        "cpu"
+                )
+                ;; insert gpu section here
+                (box
+                        :class "memory"
+                        :halign "end"
+                        :hexpand false
+                        
+                        "memory"
+                )
         )
 )
 
@@ -167,13 +203,15 @@
 
 (defwindow bar
         :geometry (geometry
-                :width "50px"
-                :height "100%"
-                :anchor "left center"
+                :width "5%"
+                :height "50px"
+                :anchor "bottom left"
         )
-        :stacking "fg"
-        :exclusive "true"
+        :stacking "bg"
+        :exclusive true
         :monitor 0
 
         (bar_layout)
 )
+
+;; vim:filetype=yuck

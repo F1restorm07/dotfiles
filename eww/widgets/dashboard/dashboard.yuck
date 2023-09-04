@@ -1,0 +1,43 @@
+;; (defpoll battery :interval 5 `upower -i /org/freedesktop/UPower/devices/battery_macsmc_battery | grep percentage | awk '{print $2}'`)
+(defpoll volume :interval "5s" `pactl get-sink-volume @DEFAULT_SINK@ | grep "Volume:" | awk -F'/' '{print $2}'`)
+(defpoll brightness :interval "5s" `brightnessctl -d apple-panel-bl | grep brightness -m1 | awk '{print $4}' | tr -d '()'`)
+
+;; collection of boxes, each with information inside
+;; music, vol, brightness, battery, wifi
+
+(defwidget dashboard_layout []
+        (box
+                :space-evenly false
+                :class "dashboard"
+                :spacing 20
+                :orientation "vertical"
+
+                (box
+                       :space-evenly false
+                       :hexpand true
+                       :class "battery"
+                       :orientation "horizontal"
+                       ;; capacity, charging state
+
+                        (box :class "batt_title" "Battery")
+                        (box :class "batt_charge" {"${EWW_BATTERY.macsmc-battery.capacity}%"})
+                        (box :class "batt_status" {"${EWW_BATTERY.macsmc-battery.status}"})
+                       ;; {"${EWW_BATTERY.macsmc_battery.status}"}
+                )
+        )
+)
+
+;; ---------------------------------------------------
+
+(defwindow dashboard
+       :geometry (geometry
+                :width "23%"
+                :height "30%"
+                :anchor "left center"
+       )
+       :stacking "fg"
+       :exclusive "false"
+       :monitor 0
+
+       (dashboard_layout)
+)

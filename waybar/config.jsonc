@@ -16,7 +16,8 @@
                 "custom/gpu",
                 "memory",
                  "custom/border_right_dark",
-                "clock"
+                "clock",
+                "battery"
         ],
         "river/tags": {
                 "disable-click": true
