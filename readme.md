@@ -2,6 +2,7 @@
 
 ## Items
 GTK Theme / [Nordic](https://github.com/EliverLara/Nordic)
+GTK Cursor Theme / [Nordzy](https://github.com/alvatip/Nordzy-cursors)
 Compositor / River
 Terminal / Wezterm
 Editor / Neovim
