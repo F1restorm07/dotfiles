@@ -23,6 +23,7 @@ pcmanfm/
 pulse/
 qt5ct/
 QtProject.conf
+systemd/
 tmux/themes/
 user-dirs.dirs
 user-dirs.locale
