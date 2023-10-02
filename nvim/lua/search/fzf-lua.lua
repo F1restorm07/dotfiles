@@ -8,12 +8,9 @@ require('fzf-lua').setup({
                         }
                 }
         },
-        files = {
-                -- previewer = 
-        },
 })
 
-require('fzf-lua.config')._devicons_setup = "~/.config/nvim/lua/devicons.lua"
+-- require('fzf-lua.config')._devicons_setup = "~/.config/nvim/lua/devicons.lua"
 
 --[[
 todo

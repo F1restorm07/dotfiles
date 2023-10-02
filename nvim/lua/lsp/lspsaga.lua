@@ -52,6 +52,9 @@ require('lspsaga').setup({
                 },
                 border = "rounded",
                 title = false,
+        },
+        diagnostic = {
+                show_code_action = false,
 
         }
 })

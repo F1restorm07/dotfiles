@@ -1,26 +1,18 @@
-local symbol_map = require('icons').symbol_map
 local cmp = require'cmp'
-local lspkind = require('lspkind')
 local luasnip = require('luasnip')
 
 cmp.setup({
         formatting = {
                 fields = { "kind", "abbr" },
                 format = function(entry, vim_item)
-                        local kind = lspkind.cmp_format({
-                                mode = "symbol",
-                                maxwidth = 50,
-                                symbol_map = symbol_map
-                        })(entry, vim_item)
-
-                        kind.kind = ''
-                        kind.dup = ({
+                        vim_item.kind = ''
+                        vim_item.dup = ({
                                 luasnip = 0,
                                 nvim_lsp = 0,
                                 buffer = 0,
                         })[entry.source.name] or 0
 
-                        return kind
+                        return vim_item
                 end
         },
         completion = {
@@ -33,7 +25,7 @@ cmp.setup({
         },
         window = {
                 completion = {
-                        winhighlight = "Normal:Pmenu",
+                        -- winhighlight = "Normal:Pmenu",
                         col_offest = -3,
                         side_padding = 0,
                 },
@@ -45,24 +37,6 @@ cmp.setup({
                 ['<C-Space>'] = cmp.mapping.complete(),
                 ['<C-e>'] = cmp.mapping.abort(),
                 ['<CR>'] = cmp.mapping.confirm({ select = false }),
-                ['<Tab>'] = function(fallback)
-                        if cmp.visible() then
-                                cmp.select_next_item()
-                        elseif luasnip.expand_or_jumpable() then
-                                luasnip.expand_or_jump()
-                        else
-                                fallback()
-                        end
-                end,
-                ['<S-Tab>'] = function(fallback)
-                        if cmp.visible() then
-                                cmp.select_prev_item()
-                        elseif luasnip.jumpable(-1) then
-                                luasnip.jump(-1)
-                        else
-                                fallback()
-                        end
-                end
         }),
         sources = cmp.config.sources({
                 { name = 'nvim_lsp' },

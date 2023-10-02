@@ -31,6 +31,9 @@ return require('lazy').setup({
                         lazy = true,
                         config = function() require('search.fzf-lua') end
                 },
+                {'nvim-pack/nvim-spectre',
+                        lazy = true,
+                },
                 {'ggandor/leap.nvim',
                         keys = {
                                 { 's', mode = 'n' },
@@ -50,10 +53,6 @@ return require('lazy').setup({
                         dependencies = 'leap.nvim',
                         config = function() require('flit').setup() end
                 },
-                {'andymass/vim-matchup',
-                        lazy = true,
-                        module = {'nvim-treesitter'},
-                },
                 {'tpope/vim-fugitive',
                         cmd = { 'Git', 'Gread', 'Gwrite', 'Gedit', 'Gdiffsplit', 'Ggrep', 'GMove', 'GDelete' }
                 },
@@ -64,6 +63,10 @@ return require('lazy').setup({
                 {'mrjones2014/smart-splits.nvim',
                         lazy = true,
                         config = function() require('smart-splits').setup() end
+                },
+                {'Wansmer/treesj',
+                        cmd = { 'TSJToggle' },
+                        dependencies = 'nvim-treesitter',
                 },
         -- }}}
 
@@ -80,12 +83,12 @@ return require('lazy').setup({
         {'neovim/nvim-lspconfig',
                 lazy = true,
                 event = {'BufNewFile', 'InsertEnter'},
+                dependencies = {'nvim-navic', 'nvim-navbuddy'},
                 config = function() require('lsp.lspconfig') end
         },
         {'hrsh7th/nvim-cmp',
                 event = {'InsertEnter', 'CmdLineEnter'},
                 dependencies = {
-                        {'onsails/lspkind.nvim', lazy = true},
                         'friendly-snippets',
                         {'hrsh7th/cmp-nvim-lsp', dependencies = 'nvim-cmp', lazy = true},
                         {'hrsh7th/cmp-buffer', dependencies = 'nvim-cmp', lazy = true},
@@ -95,10 +98,13 @@ return require('lazy').setup({
                 },
                 config = function() require('lsp.cmp') end
         },
-        {'nvimdev/lspsaga.nvim',
-                branch = 'main',
-                event = { 'LspAttach' },
-                config = function() require('lsp.lspsaga') end
+        {'SmiteshP/nvim-navic',
+                lazy = true,
+                config = function() require('lsp.navic') end
+        },
+        {'SmiteshP/nvim-navbuddy',
+                lazy = true,
+                config = function() require('lsp.navbuddy') end,
         },
         {'L3MON4D3/LuaSnip',
                 lazy = true,
@@ -127,13 +133,13 @@ return require('lazy').setup({
                 event = { 'BufNewFile', 'BufAdd' , 'BufReadPost' },
                 config = function() require('ui.tabby') end
         },
-        {'nvim-tree/nvim-web-devicons',
-                lazy = true,
-                config = function()
-                        vim.g.override_nvim_web_devicons = true
-                        require('devicons')
-                end
-        },
+        -- {'nvim-tree/nvim-web-devicons',
+        --         lazy = true,
+        --         config = function()
+        --                 vim.g.override_nvim_web_devicons = true
+        --                 require('devicons')
+        --         end
+        -- },
         {'goolord/alpha-nvim',
                 lazy = false,
                 config = function() require('ui.alpha-nvim') end
@@ -153,7 +159,15 @@ return require('lazy').setup({
         },
 -- }}}
 -- {{{ Colorschemes
-        {'shaunsingh/nord.nvim', lazy = true}
+        {'shaunsingh/nord.nvim', lazy = true},
+        {'AlexvZyl/nordic.nvim',
+                lazy = true,
+                config = function()
+                        require('nordic').setup({
+                        bold_keywords = true
+                })
+                end
+        }
 -- }}}
 
 })
@@ -162,9 +176,6 @@ return require('lazy').setup({
 plugins to look into
 ***
 
-sidebar-nvim/sidebar.nvim (modular, customizable sidebar)
-chentoast/marks.nvim (enhanced vim marks)
-stevearc/oil.nvim (edit filesystem like a vim buffer)
 epwalsh/obsidian.nvim (nvim integration with obsidian.md)
 
 --]]

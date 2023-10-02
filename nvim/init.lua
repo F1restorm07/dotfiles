@@ -48,6 +48,7 @@ set.formatoptions = "jrql"
 set.sessionoptions = "blank,curdir,folds,help,winsize,winpos,terminal,tabpages"
 set.signcolumn = "yes"
 
+--  }}}
 --  -------------------------------------------------------
 --  {{{ Variables
 
@@ -82,7 +83,7 @@ require('plugins')
 
 set.termguicolors = true
 set.guifont = 'JetBrainsMono Nerd Font Mono:h13'
-vim.cmd.colorscheme('nord')
+vim.cmd.colorscheme('nordic')
 
 require('highlights')
 require('keymaps')
@@ -108,6 +109,7 @@ vim.api.nvim_create_autocmd(
         "User",
         { pattern = "AlphaReady", callback = function()
                 vim.go.laststatus = 0
+                vim.opt_local.winbar = nil 
                 vim.opt.showtabline = 0
                 vim.opt.cmdheight = 0
         end,

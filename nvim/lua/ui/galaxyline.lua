@@ -1,35 +1,37 @@
 local get = require('icons').get
 local gl = require('galaxyline')
-local colors = require('highlights').colors
+local nord_colors = require('highlights').nord_colors
+local palatte_colors = require('highlights').colors
+local bg_color = palatte_colors.bg
 local condition = require('galaxyline.condition')
 local gls = gl.section
 gl.short_line_list = {'*'}
 
 local modes = setmetatable(
 {
-        n      = { text = ' NORMAL ',   color = colors.nord9 },
-        no     = { text = ' NORMAL ',   color = colors.nord9 },
-        nt     = { text = ' NORMAL ',   color = colors.nord9 },
-        ntT    = { text = ' NORMAL ',   color = colors.nord9 },
-        i      = { text = ' INSERT ',   color = colors.nord15 },
-        ic     = { text = ' INSERT ',   color = colors.nord15 },
-        c      = { text = ' COMMAND ',  color = colors.nord12 },
-        v      = { text = ' VISUAL ',   color = colors.nord7 },
-        V      = { text = ' LINVIS ',   color = colors.nord7 },
-        [''] = { text = ' BLKVIS ',   color = colors.nord7 },
-        s      = { text = ' SELECT ',   color = colors.nord13 },
-        S      = { text = ' SELECT ',   color = colors.nord13 },
-        R      = { text = ' REPLACE ',  color = colors.nord14 },
-        ['r?'] = { text = ' REPLACE ',  color = colors.nord14 },
-        Rv     = { text = ' REPLACE ',  color = colors.nord14 },
-        r      = { text = ' REPLACE ',  color = colors.nord14 },
-        rm     = { text = ' REPLACE ',  color = colors.nord14 },
-        t      = { text = ' TERMINAL ', color = colors.nord9 },
-        ['!']  = { text = ' SHELL ',    color = colors.nord11 },
+        n      = { text = ' NORMAL ',   color = nord_colors.nord9 },
+        no     = { text = ' NORMAL ',   color = nord_colors.nord9 },
+        nt     = { text = ' NORMAL ',   color = nord_colors.nord9 },
+        ntT    = { text = ' NORMAL ',   color = nord_colors.nord9 },
+        i      = { text = ' INSERT ',   color = nord_colors.nord15 },
+        ic     = { text = ' INSERT ',   color = nord_colors.nord15 },
+        c      = { text = ' COMMAND ',  color = nord_colors.nord12 },
+        v      = { text = ' VISUAL ',   color = nord_colors.nord7 },
+        V      = { text = ' LINVIS ',   color = nord_colors.nord7 },
+        [''] = { text = ' BLKVIS ',   color = nord_colors.nord7 },
+        s      = { text = ' SELECT ',   color = nord_colors.nord13 },
+        S      = { text = ' SELECT ',   color = nord_colors.nord13 },
+        R      = { text = ' REPLACE ',  color = nord_colors.nord14 },
+        ['r?'] = { text = ' REPLACE ',  color = nord_colors.nord14 },
+        Rv     = { text = ' REPLACE ',  color = nord_colors.nord14 },
+        r      = { text = ' REPLACE ',  color = nord_colors.nord14 },
+        rm     = { text = ' REPLACE ',  color = nord_colors.nord14 },
+        t      = { text = ' TERMINAL ', color = nord_colors.nord9 },
+        ['!']  = { text = ' SHELL ',    color = nord_colors.nord11 },
         },
         { -- fallback function
                 __index = function()
-                return { text = ' UNKNOWN ', color = colors.nord11 }
+                return { text = ' UNKNOWN ', color = nord_colors.nord11 }
                 end
         }
 )
@@ -42,14 +44,14 @@ gls.left[1] = {
                         local curr_mode = vim.api.nvim_get_mode().mode
                         vim.cmd(string.format("hi GalaxyViMode guibg=%s guifg=%s gui=bold",
                                 modes[curr_mode].color,
-                                colors.nord1
+                                nord_colors.nord1
                         ))
                         vim.cmd(string.format("hi GalaxyViModeReverseBg guibg=%s guifg=%s",
-                                colors.nord0,
+                                bg_color,
                                 modes[curr_mode].color
                         ))
                         vim.cmd(string.format("hi GalaxyViModeReverse guibg=%s guifg=%s",
-                                colors.nord1,
+                                nord_colors.nord1,
                                 modes[curr_mode].color
                         ))
                         return " " .. modes[curr_mode].text
@@ -64,14 +66,14 @@ gls.left[2] = {
                 provider = "LineColumn",
                 separator = "",
                 separator_highlight = "GalaxyViModeReverse",
-                highlight = { colors.nord9, colors.nord1 },
+                highlight = { nord_colors.nord9, nord_colors.nord1 },
         }
 }
 
 gls.left[3] = {
         PerCent = {
                 provider = "LinePercent",
-                highlight = { colors.nord9, colors.nord1 },
+                highlight = { nord_colors.nord9, nord_colors.nord1 },
         },
 }
 
@@ -142,7 +144,7 @@ gls.right[5] = {
         GitBranch = {
                 provider = "GitBranch",
                 condition = condition.check_git_workspace,
-                highlight = { colors.nord9, colors.nord1 },
+                highlight = { nord_colors.nord9, nord_colors.nord1 },
         }
 }
 
@@ -194,8 +196,8 @@ gls.short_line_left[1] = {
         BufferType = {
                 provider = "FileName",
                 separator = "",
-                separator_highlight = { colors.nord1, colors.nord0 },
-                highlight = { colors.nord9, colors.nord1 },
+                separator_highlight = { nord_colors.nord1, nord_colors.nord0 },
+                highlight = { nord_colors.nord9, nord_colors.nord1 },
                 event = ""
         }
 }
