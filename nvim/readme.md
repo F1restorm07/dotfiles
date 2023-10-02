@@ -2,7 +2,7 @@
 ---
 **my personal, and highly opinionated neovim configuration**
 
-startuptime: ~25-~34ms
+startuptime: ~10-~15ms
 
 ## Plugins
 
@@ -19,10 +19,9 @@ startuptime: ~25-~34ms
  - *ibhagwan/fzf-lua* / fuzzy finder
 - *ggandor/leap.nvim* / blazingly fast on-screen navigation
 - *ggandor/flit.nvim* / enhanced f/t movement
-- *andymass/vim-matchup* / enhanced % movement with treesitter compat
 - *tpope/vim-fugitive* / git wrapper
-- *stevearc/overseer.nvim* / task runner and job management
 - *mrjones2014/smart-splits.nvim* / smart, directional nvim pane resizing and navigation
+- *Wansmer/treesj* / split/join textobjects
 
 ***Base Libraries and Utilities***
 
@@ -35,7 +34,8 @@ startuptime: ~25-~34ms
 
 - *neovim/nvim-lspconfig* / configurations for language servers in neovim's builtin lsp
 - *hrsh7th/nvim-cmp* / lsp completion
-- *nvimdev/lspsaga.nvim* / lsp plugin with many features
+- *SmiteshP/nvim-navic* / breadcrumb winbar/statusline
+- *SmitestP/nvim-navbuddy* / jump/act on window scopes (fn, enum, struct, etc)
 - *L3MON4D3/LuaSnip* / snippet engine
 - *rafamadriz/friendly-snippets* / preconfigured snippet collection
 
@@ -47,7 +47,6 @@ startuptime: ~25-~34ms
 
 - *nvimdev/galaxyline.nvim* / lightweight, highly configurable statusline
 - *nanozuki/tabby.nvim* / highly configurable tabline
-- *nvim-tree/nvim-web-devicons* / extra icons
 - *goolord/alpha.nvim* / startup buffer
 - *nvim-treesitter/nvim-treesitter* / file parser for colorschemes and other uses
 - *lewis6991/gitsigns.nvim* / enhanced git viewing
@@ -56,3 +55,4 @@ startuptime: ~25-~34ms
 ### Colorschemes
 
 - *shaunsingh/nord.nvim*
+- *AlexvZyl/nordic.nvim*

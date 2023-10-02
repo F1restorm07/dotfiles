@@ -196,7 +196,7 @@ gls.short_line_left[1] = {
         BufferType = {
                 provider = "FileName",
                 separator = "",
-                separator_highlight = { nord_colors.nord1, nord_colors.nord0 },
+                separator_highlight = { nord_colors.nord1, bg_color },
                 highlight = { nord_colors.nord9, nord_colors.nord1 },
                 event = ""
         }

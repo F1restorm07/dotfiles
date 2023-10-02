@@ -56,10 +56,6 @@ return require('lazy').setup({
                 {'tpope/vim-fugitive',
                         cmd = { 'Git', 'Gread', 'Gwrite', 'Gedit', 'Gdiffsplit', 'Ggrep', 'GMove', 'GDelete' }
                 },
-                {'stevearc/overseer.nvim',
-                        cmd = { 'OverseerRun', 'OverseerToggle' },
-                        config = function() require('lsp.overseer') end
-                },
                 {'mrjones2014/smart-splits.nvim',
                         lazy = true,
                         config = function() require('smart-splits').setup() end
@@ -133,13 +129,6 @@ return require('lazy').setup({
                 event = { 'BufNewFile', 'BufAdd' , 'BufReadPost' },
                 config = function() require('ui.tabby') end
         },
-        -- {'nvim-tree/nvim-web-devicons',
-        --         lazy = true,
-        --         config = function()
-        --                 vim.g.override_nvim_web_devicons = true
-        --                 require('devicons')
-        --         end
-        -- },
         {'goolord/alpha-nvim',
                 lazy = false,
                 config = function() require('ui.alpha-nvim') end
@@ -164,8 +153,8 @@ return require('lazy').setup({
                 lazy = true,
                 config = function()
                         require('nordic').setup({
-                        bold_keywords = true
-                })
+                                bold_keywords = true
+                        })
                 end
         }
 -- }}}

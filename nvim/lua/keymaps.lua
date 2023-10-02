@@ -6,7 +6,6 @@
 <leader>f -> fuzzy finder
 <leader>g -> git
 <leader>l -> lsp
-<leader>o -> overseer
 
 t -> tabs
 ; -> panes/windows
@@ -91,7 +90,3 @@ keymap('n', "<leader>dn", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
 keymap('n', "<leader>dp", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
 keymap('n', "<leader>dN", "<cmd>lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })<cr>", opts)
 keymap('n', "<leader>dP", "<cmd>lua vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })<cr>", opts)
-
--- overseer
-keymap('n', "<leader>or", "<cmd>OverseerRun<cr>", opts)
-keymap('n', "<leader>ot", "<cmd>OverseerToggle<cr>", opts)
