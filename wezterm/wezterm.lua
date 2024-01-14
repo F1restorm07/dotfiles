@@ -1,4 +1,5 @@
 local wezterm = require 'wezterm'
+local font = "JetBrainsMono NFM"
 local LEFT_SEMI_CIRCLE = utf8.char(0xe0b6)
 local RIGHT_SEMI_CIRCLE = utf8.char(0xe0b4)
 
@@ -216,14 +217,14 @@ local keys = {
 }
 
 return {
-        font = wezterm.font_with_fallback { "JetBrainsMono Nerd Font Mono" },
+        font = wezterm.font_with_fallback { font },
         font_rules = {
                 {
                         intensity = 'Bold',
                         italic = false,
                         font = wezterm.font_with_fallback {
                                 {
-                                        family = "JetBrainsMono Nerd Font Mono",
+                                        family = font,
                                         weight = "Bold",
                                         stretch = "Normal",
                                         style = "Normal"
@@ -235,7 +236,7 @@ return {
                         italic = true,
                         font = wezterm.font_with_fallback {
                                 {
-                                        family = "JetBrainsMono Nerd Font Mono",
+                                        family = font,
                                         weight = "Regular",
                                         stretch = "Normal",
                                         style = "Italic"
@@ -247,7 +248,7 @@ return {
                         italic = true,
                         font = wezterm.font_with_fallback {
                                 {
-                                        family = "JetBrainsMono Nerd Font Mono",
+                                        family = font,
                                         weight = "Bold",
                                         stretch = "Normal",
                                         style = "Italic"

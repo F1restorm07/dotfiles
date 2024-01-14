@@ -1,17 +1,25 @@
 # Dotfiles
 
 ## Items
-GTK Theme / [Nordic](https://github.com/EliverLara/Nordic)
-GTK Cursor Theme / [Nordzy](https://github.com/alvatip/Nordzy-cursors)
-Compositor / River
-Terminal / Wezterm
-Editor / Neovim
-App Launcher / Tofi
-File Editor / Broot
+- GTK Theme / [nordic](https://github.com/EliverLara/Nordic)
+- GTK Cursor Theme / [nordzy](https://github.com/alvatip/Nordzy-cursors)
+- Compositor / river
+- Terminal / eezterm
+- Editor / neovim
+- App Launcher / tofi
+- Notification Daemon / mako
+- File Editor / none
+- Shell / zsh + minimal zim
 
-## Aesthetic
+## Current aesthetic
+kiss, mostly nord colorscheme based
+very functional and minimal, no distractions
+
+---
+
+## Aesthetic dreams
 old-school pixel dithering (macintosh era)
-90's digital landscapes / sci fi
+90's digital+cgi landscapes / sci fi
 y2k
 serial experiments lain
 
@@ -24,14 +32,6 @@ startpage / wired/y2k themed
 wallpaper / old-school pixel dithered image or serial experiments lain
 colorscheme / nord
 fonts / bm-space, digibop duo, hanno regular, concorde (condensed)
-
-### Eww Widget Ideas
-dashboard (popout) / time, battery, music, vol, brightness
-disk usage /
-floating gif / what to put here
-tofi search replacement / both run ($PATH) and drun (/usr/share/applications)
-waybar replacement / battery, clock, date, mem, gpu, cpu, vol, brightness, curr_tag
-norifications replacement / (how to hook into notifications)
 
 ## Inspirations
 https://fauux.neocities.org

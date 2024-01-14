@@ -1,36 +1,79 @@
--- Mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap=true, silent=true }
-vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+local lspconfig = require('lspconfig')
+local cmp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  -- Enable completion triggered by <c-x><c-o>
-  -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+lspconfig.util.on_setup = lspconfig.util.add_hook_after(lspconfig.util.on_setup, function(config)
+        config.capabilities = vim.tbl_deep_extend(config.capabilities, cmp_capabilities)
+end)
 
-  -- Mappings.
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+local function on_attach(client, bufnr)
+    if client.server_capabilities["documentSymbolProvider"] then
+        require('nvim-navic').attach(client, bufnr)
+        vim.o.winbar = "%{%v:lua.require('nvim-navic').get_location()%}"
+    end
+    -- if client.server_capabilities["inlayHintProvider"] then
+    --     vim.lsp.inlay_hint.enable(bufnr, true)
+    -- end
 end
 
-require'lspconfig'.elixirls.setup {
-        cmd = { "elixir-ls" },
-        on_attach = on_attach,
-        elixirLS = {
-                dialyzerEnabled = false,
-                fetchdeps = false,
-                };
-        }
-
-local servers = {'rust_analyzer',
-                'elixirls',
-                'lua_ls',
-                'denols'
-        }
-for _, lsp in pairs(servers) do
-  require('lspconfig')[lsp].setup {
+lspconfig.rust_analyzer.setup {
     on_attach = on_attach,
-  }
-end
+    autostart = false,
+    settings = {
+        ['rust-analyzer'] = {
+            checkOnSave = {
+                command = "clippy"
+            },
+            imports = {
+                granularity = {
+                    group = "module"
+                },
+                prefix = "self"
+            },
+            cargo = {
+                buildScripts = {
+                    enable = true
+                }
+            },
+            procMacro = {
+                enable = true
+            }
+        }
+    }
+
+}
+
+lspconfig.lua_ls.setup {
+    on_attach = on_attach,
+    on_init = function(client)
+        local path = client.workspace_folders[1].name
+        if not vim.loop.fs_stat(path..'/.luarc.json') and not vim.loop.fs_stat(path..'/.luarc.jsonc') then
+            client.config.settings = vim.tbl_deep_extend('force', client.config.settings, {
+                Lua = {
+                    runtime = {
+                        version = "LuaJIT",
+                    },
+                    workspace = {
+                        checkThirdParty = false,
+                        library = {
+                            vim.env.VIMRUNTIME,
+                        }
+                    }
+                }
+            })
+
+            client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+        end
+        return true
+    end,
+    autostart = false,
+}
+
+vim.diagnostic.config({
+    severity_sort = true,
+    underline = {
+        severity = vim.diagnostic.severity.ERROR
+    },
+    virtual_text = {
+        source = "if_many"
+    }
+})

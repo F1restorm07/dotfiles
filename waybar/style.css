@@ -5,7 +5,7 @@
         box-shadow: none;
         text-shadow: none;
         icon-shadow: none;
-        font-family: JetBrainsMono Nerd Font Mono;
+        font-family: JetBrainsMono NFM;
         font-size: 16px;
         color: #88c0d0;
 }
@@ -51,7 +51,6 @@ window#waybar {
 }
 
 #cpu,
-#custom-gpu,
 #memory {
         padding: 0 8px;
         min-width: 8px;
@@ -62,29 +61,4 @@ window#waybar {
 #battery {
         padding: 0 10px;
         background-color: #2e3440;
-}
-
-#custom-border_left,
-#custom-border_right_dark {
-        font-size: 30px;
-        color: #2e3440;
-        background-color: #3b4252;
-}
-
-#custom-border_right_light {
-        font-size: 30px;
-        color: #3b4252;
-        background-color: #2e3440;
-}
-
-#custom-border_left_end {
-        font-size: 30px;
-        color: #3b4252;
-        background-color: transparent;
-}
-
-#custom-border_right_end {
-        font-size: 30px;
-        color: #2e3440;
-        background-color: transparent;
 }

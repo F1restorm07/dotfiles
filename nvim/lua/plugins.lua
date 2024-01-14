@@ -13,7 +13,7 @@ return require('lazy').setup({
                 },
                 {'kylechui/nvim-surround',
                         keys = {
-                                { 'ys', mode = 'n' },
+                                { 'ys', mode = {'n', 'v'} },
                                 { 'cs', mode = 'n' },
                                 { 'ds', mode = 'n' },
                         },
@@ -22,17 +22,10 @@ return require('lazy').setup({
         -- }}}
 
         -- {{{ Extra Functionality
-                {'folke/noice.nvim',
-                        event = { 'CmdLineEnter', 'CursorHold' },
-                        config = function() require('editor.notify') end
-                },
                 {'ibhagwan/fzf-lua',
                         cmd = 'FzfLua',
                         lazy = true,
                         config = function() require('search.fzf-lua') end
-                },
-                {'nvim-pack/nvim-spectre',
-                        lazy = true,
                 },
                 {'ggandor/leap.nvim',
                         keys = {
@@ -56,79 +49,54 @@ return require('lazy').setup({
                 {'tpope/vim-fugitive',
                         cmd = { 'Git', 'Gread', 'Gwrite', 'Gedit', 'Gdiffsplit', 'Ggrep', 'GMove', 'GDelete' }
                 },
-                {'mrjones2014/smart-splits.nvim',
-                        lazy = true,
-                        config = function() require('smart-splits').setup() end
-                },
-                {'Wansmer/treesj',
-                        cmd = { 'TSJToggle' },
-                        dependencies = 'nvim-treesitter',
+                {'sindrets/winshift.nvim', cmd = { 'WinShift' }},
+                {'j-hui/fidget.nvim',
+                        event = {'LspAttach'},
+                        config = function() require('editor.fidget') end
                 },
         -- }}}
 
-        {'folke/lazy.nvim', lazy = true},
-        {'nvim-lua/plenary.nvim', lazy = true},
-        {'MunifTanjim/nui.nvim', lazy = true},
-        {'windwp/nvim-autopairs',
+        {'folke/lazy.nvim', tag = 'stable', lazy = true},
+        {'m4xshen/autoclose.nvim',
                 event = 'InsertEnter',
-                config = function() require('nvim-autopairs').setup() end
+                config = function() require('autoclose').setup() end
         },
 -- }}}
 
 -- {({ Language Server
+        {'hrsh7th/cmp-nvim-lsp', lazy = true},
+        {'SmiteshP/nvim-navic', lazy = true, config = function() require('lsp.navic') end},
+        -- {'hinell/lsp-timeout.nvim', event = {'LspAttach'}},
         {'neovim/nvim-lspconfig',
-                lazy = true,
-                event = {'BufNewFile', 'InsertEnter'},
-                dependencies = {'nvim-navic', 'nvim-navbuddy'},
+                cmd = "LspStart",
                 config = function() require('lsp.lspconfig') end
         },
         {'hrsh7th/nvim-cmp',
-                event = {'InsertEnter', 'CmdLineEnter'},
+                lazy = true,
+                event = {'LspAttach'},
                 dependencies = {
-                        'friendly-snippets',
-                        {'hrsh7th/cmp-nvim-lsp', dependencies = 'nvim-cmp', lazy = true},
-                        {'hrsh7th/cmp-buffer', dependencies = 'nvim-cmp', lazy = true},
-                        {'hrsh7th/cmp-path', dependencies = 'nvim-cmp', lazy = true},
-                        {'hrsh7th/cmp-cmdline', dependencies = 'cmp-buffer', lazy = true},
-                        {'saadparwaiz1/cmp_luasnip', dependencies = 'LuaSnip', lazy = true},
+                        {'saadparwaiz1/cmp_luasnip', lazy = true}
                 },
                 config = function() require('lsp.cmp') end
         },
-        {'SmiteshP/nvim-navic',
-                lazy = true,
-                config = function() require('lsp.navic') end
-        },
-        {'SmiteshP/nvim-navbuddy',
-                lazy = true,
-                config = function() require('lsp.navbuddy') end,
-        },
         {'L3MON4D3/LuaSnip',
                 lazy = true,
-                dependencies = 'friendly-snippets'
-        },
-        {'rafamadriz/friendly-snippets',
-                module = { 'cmp', 'cmp_nvim_lsp' },
-                lazy = true,
+                version = 'v2.*',
+                dependencies = {'rafamadriz/friendly-snippets', lazy = true},
+                config = function() require('lsp.luasnip') end
         },
 -- }}}
 
 -- {{{ Language Specific
         {'Saecki/crates.nvim',
-                event = "BufRead Cargo.toml",
+                event = 'BufRead Cargo.toml',
+                tag = 'stable',
+                dependencies = {{'nvim-lua/plenary.nvim', lazy = true}},
                 config = function() require('crates').setup() end
         },
 -- }}}
 
 -- {{{ Aesthetics
-        {'nvimdev/galaxyline.nvim',
-                branch = 'main',
-                event = { 'BufNewFile', 'BufAdd', 'BufReadPost' },
-                config = function() require('ui.galaxyline') end
-        },
-        {'nanozuki/tabby.nvim',
-                event = { 'BufNewFile', 'BufAdd' , 'BufReadPost' },
-                config = function() require('ui.tabby') end
-        },
         {'goolord/alpha-nvim',
                 lazy = false,
                 config = function() require('ui.alpha-nvim') end
@@ -136,10 +104,14 @@ return require('lazy').setup({
         {'nvim-treesitter/nvim-treesitter',
                 build = ':TSUpdate',
                 event = 'CursorHold',
+                dependencies = {
+                        {'nvim-treesitter/nvim-treesitter-textobjects', lazy = true}
+                },
                 config = function() require('editor.nvim-treesitter') end
         },
         {'lewis6991/gitsigns.nvim',
                 event = { 'BufNewFile', 'BufReadPost' },
+                tag = 'release',
                 config = function() require('gitsigns').setup() end
         },
         {'nvim-zh/colorful-winsep.nvim',
@@ -148,14 +120,10 @@ return require('lazy').setup({
         },
 -- }}}
 -- {{{ Colorschemes
-        {'shaunsingh/nord.nvim', lazy = true},
-        {'AlexvZyl/nordic.nvim',
+        {'neanias/everforest-nvim',
                 lazy = true,
-                config = function()
-                        require('nordic').setup({
-                                bold_keywords = true
-                        })
-                end
+                opts = { background = 'hard' },
+                config = function() require('everforest').setup() end
         }
 -- }}}
 
@@ -164,7 +132,6 @@ return require('lazy').setup({
 --[[
 plugins to look into
 ***
-
-epwalsh/obsidian.nvim (nvim integration with obsidian.md)
-
+stevearc/conform.nvim // lightweight formatting plugin
+echasnovski/mini.clue // minimal keymap clue display
 --]]

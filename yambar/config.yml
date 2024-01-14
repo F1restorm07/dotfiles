@@ -1,0 +1,23 @@
+bar:
+  location: top
+  height: 25 
+  spacing: 0
+  margin: 0
+  background: 00000000
+  font: JetBrainsMono:pixelsize=16
+
+  center:
+    - river:
+        content:
+          map:
+            conditions:
+              state == focused: {string: {text: "[{id}]", margin: 5, deco: {background: {color: 3b4252ff}}}}
+    - clock:
+        time-format: "%m.%d/%H:%M"
+        content:
+          string: {text: "{time}", margin: 5, deco: {background: {color: 5e81acff}}}
+    - battery:
+        name: macsmc-battery
+        poll-interval: 20000
+        content:
+          string: {text: "{capacity}%", margin: 5, deco: {background: {color: bf616aff}}}

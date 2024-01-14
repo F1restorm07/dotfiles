@@ -17,6 +17,9 @@ set.expandtab = true
 set.smartindent = true
 set.wrap = false
 
+set.shiftwidth = 4 -- number of characters to (auto)indent
+set.shiftround = true -- when using <</>>, it rounds to the nearest shiftwidth
+
 set.showcmd = true
 set.laststatus = 2
 
@@ -31,26 +34,31 @@ set.foldenable = true
 set.foldlevelstart = 10
 set.foldnestmax = 10
 set.foldmethod = "marker"
+set.fillchars = "fold: ,vert: "
 
 set.swapfile = false
 set.backup = false
 set.undofile = true
 
 set.completeopt = "menu,menuone,noselect"
+set.wildoptions = "pum,fuzzy"
+set.pumheight = 15
 
 set.hidden = true
 set.cmdheight = 2
 set.showtabline = 2
 set.conceallevel = 2
+
 set.updatetime = 300
+set.scrolloff = 3
+
 set.shortmess = "filnxtToOFcsI"
-set.formatoptions = "jrql"
 set.sessionoptions = "blank,curdir,folds,help,winsize,winpos,terminal,tabpages"
 set.signcolumn = "yes"
 
 --  }}}
 --  -------------------------------------------------------
---  {{{ Variables
+--  {{{ Plugin Load Skips
 
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
@@ -83,46 +91,23 @@ require('plugins')
 
 set.termguicolors = true
 set.guifont = 'JetBrainsMono Nerd Font Mono:h13'
-vim.cmd.colorscheme('nordic')
+vim.cmd.colorscheme('everforest')
 
 require('highlights')
 require('keymaps')
+require('autocommands')
+require('tabline')
+require('statusline')
 
 --  }}}
 --  -------------------------------------------------------
---  {{{ Autocommands
 
-vim.api.nvim_create_augroup("numbertoggle", { clear = true })
-vim.api.nvim_create_augroup("alphanvim", { clear = true })
+--[[
+fun lua things to try
+***
+sequential vim marks (marking specific places in files, see https://vitalyparnas.com/guides/vim-sequential-marks/)
+on the fly text evaluation (either fzf-lua/<cmd> or vim expression register [see https://vimtricks.com/p/vim-calculator/])
+window swapping via marks (see https://vi.stackexchange.com/questions/3725/swap-the-position-of-two-windows)
 
--- numbertoggle
-vim.api.nvim_create_autocmd(
-        { "BufEnter", "FocusGained", "InsertLeave", "WinEnter" },
-        { pattern = "*", command = "if &nu && mode() != 'i' | set rnu | endif", group = "numbertoggle" }
-)
-vim.api.nvim_create_autocmd(
-        { "BufLeave", "FocusLost", "InsertEnter", "WinLeave" },
-        { pattern = "*", command = "if &nu | set nornu | endif", group = "numbertoggle" }
-)
-
-vim.api.nvim_create_autocmd(
-        "User",
-        { pattern = "AlphaReady", callback = function()
-                vim.go.laststatus = 0
-                vim.opt_local.winbar = nil 
-                vim.opt.showtabline = 0
-                vim.opt.cmdheight = 0
-        end,
-        group = "alphanvim"
-        }
-)
-vim.api.nvim_create_autocmd(
-        "BufUnload",
-        { buffer = 0, callback = function()
-                vim.go.laststatus = 2
-                vim.opt.showtabline = 2
-                vim.opt.cmdheight = 1
-        end,
-        group = "alphanvim"
-        }
-)
+pretty up cmdline interface without dependencies
+--]]

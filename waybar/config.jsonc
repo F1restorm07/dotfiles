@@ -3,62 +3,33 @@
         "layer": "top",
         "margin": 0,
          "modules-left": [
-                "river/tags",
-                "custom/border_left",
-                "river/window",
-                "custom/border_left_end"
+                "river/tags"
          ],
         "modules-right": [
-                "custom/border_right_end",
                 "wireplumber",
-                 "custom/border_right_light",
                 "cpu",
-                "custom/gpu",
                 "memory",
-                 "custom/border_right_dark",
                 "clock",
                 "battery"
         ],
         "river/tags": {
                 "disable-click": true
         },
-        "custom/border_left": {
-                "format": ""
-        },
         "river/window": {
                 "tooltip": false
-        },
-        "custom/border_left_end": {
-                "format": ""
-        },
-        "custom/border_right_end": {
-                "format": ""
         },
         "wireplumber": {
                 "format": "vol: {volume}%",
                 "format-muted": "vol_muted",
                 "tooltip": false
         },
-        "custom/border_right_light": {
-                "format": ""
-        },
         "cpu": {
                 "format": "cpu: {usage}%",
                 "tooltip": false
         },
-        // https://www.reddit.com/r/swaywm/comments/ncjpfz/how_to_add_gpu_usage_to_waybar/
-        "custom/gpu": {
-                "exec": "cat /sys/class/hwmon/hwmon1/device/gpu_busy_percent",
-                "return-type": "",
-                "interval": 1,
-                "format": "gpu: {}%"
-        },
         "memory": {
                 "format": "mem: {used} gib",
                 "tooltip": false
-        },
-        "custom/border_right_dark": {
-                "format": ""
         },
         "clock": {
                 "format": "{:%m.%d/%H:%M}",

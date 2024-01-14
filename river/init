@@ -12,7 +12,7 @@ gsettings set org.gnome.desktop.wm.preferences button-layout ""
 
 # app spawning
 riverctl map normal $super Return spawn wezterm
-riverctl map normal $super W spawn librewolf
+riverctl map normal $super W spawn min-browser
 riverctl map normal $super Space spawn "tofi-drun --drun-launch=true"
 
 riverctl map normal $super Q close
@@ -34,11 +34,11 @@ riverctl map normal $super+$alt J move down 100
 riverctl map normal $super+$alt K move up 100
 riverctl map normal $super+$alt L move right 100
 
-# window resziing
-riverctl map normal $super+Shift H resize left 100
-riverctl map normal $super+Shift J resize down 100
-riverctl map normal $super+Shift K resize up 100
-riverctl map normal $super+Shift L resize right 100
+# window reszing
+riverctl map normal $super+Fn H resize left 100
+riverctl map normal $super+Fn J resize down 100
+riverctl map normal $super+Fn K resize up 100
+riverctl map normal $super+Fn L resize right 100
 
 # snap window to anchor
 riverctl map normal $super+Control H snap left
@@ -76,9 +76,8 @@ riverctl border-width 3
 riverctl spawn "exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus"
 riverctl spawn "exec pipewire"
 riverctl spawn "exec wireplumber"
-# riverctl spawn "exec wbg ~/.config/river/darkblue_freeway_night.jpg"
-riverctl spawn "exec swaybg -i ~/.config/river/metalheart_purple_black.png -m fill"
-riverctl spawn "exec eww daemon"
+riverctl spawn "exec swaybg -i ~/.config/river/tower_fog_mountain.jpg -m fill"
+riverctl spawn "exec yambar"
 riverctl spawn "exec eww open bar"
 riverctl spawn "exec mako"
 

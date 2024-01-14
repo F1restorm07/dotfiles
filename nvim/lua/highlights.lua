@@ -1,43 +1,47 @@
+local everforest_palette = require("everforest.colours").generate_palette(require("everforest").config, vim.o.background)
 H = {}
-H.colors = require('nordic.colors')
-H.nord_colors = {
-        -- Polar Night
-        nord0 = "#2e3440", -- origin color
-        nord1 = "#3b4252", -- nord0 bright
-        nord2 = "#434c5e", -- nord0 bright 2
-        nord3 = "#4c566a", -- nord0 bright 3
+H.colors = {
+        none = everforest_palette.none,
 
-         -- Snow Storm
-        nord4 = "#d8dee9", -- origin color
-        nord5 = "#e5e9f0", -- nord4 bright
-        nord6 = "#eceff4", -- nord4 bright 2
+        bg = everforest_palette.bg0,
+        fg = everforest_palette.fg,
+        bg_light = everforest_palette.bg2,
 
-         -- Frost
-        nord7 = "#8fbcbb", -- frozen polar waters
-        nord8 = "#88c0d0", -- clear ice
-        nord9 = "#81a1c1", -- arctic waters
-        nord10 = "#5e81ac", -- arctic ocean
+        gray_dark = everforest_palette.grey0,
+        gray = everforest_palette.grey1,
+        gray_light = everforest_palette.grey2,
 
-         -- Aurora
-        nord11 = "#bf616a", -- red
-        nord12 = "#d08770", -- orange
-        nord13 = "#ebcb8b", -- yellow
-        nord14 = "#a3be8c", -- green
-        nord15 = "#b48ead", -- magenta
+        red = everforest_palette.red,
+        orange = everforest_palette.orange,
+        yellow = everforest_palette.yellow,
+        green = everforest_palette.green,
+        aqua = everforest_palette.aqua,
+        blue = everforest_palette.blue,
+        purple = everforest_palette.purple,
 
-        bg = "#3b4252",
-        fg = "#eceff4",
+        bg_visual = everforest_palette.bg_visual,
+        bg_red = everforest_palette.bg_red,
+        bg_yellow = everforest_palette.bg_yellow,
+        bg_green = everforest_palette.bg_green,
+        bg_blue = everforest_palette.bg_blue,
+
+        status_green = everforest_palette.statusline1,
+        status_white = everforest_palette.statusline2,
+        status_red = everforest_palette.statusline3,
+        status_bg = everforest_palette.bg3,
+        status_fill = everforest_palette.bg1,
 }
 
 local function highlight(name, opts)
         vim.api.nvim_set_hl(0, name, opts)
 end
 
+--  -------------------------------------------------------
+--  {{{ Nvim-navic
 
--- Nvim-navic
-highlight("WinBar", { bg =H.colors.bg })
+highlight("WinBar", { bg=H.colors.bg })
 highlight("NavicText", { fg=H.colors.fg })
-highlight("NavicSeparator", { fg=H.nord_colors.nord8 })
+highlight("NavicSeparator", { fg=H.colors.blue })
 
 highlight("NavicIconsArray", { link = "@type" })
 highlight("NavicIconsBoolean", { link = "@boolean" })
@@ -49,18 +53,18 @@ highlight("NavicIconsVariable", { link = "@variable" })
 highlight("NavicIconsConstant", { link = "@constant" })
 highlight("NavicIconsConstructor", { link = "@constructor" })
 highlight("NavicIconsKeyword", { link = "@keyword" })
-highlight("NavicIconsNull", { link = "None" })
+highlight("NavicIconsNull", { link = "@number" })
 highlight("NavicIconsUnit", { link = "@constant" })
 
 highlight("NavicIconsEnumMember", { link = "@lsp.type.enumMember" })
 highlight("NavicIconsField", { link = "@field" })
 highlight("NavicIconsProperty", { link = "@property" })
-highlight("NavicIconsEvent", { link = "Type" })
+highlight("NavicIconsEvent", { link = "@type" })
 
-highlight("NavicIconsFile", { link = "CmpItemKindFile" })
-highlight("NavicIconsModule", { link = "CmpItemKindModule" })
+highlight("NavicIconsFile", { link = "Aqua" })
+highlight("NavicIconsModule", { link = "Yellow" })
 highlight("NavicIconsNamespace", { link = "@namespace" })
-highlight("NavicIconsPackage", { link = "CmpItemKindFile" })
+highlight("NavicIconsPackage", { link = "Aqua" })
 
 highlight("NavicIconsFunction", { link = "@function" })
 highlight("NavicIconsMethod", { link = "@method" })
@@ -70,20 +74,38 @@ highlight("NavicIconsEnum", { link = "@lsp.type.enum"})
 highlight("NavicIconsInterface", { link = "@lsp.type.interface" })
 highlight("NavicIconsStruct", { link = "@lsp.type.struct" })
 
-highlight("NavicIconsKey", { link = "None" })
-highlight("NavicIconsObject", { link = "None" })
+highlight("NavicIconsKey", { link = "@property" })
+highlight("NavicIconsObject", { link = "@lsp.type.class" })
 highlight("NavicIconsOperator", { link = "@operator" })
 highlight("NavicIconsTypeParameter", { link = "@lsp.type.typeParameter" })
 
--- Alpha
-highlight("AlphaHeader", { fg=H.nord_colors.nord9 })
-highlight("AlphaButton", { fg=H.nord_colors.nord8 })
-highlight("AlphaFooter", { fg=H.nord_colors.nord9 })
+--  }}}
+--  -------------------------------------------------------
+-- {{{ Alpha
 
--- Tabby
-highlight("TabLine", { bg=H.colors.bg, fg=H.colors.fg })
-highlight("TabLineFill", { bg=H.colors.bg, fg=H.colors.fg })
-highlight("TabLineSel", { bg=H.colors.blue2, fg=H.colors.bg })
+highlight("AlphaHeader", { fg=H.colors.blue })
+highlight("AlphaButton", { fg=H.colors.aqua })
+highlight("AlphaFooter", { fg=H.colors.aqua })
 
+--  }}}
+--  -------------------------------------------------------
+-- {{{ Tabline
+
+highlight("TabLineSep", { fg=H.colors.status_green, bg=H.colors.status_bg })
+highlight("TabLineInactiveSep", { fg=H.colors.status_bg, bg=H.colors.status_bg })
+highlight("TabLineRearSep", { fg=H.colors.status_bg, bg=H.colors.status_green })
+highlight("TabLineEndSep", { fg=H.colors.status_bg, bg=H.colors.status_fill })
+
+--  }}}
+--  -------------------------------------------------------
+-- {{{ Statusline
+
+highlight("StatusLine", { bg=H.colors.status_fill, fg=H.colors.gray })
+highlight("StatusLineNC", { bg=H.colors.none, fg=H.colors.none })
+highlight("StatusLineFill", { bg=H.colors.bg, fg=H.colors.bg })
+highlight("StatusLineSepInactive", { bg=H.colors.bg, fg=H.colors.status_fill })
+
+--  }}}
+--  -------------------------------------------------------
 
 return H
