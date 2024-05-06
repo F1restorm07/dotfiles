@@ -1,18 +1,7 @@
 local lspconfig = require('lspconfig')
-local cmp_capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-lspconfig.util.on_setup = lspconfig.util.add_hook_after(lspconfig.util.on_setup, function(config)
-        config.capabilities = vim.tbl_deep_extend(config.capabilities, cmp_capabilities)
-end)
 
 local function on_attach(client, bufnr)
-    if client.server_capabilities["documentSymbolProvider"] then
-        require('nvim-navic').attach(client, bufnr)
-        vim.o.winbar = "%{%v:lua.require('nvim-navic').get_location()%}"
-    end
-    -- if client.server_capabilities["inlayHintProvider"] then
-    --     vim.lsp.inlay_hint.enable(bufnr, true)
-    -- end
+    vim.bo[bufnr].omnifunc = "v:lua.MiniCompletion.completefunc_lsp" -- taken from echasnovski's nvim config
 end
 
 lspconfig.rust_analyzer.setup {

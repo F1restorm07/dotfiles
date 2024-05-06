@@ -6,7 +6,6 @@ local augroup = vim.api.nvim_create_augroup
 -- TODO: add more augroups
 augroup("numbertoggle", { clear = true })
 augroup("alphanvim", { clear = true })
-augroup("CmpSourceCargo", { clear = true })
 
 -- }}}
 --  -------------------------------------------------------
@@ -43,15 +42,6 @@ aucmd("BufUnload", {
         group = "alphanvim"
 })
 
--- CmpSourceCargo
-aucmd("BufRead", {
-        pattern = "Cargo.toml",
-        callback = function()
-                require('cmp').setup.buffer({ sources = {{ name = "crates" }}})
-        end,
-        group = "CmpSourceCargo"
-})
-
 --  -------------------------------------------------------
 
 aucmd("InsertEnter", {
@@ -68,7 +58,7 @@ aucmd("BufWritePre", { -- create missing directories on file save
                 end
         end
 })
-aucmd("BufWritePre", { -- remove trailing whitespace
+aucmd("BufWritePre", { -- remove trailing whitespace on save
         pattern = "*",
         callback = function()
                 local pos = vim.api.nvim_win_get_cursor(0)
@@ -92,16 +82,16 @@ aucmd("BufReadPost", { -- jump to the last known position in the file
         end
 })
 
-aucmd("FileType", { -- set formatoptions after ftplugin fires
+aucmd("FileType", { -- set formatoptions after ftplugin fires (ftplugin overrides formatoptions)
         pattern = "*",
-        command = "set fo=1jrql"
+        command = "set fo=1jql"
 })
-aucmd("FileType", {
+aucmd("FileType", { -- start in insert mode
         pattern = { "gitcommit", "gitrebase" },
         command = "startinsert | 1"
 })
 
-aucmd("TextYankPost", {
+aucmd("TextYankPost", { -- highlight on yank
         pattern = "*",
         callback = function() vim.highlight.on_yank({ timeout = 500 }) end
 })

@@ -15,8 +15,8 @@ local vim_modes = setmetatable(
         v      = { text = ' VISUAL ',   color = colors.aqua },
         V      = { text = ' LINVIS ',   color = colors.aqua },
         [''] = { text = ' BLKVIS ',   color = colors.aqua },
-        s      = { text = ' SELECT ',   color = colors.yellow },
-        S      = { text = ' SELECT ',   color = colors.yellow },
+        s      = { text = ' SELECT ',   color = colors.green },
+        S      = { text = ' SELECT ',   color = colors.green },
         R      = { text = ' REPLACE ',  color = colors.green },
         ['r?'] = { text = ' REPLACE ',  color = colors.green },
         Rv     = { text = ' REPLACE ',  color = colors.green },
@@ -72,11 +72,11 @@ S.status_vim_mode = function ()
                 colors.bg
         ))
         vim.cmd(string.format("hi StatusViModeInvertFill guibg=%s guifg=%s",
-                colors.bg,
+                colors.status_fill,
                 vim_modes[curr_mode].color
         ))
         vim.cmd(string.format("hi StatusViModeInvert guibg=%s guifg=%s",
-                colors.status_fill,
+                colors.bg,
                 vim_modes[curr_mode].color
         ))
 

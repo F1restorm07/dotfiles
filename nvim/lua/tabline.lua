@@ -13,17 +13,14 @@ vim.opt.tabline = "%!v:lua.Tabline()"
 -------------------------------------------------
 
 T = {}
-local active_hl = "%#TabLineSel#"
-local inactive_hl = "%#TabLine#"
-local fill_hl = "%#TabLineFill#"
 T.theme = {
-        fill = fill_hl,
-        head = inactive_hl,
-        curr_tab = active_hl,
-        tab = inactive_hl,
-        curr_win = active_hl,
-        win = inactive_hl,
-        tail = inactive_hl,
+        fill = "%#TabLineFill#",
+        head = "%#TabLine#",
+        curr_tab = "%#TabLineSel#",
+        tab =  "%#TabLine#",
+        curr_win = "%#TabLineSel#",
+        win = "%#TabLine#",
+        tail = "%#TabLine#",
         sep = "%#TabLineSep#",
         inactive_sep = "%#TabLineInactiveSep#",
         rear_sep = "%#TabLineRearSep#",

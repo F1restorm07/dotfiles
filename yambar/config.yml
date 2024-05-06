@@ -1,6 +1,6 @@
 bar:
   location: top
-  height: 25 
+  height: 25
   spacing: 0
   margin: 0
   background: 00000000
@@ -20,4 +20,9 @@ bar:
         name: macsmc-battery
         poll-interval: 20000
         content:
-          string: {text: "{capacity}%", margin: 5, deco: {background: {color: bf616aff}}}
+          map:
+            conditions:
+              state == charging:
+                - string: {text: "{capacity}%", margin: 5, deco: {background: {color: a3be8cff}}, foreground: 3b4252ff}
+              state == discharging:
+                - string: {text: "{capacity}%", margin: 5, deco: {background: {color: bf616aff}}}

@@ -1,6 +1,6 @@
 # Neovim Configuration
 ---
-startuptime: ~16ms
+startuptime: ~10-12ms
 
 ## Plugins
 
@@ -16,6 +16,8 @@ startuptime: ~16ms
 - *tpope/vim-fugitive* / git wrapper
 - *sindrets/winshift.nvim* / intuitive window swapping
 - *j-hui/fidget.nvim* / lsp notification display
+- *otavioschwanck/arrow.nvim* / project-wide + per-buffer bookmarks
+- *echasnovski/mini.clue* / minimal keymap help dashboard
 
 ***Base Libraries and Utilities***
 - *folke/lazy.nvim* / package manager
@@ -23,11 +25,7 @@ startuptime: ~16ms
 
 ### Language Server
 - *neovim/nvim-lspconfig* / configurations for language servers in neovim's builtin lsp
-- *hrsh7th/nvim-cmp* / lsp completion
-- *SmiteshP/nvim-navic* / breadcrumb winbar
-- *L3MON4D3/LuaSnip* / snippet engine
-- *rafamadriz/friendly-snippets* / preconfigured snippet collection
-- *hinell/lsp-timeout.nvim* / stop lsp servers upon idle, restart upon next focus
+- *echasnovski/mini.completion* / lsp completion
 
 ### Language Specific
 - *Saecki/crates.nvim* / manage crates.io dependencies
@@ -39,7 +37,7 @@ startuptime: ~16ms
 - *nvim-zh/colorful-winsep.nvim* / display border around currently active window
 
 ### Colorschemes
-- *neanias/everforest-nvim*
+- *cocopon/iceberg*
 
 ## Other References
 - [https://github.com/nvim-zh/minimal_vim]

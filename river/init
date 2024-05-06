@@ -12,7 +12,7 @@ gsettings set org.gnome.desktop.wm.preferences button-layout ""
 
 # app spawning
 riverctl map normal $super Return spawn wezterm
-riverctl map normal $super W spawn min-browser
+riverctl map normal $super W spawn firefox
 riverctl map normal $super Space spawn "tofi-drun --drun-launch=true"
 
 riverctl map normal $super Q close

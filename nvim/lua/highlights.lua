@@ -1,35 +1,22 @@
-local everforest_palette = require("everforest.colours").generate_palette(require("everforest").config, vim.o.background)
 H = {}
 H.colors = {
-        none = everforest_palette.none,
+        bg = vim.g.terminal_color_0,
+        white = vim.g.terminal_color_7,
 
-        bg = everforest_palette.bg0,
-        fg = everforest_palette.fg,
-        bg_light = everforest_palette.bg2,
+        gray = vim.g.terminal_color_8,
+        gray_light = vim.g.terminal_color_15,
 
-        gray_dark = everforest_palette.grey0,
-        gray = everforest_palette.grey1,
-        gray_light = everforest_palette.grey2,
+        red = vim.g.terminal_color_1,
+        orange = vim.g.terminal_color_3,
+        green = vim.g.terminal_color_2,
+        aqua = vim.g.terminal_color_6,
+        blue = vim.g.terminal_color_4,
+        purple = vim.g.terminal_color_5,
 
-        red = everforest_palette.red,
-        orange = everforest_palette.orange,
-        yellow = everforest_palette.yellow,
-        green = everforest_palette.green,
-        aqua = everforest_palette.aqua,
-        blue = everforest_palette.blue,
-        purple = everforest_palette.purple,
-
-        bg_visual = everforest_palette.bg_visual,
-        bg_red = everforest_palette.bg_red,
-        bg_yellow = everforest_palette.bg_yellow,
-        bg_green = everforest_palette.bg_green,
-        bg_blue = everforest_palette.bg_blue,
-
-        status_green = everforest_palette.statusline1,
-        status_white = everforest_palette.statusline2,
-        status_red = everforest_palette.statusline3,
-        status_bg = everforest_palette.bg3,
-        status_fill = everforest_palette.bg1,
+        status_green = vim.g.terminal_color_10,
+        status_red = vim.g.terminal_color_9,
+        status_bg = vim.g.terminal_color_7,
+        status_fill = "#161821", -- the iceberg scheme normal background color
 }
 
 local function highlight(name, opts)
@@ -37,75 +24,66 @@ local function highlight(name, opts)
 end
 
 --  -------------------------------------------------------
---  {{{ Nvim-navic
+-- {{{ Ui
 
-highlight("WinBar", { bg=H.colors.bg })
-highlight("NavicText", { fg=H.colors.fg })
-highlight("NavicSeparator", { fg=H.colors.blue })
+highlight("FloatBorder", { fg=H.colors.aqua, bg=H.colors.bg })
+highlight("NormalFloat", { bg=H.colors.bg })
+highlight("Pmenu", { bg=H.colors.bg })
+highlight("PmenuSel", { fg=H.colors.blue, bg="#3d425b", bold=true })
 
-highlight("NavicIconsArray", { link = "@type" })
-highlight("NavicIconsBoolean", { link = "@boolean" })
-highlight("NavicIconsColor", { link = "@cosntant" })
-highlight("NavicIconsNumber", { link = "@number" })
-highlight("NavicIconsString", { link = "@string" })
-highlight("NavicIconsVariable", { link = "@variable" })
-
-highlight("NavicIconsConstant", { link = "@constant" })
-highlight("NavicIconsConstructor", { link = "@constructor" })
-highlight("NavicIconsKeyword", { link = "@keyword" })
-highlight("NavicIconsNull", { link = "@number" })
-highlight("NavicIconsUnit", { link = "@constant" })
-
-highlight("NavicIconsEnumMember", { link = "@lsp.type.enumMember" })
-highlight("NavicIconsField", { link = "@field" })
-highlight("NavicIconsProperty", { link = "@property" })
-highlight("NavicIconsEvent", { link = "@type" })
-
-highlight("NavicIconsFile", { link = "Aqua" })
-highlight("NavicIconsModule", { link = "Yellow" })
-highlight("NavicIconsNamespace", { link = "@namespace" })
-highlight("NavicIconsPackage", { link = "Aqua" })
-
-highlight("NavicIconsFunction", { link = "@function" })
-highlight("NavicIconsMethod", { link = "@method" })
-
-highlight("NavicIconsClass", { link = "@lsp.type.class" })
-highlight("NavicIconsEnum", { link = "@lsp.type.enum"})
-highlight("NavicIconsInterface", { link = "@lsp.type.interface" })
-highlight("NavicIconsStruct", { link = "@lsp.type.struct" })
-
-highlight("NavicIconsKey", { link = "@property" })
-highlight("NavicIconsObject", { link = "@lsp.type.class" })
-highlight("NavicIconsOperator", { link = "@operator" })
-highlight("NavicIconsTypeParameter", { link = "@lsp.type.typeParameter" })
-
---  }}}
 --  -------------------------------------------------------
 -- {{{ Alpha
 
-highlight("AlphaHeader", { fg=H.colors.blue })
-highlight("AlphaButton", { fg=H.colors.aqua })
-highlight("AlphaFooter", { fg=H.colors.aqua })
+highlight("AlphaHeader", { link = "Special" })
+highlight("AlphaButton", { link = "Constant" })
+highlight("AlphaFooter", { link = "Identifier" })
 
 --  }}}
 --  -------------------------------------------------------
 -- {{{ Tabline
 
-highlight("TabLineSep", { fg=H.colors.status_green, bg=H.colors.status_bg })
-highlight("TabLineInactiveSep", { fg=H.colors.status_bg, bg=H.colors.status_bg })
-highlight("TabLineRearSep", { fg=H.colors.status_bg, bg=H.colors.status_green })
-highlight("TabLineEndSep", { fg=H.colors.status_bg, bg=H.colors.status_fill })
+highlight("TabLineSel", { fg=H.colors.status_fill, bg=H.colors.status_green })
+highlight("TabLineSep", { fg=H.colors.status_green, bg=H.colors.status_fill })
+highlight("TabLineInactiveSep", { fg=H.colors.status_fill, bg=H.colors.status_fill })
+highlight("TabLineRearSep", { fg=H.colors.status_fill, bg=H.colors.status_green })
+highlight("TabLineEndSep", { fg=H.colors.status_fill, bg=H.colors.status_fill })
 
 --  }}}
 --  -------------------------------------------------------
 -- {{{ Statusline
 
-highlight("StatusLine", { bg=H.colors.status_fill, fg=H.colors.gray })
-highlight("StatusLineNC", { bg=H.colors.none, fg=H.colors.none })
-highlight("StatusLineFill", { bg=H.colors.bg, fg=H.colors.bg })
-highlight("StatusLineSepInactive", { bg=H.colors.bg, fg=H.colors.status_fill })
+highlight("StatusLine", { bg=H.colors.bg, fg=H.colors.gray })
+highlight("StatusLineNC", { bg=H.colors.bg, fg=H.colors.gray })
+highlight("StatusLineFill", { bg=H.colors.status_fill, fg=H.colors.status_fill })
+highlight("StatusLineSepInactive", { bg=H.colors.status_fill, fg=H.colors.status_fill })
 
 --  }}}
 --  -------------------------------------------------------
+-- {{{ Markdown
+
+highlight("@markup", { link = "@none" })
+highlight("@markup.environment", { link = "Macro" })
+highlight("@markup.environment.name", { link = "Type" })
+
+highlight("@markup.raw", { link = "String" })
+highlight("@markup.math", { link = "Special" })
+highlight("@markup.strong", { fg = H.colors.green, bold = true })
+highlight("@markup.italic", { italic = true })
+highlight("@markup.strikethrough", { strikethrough = true })
+highlight("@markup.underline", { underline = true })
+
+highlight("@markup.heading", { link = "Title" })
+highlight("@markup.heading.1", { fg = H.colors.purple, bold = true })
+highlight("@markup.heading.2", { fg = H.colors.blue, bold = true })
+highlight("@markup.heading.3", { fg = H.colors.aqua, bold = true })
+
+highlight("@markup.link", { link = "markdownCode" })
+highlight("@markup.link.label", { link = "SpecialChar" })
+highlight("@markup.link.label.symbol", { link = "Identifier" })
+highlight("@markup.link.url", { link = "markdownUrl" })
+
+highlight("@markup.list", { link = "markdownListMarker" })
+highlight("@markup.list.unchecked", { fg = H.colors.green })
+highlight("@markup.list.checked", { fg = H.colors.gray })
 
 return H

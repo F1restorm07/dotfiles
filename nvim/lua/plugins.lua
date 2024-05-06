@@ -54,36 +54,41 @@ return require('lazy').setup({
                         event = {'LspAttach'},
                         config = function() require('editor.fidget') end
                 },
+                {'otavioschwanck/arrow.nvim',
+                    keys = {
+                        { '\\', mode = 'n' },
+                        { 'm', mode = 'n' }
+                    },
+                    config = function() require('arrow').setup({show_icons = true, leader_key = '\\', buffer_leader_key = 'm'}) end
+                },
+                {'echasnovski/mini.clue',
+                    lazy = true,
+                    keys = {
+                        { ',', mode = {'n', 'x'} }, -- leader key
+                        { ';', mode = {'n', 'x'} },
+                        { 't', mode = {'n', 'x'} },
+                        { 'g', mode = {'n', 'x'} },
+                        { 'z', mode = {'n', 'x'} },
+                    },
+                    config = function() require('editor.clue') end
+                },
         -- }}}
 
         {'folke/lazy.nvim', tag = 'stable', lazy = true},
         {'m4xshen/autoclose.nvim',
                 event = 'InsertEnter',
-                config = function() require('autoclose').setup() end
+                config = function() require('editor.autoclose') end
         },
 -- }}}
 
 -- {({ Language Server
-        {'hrsh7th/cmp-nvim-lsp', lazy = true},
-        {'SmiteshP/nvim-navic', lazy = true, config = function() require('lsp.navic') end},
-        -- {'hinell/lsp-timeout.nvim', event = {'LspAttach'}},
         {'neovim/nvim-lspconfig',
                 cmd = "LspStart",
                 config = function() require('lsp.lspconfig') end
         },
-        {'hrsh7th/nvim-cmp',
-                lazy = true,
-                event = {'LspAttach'},
-                dependencies = {
-                        {'saadparwaiz1/cmp_luasnip', lazy = true}
-                },
-                config = function() require('lsp.cmp') end
-        },
-        {'L3MON4D3/LuaSnip',
-                lazy = true,
-                version = 'v2.*',
-                dependencies = {'rafamadriz/friendly-snippets', lazy = true},
-                config = function() require('lsp.luasnip') end
+        {'echasnovski/mini.completion', -- may replace with glepnir/epo.nvim when it no longer requires nightly
+            event = "LspAttach",
+            config = function() require('lsp.completion') end
         },
 -- }}}
 
@@ -120,11 +125,7 @@ return require('lazy').setup({
         },
 -- }}}
 -- {{{ Colorschemes
-        {'neanias/everforest-nvim',
-                lazy = true,
-                opts = { background = 'hard' },
-                config = function() require('everforest').setup() end
-        }
+        {'cocopon/iceberg.vim', lazy = true}
 -- }}}
 
 })
@@ -132,6 +133,8 @@ return require('lazy').setup({
 --[[
 plugins to look into
 ***
-stevearc/conform.nvim // lightweight formatting plugin
-echasnovski/mini.clue // minimal keymap clue display
+stevearc/conform.nvim       // lightweight formatting plugin
+folke/twilight.nvim         // dim unfocused code blocks
+folke/zen-mode.nvim         // remove all distractions from coding window
+nvimdev/epo.nvim            // minimal completion plugin (requires nightly)
 --]]

@@ -91,7 +91,7 @@ require('plugins')
 
 set.termguicolors = true
 set.guifont = 'JetBrainsMono Nerd Font Mono:h13'
-vim.cmd.colorscheme('everforest')
+vim.cmd.colorscheme('iceberg')
 
 require('highlights')
 require('keymaps')
@@ -110,4 +110,5 @@ on the fly text evaluation (either fzf-lua/<cmd> or vim expression register [see
 window swapping via marks (see https://vi.stackexchange.com/questions/3725/swap-the-position-of-two-windows)
 
 pretty up cmdline interface without dependencies
+add rules for autoclose that ignore rust lifetimes
 --]]
