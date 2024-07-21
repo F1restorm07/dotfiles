@@ -1,10 +1,9 @@
 .DS_Store
 GIMP/
-Min/*
-!Min/userscripts/
 REAPER/
 bottom/
 dconf/
+ferium/
 fontconfig/
 glib-*/
 legendary/
@@ -20,3 +19,5 @@ pulse/
 qt5ct/
 QtProject.conf
 systemd/
+waybar/
+yabridgectl/

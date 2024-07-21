@@ -68,17 +68,17 @@ riverctl map normal None XF86MonBrightnessDown spawn "brightnessctl set 5%-"
 riverctl float-filter-add app-id mako
 
 # window and background decorations
-riverctl border-color-focused 0x81a1c1
-riverctl border-color-unfocused 0x3b4252
+riverctl border-color-focused 0x84a0c6
+riverctl border-color-unfocused 0x1e2132
 riverctl border-width 3
 
 # autostart
 riverctl spawn "exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus"
 riverctl spawn "exec pipewire"
+riverctl spawn "exec pipewire-pulse"
 riverctl spawn "exec wireplumber"
 riverctl spawn "exec swaybg -i ~/.config/river/tower_fog_mountain.jpg -m fill"
 riverctl spawn "exec yambar"
-riverctl spawn "exec eww open bar"
 riverctl spawn "exec mako"
 
 

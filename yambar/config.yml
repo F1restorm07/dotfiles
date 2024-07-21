@@ -11,11 +11,11 @@ bar:
         content:
           map:
             conditions:
-              state == focused: {string: {text: "[{id}]", margin: 5, deco: {background: {color: 3b4252ff}}}}
+              state == focused: {string: {text: "[{id}]", margin: 5, deco: {background: {color: 1e2132ff}}}}
     - clock:
         time-format: "%m.%d/%H:%M"
         content:
-          string: {text: "{time}", margin: 5, deco: {background: {color: 5e81acff}}}
+          string: {text: "{time}", margin: 5, deco: {background: {color: 84a0c6ff}}, foreground: 1e2132ff}
     - battery:
         name: macsmc-battery
         poll-interval: 20000
@@ -23,6 +23,6 @@ bar:
           map:
             conditions:
               state == charging:
-                - string: {text: "{capacity}%", margin: 5, deco: {background: {color: a3be8cff}}, foreground: 3b4252ff}
+                - string: {text: "{capacity}%", margin: 5, deco: {background: {color: b4be82ff}}, foreground: 1e2132ff}
               state == discharging:
-                - string: {text: "{capacity}%", margin: 5, deco: {background: {color: bf616aff}}}
+                - string: {text: "{capacity}%", margin: 5, deco: {background: {color: e27878ff}}}

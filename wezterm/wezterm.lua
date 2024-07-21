@@ -6,21 +6,21 @@ local RIGHT_SEMI_CIRCLE = utf8.char(0xe0b4)
 wezterm.on(
   'format-tab-title',
   function(tab, tabs, panes, config, hover, max_width)
-        local background = '#4c556a'
-        local foreground = '#d8dee9'
+        local background = '#1e2132'
+        local foreground = '#c6c8d1'
 
     if tab.is_active then
-            background = '#8fbcbb'
-            foreground = '#3b4252'
+            background = '#84a0c6'
+            foreground = '#1e2132'
     end
 
-    local edge_background = '#4c566a'
+    local edge_background = '#1e2132'
     local edge_foreground = background
 
     if tab.tab_index + 1 == #tabs then
-        edge_background = '#3b4252'
+        edge_background = '#1e2132'
     elseif tabs[tab.tab_index + 2].is_active then -- tab_index is zero-based, lua arrays are one-based
-        edge_background = '#8fbcbb'
+        edge_background = '#84a0c6'
     end
 
     local title = tab.active_pane.foreground_process_name
@@ -257,14 +257,14 @@ return {
                 },
 
       },
-        color_scheme = "nord",
+        color_scheme = "iceberg-dark",
         colors = {
                 tab_bar = {
-                        background = '#3b4252',
+                        background = '#1e2132',
 
                         new_tab = {
-                                bg_color = '#3b4252',
-                                fg_color = '#3b4252',
+                                bg_color = '#1e2132',
+                                fg_color = '#1e2132',
                         },
                 }
         },

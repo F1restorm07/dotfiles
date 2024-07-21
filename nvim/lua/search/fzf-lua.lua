@@ -2,9 +2,9 @@ require('fzf-lua').setup({
         previewers = {
                 builtin = {
                         extensions = {
-                                -- ['png'] = { 'chafa', '-f', 'symbols' },
-                                -- ['jpg'] = { 'chafa', '-f', 'symbols' },
-                                -- ['webp'] = { 'chafa', '-f', 'symbols' }
+                                ['png'] = { 'wezterm', 'imgcat', '--resize', '800x600' },
+                                ['jpg'] = { 'wezterm', 'imgcat', '--resize', '800x600' },
+                                ['webp'] = { 'wezterm', 'imgcat', '--resize', '800x600' }
                         }
                 }
         },

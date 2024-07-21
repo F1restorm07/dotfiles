@@ -1,16 +1,6 @@
 return require('lazy').setup({
 -- {{{ Utilities
         -- {{{ Keybinds
-                {'numToStr/Comment.nvim',
-                        keys = {
-                                { 'gcc', mode = 'n' },
-                                { 'gc', mode = 'v' },
-                                { 'gb', mode = 'n' },
-                                { 'g<', mode = 'n' },
-                                { 'g>', mode = 'n' },
-                        },
-                        config = function() require('Comment').setup() end
-                },
                 {'kylechui/nvim-surround',
                         keys = {
                                 { 'ys', mode = {'n', 'v'} },
@@ -18,6 +8,13 @@ return require('lazy').setup({
                                 { 'ds', mode = 'n' },
                         },
                         config = function() require('nvim-surround').setup() end
+                },
+                {'echasnovski/mini.ai',
+                    keys = {
+                        { 'a', mode = {'n', 'v'} },
+                        { 'i', mode = {'n', 'v'} },
+                    },
+                    config = function() require('mini.ai').setup() end -- TODO: add treesitter objects
                 },
         -- }}}
 
@@ -49,6 +46,7 @@ return require('lazy').setup({
                 {'tpope/vim-fugitive',
                         cmd = { 'Git', 'Gread', 'Gwrite', 'Gedit', 'Gdiffsplit', 'Ggrep', 'GMove', 'GDelete' }
                 },
+                {'tpope/vim-dispatch', cmd = { 'Make','Dispatch' }},
                 {'sindrets/winshift.nvim', cmd = { 'WinShift' }},
                 {'j-hui/fidget.nvim',
                         event = {'LspAttach'},
@@ -62,7 +60,6 @@ return require('lazy').setup({
                     config = function() require('arrow').setup({show_icons = true, leader_key = '\\', buffer_leader_key = 'm'}) end
                 },
                 {'echasnovski/mini.clue',
-                    lazy = true,
                     keys = {
                         { ',', mode = {'n', 'x'} }, -- leader key
                         { ';', mode = {'n', 'x'} },
@@ -109,9 +106,6 @@ return require('lazy').setup({
         {'nvim-treesitter/nvim-treesitter',
                 build = ':TSUpdate',
                 event = 'CursorHold',
-                dependencies = {
-                        {'nvim-treesitter/nvim-treesitter-textobjects', lazy = true}
-                },
                 config = function() require('editor.nvim-treesitter') end
         },
         {'lewis6991/gitsigns.nvim',
@@ -123,6 +117,10 @@ return require('lazy').setup({
                 event = 'WinNew',
                 config = function() require('colorful-winsep').setup() end
         },
+        {'rasulomaroff/reactive.nvim',
+            event = 'CursorHold',
+            config = function() require('ui.reactive') end
+        },
 -- }}}
 -- {{{ Colorschemes
         {'cocopon/iceberg.vim', lazy = true}
@@ -133,8 +131,17 @@ return require('lazy').setup({
 --[[
 plugins to look into
 ***
-stevearc/conform.nvim       // lightweight formatting plugin
-folke/twilight.nvim         // dim unfocused code blocks
-folke/zen-mode.nvim         // remove all distractions from coding window
-nvimdev/epo.nvim            // minimal completion plugin (requires nightly)
+stevearc/conform.nvim           // lightweight formatting plugin
+echasnovski/mini.files          // navigate and manipulate the file system
+VonHeikemen/searchbox.nvim      // popup search window
+VonHeikemen/fine-cmdline.nvim   // popup cmdline window
+echasnovski/mini.splitjoin      // split and join lines
+--]]
+
+--[[
+plugins to replace with custom implementation
+***
+alpha.nvim (basic greeter buffer)
+crates.nvim (keep only version + feature checks)
+fine-cmdline.nvim (take implementation from cmdpalette.nvim)
 --]]

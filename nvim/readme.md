@@ -35,6 +35,7 @@ startuptime: ~10-12ms
 - *nvim-treesitter/nvim-treesitter* / file parser for colorschemes and other uses
 - *lewis6991/gitsigns.nvim* / enhanced git viewing
 - *nvim-zh/colorful-winsep.nvim* / display border around currently active window
+- *rasulomaroff/reactive.nvim* / reactive, visual color changes
 
 ### Colorschemes
 - *cocopon/iceberg*

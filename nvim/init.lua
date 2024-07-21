@@ -52,7 +52,7 @@ set.conceallevel = 2
 set.updatetime = 300
 set.scrolloff = 3
 
-set.shortmess = "filnxtToOFcsI"
+set.shortmess = "atToOcCsSIFW"
 set.sessionoptions = "blank,curdir,folds,help,winsize,winpos,terminal,tabpages"
 set.signcolumn = "yes"
 
@@ -98,6 +98,7 @@ require('keymaps')
 require('autocommands')
 require('tabline')
 require('statusline')
+require('search_index')
 
 --  }}}
 --  -------------------------------------------------------
@@ -110,5 +111,4 @@ on the fly text evaluation (either fzf-lua/<cmd> or vim expression register [see
 window swapping via marks (see https://vi.stackexchange.com/questions/3725/swap-the-position-of-two-windows)
 
 pretty up cmdline interface without dependencies
-add rules for autoclose that ignore rust lifetimes
 --]]

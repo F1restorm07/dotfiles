@@ -29,6 +29,11 @@ keymap({'n', 'v'}, '$', '<nop>', { noremap = true })
 keymap('n', ";w", "<cmd>w<cr>", opts("write"))
 keymap('n', ";q", "<cmd>q<cr>", opts("quit"))
 keymap('i', "jk", "<esc>", opts("exit to normal mode"))
+keymap({'n', 'v'}, 'E', "ge", { noremap = true, desc = "go to end of previous word" })
+keymap({'n', 'v'}, 'ge', '<nop>', { noremap = true })
+
+keymap('n', 'n', "n<cmd>lua=require('search_index').echohl_search_status()<cr>", opts("move to next search count"))
+keymap('n', 'N', "N<cmd>lua=require('search_index').echohl_search_status()<cr>", opts("move to previous search count"))
 
 -- continuous visual indenting
 keymap('v', '<', "<gv", opts("outdent"))
@@ -65,6 +70,7 @@ keymap('n', "<leader>g", "<cmd>Git<cr>", opts("open git"))
 
 keymap('n', "<leader>ff", "<cmd>FzfLua files<cr>", opts("open files"))
 keymap('n', "<leader>fg", "<cmd>FzfLua grep<cr>", opts("fuzzy find across files"))
+
 keymap('n', "<leader>fb", "<cmd>FzfLua buffers<cr>", opts("open buffers"))
 keymap('n', "<leader>f/", "<cmd>FzfLua grep_curbuf<cr>", opts("fuzzy find in current buffer"))
 keymap('n', "<leader>fh", "<cmd>FzfLua help_tags<cr>", opts("open help files"))
@@ -101,6 +107,9 @@ keymap('n', ";k", "<c-w>k", opts("move up window"))
 keymap('n', ";h", "<c-w>h", opts("move left window"))
 keymap('n', ";l", "<c-w>l", opts("move right window"))
 
+keymap('n', "]w", "<c-w>w", opts("move to the next window"))
+keymap('n', "[w", "<c-w>W", opts("move to the previous window"))
+
 keymap('n', '<A-j>', "<c-w>+", opts("shrink horizonal split"))
 keymap('n', '<A-k>', "<c-w>-", opts("grow vertical split"))
 keymap('n', '<A-h>', "<c-w><", opts("shrink vertical split"))
@@ -123,11 +132,11 @@ keymap('n', "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts("rename iden
 
 -- diagnostics
 keymap('n', "<leader>db", "<cmd>FzfLua diagnostics_document<cr>", opts("buffer diagnostics"))
-keymap('n', "<leader>dl", "<cmd>lua vim.lsp.diagnostic.get_line_diagnostics()<cr>", opts("line diagnostics"))
-keymap('n', "<leader>dn", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts("next diagnostic"))
-keymap('n', "<leader>dp", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts("prev diagnostic"))
-keymap('n', "<leader>dN", "<cmd>lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })<cr>", opts("next error diagnostic"))
-keymap('n', "<leader>dP", "<cmd>lua vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })<cr>", opts("prev error diagnostic"))
+keymap('n', "<leader>dl", "<cmd>lua vim.diagnostic.open_float()<cr>", opts("line diagnostics"))
+keymap('n', "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts("next diagnostic"))
+keymap('n', "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts("prev diagnostic"))
+keymap('n', "]D", "<cmd>lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })<cr>", opts("next error diagnostic"))
+keymap('n', "[D", "<cmd>lua vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })<cr>", opts("prev error diagnostic"))
 
 --  }}}
 --  -------------------------------------------------------

@@ -95,3 +95,14 @@ aucmd("TextYankPost", { -- highlight on yank
         pattern = "*",
         callback = function() vim.highlight.on_yank({ timeout = 500 }) end
 })
+
+--  -------------------------------------------------------
+--  filetype-specific commands
+
+aucmd("FileType", { -- set the compiler option to cargo (allows for :make t, :make b, etc) (easier job dispatch)
+    pattern = "rust",
+    callback = function()
+        vim.cmd [[:compiler cargo]]
+        vim.b.dispatch = "cargo build -q --message-format=short" -- default dispatch command
+    end
+})

@@ -28,7 +28,6 @@ lspconfig.rust_analyzer.setup {
             }
         }
     }
-
 }
 
 lspconfig.lua_ls.setup {
@@ -46,6 +45,9 @@ lspconfig.lua_ls.setup {
                         library = {
                             vim.env.VIMRUNTIME,
                         }
+                    },
+                    diagnostics = {
+                        globals = {'vim'},
                     }
                 }
             })
@@ -57,6 +59,10 @@ lspconfig.lua_ls.setup {
     autostart = false,
 }
 
+lspconfig.jdtls.setup {
+    on_attach = on_attach
+}
+
 vim.diagnostic.config({
     severity_sort = true,
     underline = {
@@ -64,5 +70,10 @@ vim.diagnostic.config({
     },
     virtual_text = {
         source = "if_many"
-    }
+    },
 })
+
+vim.fn.sign_define("DiagnosticSignInfo", { text = "", texthl = "DiagnosticSignInfo", numhl = ""})
+vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint", numhl = ""})
+vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn", numhl = ""})
+vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError", numhl = ""})

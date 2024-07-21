@@ -1,6 +1,5 @@
 
 S = {}
-local nord_colors = require('highlights').nord_colors
 local colors = require('highlights').colors
 
 local vim_modes = setmetatable(
@@ -27,7 +26,7 @@ local vim_modes = setmetatable(
         },
         { -- fallback function
                 __index = function()
-                return { text = ' UNKNOWN ', color = nord_colors.nord11 }
+                return { text = ' UNKNOWN ', color = colors.red }
                 end
         }
 )
