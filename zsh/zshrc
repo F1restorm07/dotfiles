@@ -20,9 +20,9 @@ eval "$(zoxide init zsh --cmd cd)"
 source ~/.config/zsh/prompt.zsh # <-- cmdline prompt here
 source ~/.config/zsh/completion.zsh
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source "$HOME/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$HOME/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh"
+source "$HOME/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]"  history-substring-search-down
@@ -50,6 +50,5 @@ MOZ_ENABLE_WAYLAND=1
 
 alias ls="eza -lhoF --no-permissions --git --no-user"
 alias cat="bat --theme iceberg --style grid,numbers,changes"
-# alias glow="glow --config ~/.config/glow/glow.yml"
 # alias fb="buku -p -f5 | column -ts $'\t' | fzf -m | cut -d ' ' -f1 | buku -o"
 # alias fa="fd .  -t x -t l $(echo $PATH | sed 's_:_\ _g') | grep -o '[^/]*$' | fzf --preview='man {}'"

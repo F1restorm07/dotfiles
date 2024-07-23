@@ -87,18 +87,25 @@ g.loaded_man = 1
 --  {{{ Plugin Setup Commands
 
 set.rtp:prepend(vim.fn.stdpath('data') .. '/lazy/lazy.nvim')
-require('plugins')
+
+require('keymaps') -- vim.g.mapleader is located in here (lazy.nvim needs it loaded before)
+
+require('lazy').setup({
+    {'folke/lazy.nvim', tag = 'stable', lazy = true},
+    {'cocopon/iceberg.vim', lazy = true},
+    {import = "plugins"}
+})
 
 set.termguicolors = true
 set.guifont = 'JetBrainsMono Nerd Font Mono:h13'
-vim.cmd.colorscheme('iceberg')
+vim.cmd.colorscheme('iceberg') -- set the colorscheme before highlights (sets the v.g.terminal_color_* used in highlights)
 
 require('highlights')
-require('keymaps')
 require('autocommands')
 require('tabline')
 require('statusline')
 require('search_index')
+require('diagnostics')
 
 --  }}}
 --  -------------------------------------------------------
@@ -109,6 +116,4 @@ fun lua things to try
 sequential vim marks (marking specific places in files, see https://vitalyparnas.com/guides/vim-sequential-marks/)
 on the fly text evaluation (either fzf-lua/<cmd> or vim expression register [see https://vimtricks.com/p/vim-calculator/])
 window swapping via marks (see https://vi.stackexchange.com/questions/3725/swap-the-position-of-two-windows)
-
-pretty up cmdline interface without dependencies
 --]]

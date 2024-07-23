@@ -54,4 +54,4 @@ A.match_in_range = function (range)
     return vim.fn.str2nr(vim.fn.matchstr(output.output, "\\d\\+"))
 end
 
-return A;
+return A
