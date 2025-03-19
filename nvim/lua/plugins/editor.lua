@@ -1,10 +1,21 @@
 return {
-    {'kylechui/nvim-surround',
+    {'echasnovski/mini.surround',
             keys = {
                     { 'ys', mode = {'n', 'v'} },
                     { 'cs', mode = 'n' },
                     { 'ds', mode = 'n' },
             },
+        config = function() require("mini.surround").setup({
+            mappings = {
+                add = "ys",
+                delete = "ds",
+                replace = "cs",
+                find = "",
+                highlight = "",
+                find_left = "",
+                update_n_lines = "",
+            }
+        }) end
     },
     {'echasnovski/mini.ai', -- TODO: add treesitter objects
         keys = {
@@ -29,18 +40,19 @@ return {
                     { 'T', mode = 'n' },
             },
             dependencies = 'leap.nvim',
+            config = function() require('flit').setup() end
     },
-    {'otavioschwanck/arrow.nvim',
-        keys = {
-            { '\\', mode = 'n' },
-            { 'm', mode = 'n' }
-        },
-        opts = {
-            show_icons = true,
-            leader_key = '\\',
-            buffer_leader_key = 'm',
-        },
-    },
+    -- {'otavioschwanck/arrow.nvim', -- may remove
+    --     keys = {
+    --         { '\\', mode = 'n' },
+    --         { 'm', mode = 'n' }
+    --     },
+    --     opts = {
+    --         show_icons = true,
+    --         leader_key = '\\',
+    --         buffer_leader_key = 'm',
+    --     },
+    -- },
     {'echasnovski/mini.clue',
         keys = {
             { ',', mode = {'n', 'x'} }, -- leader key
@@ -96,19 +108,28 @@ return {
         },
     },
     {'ibhagwan/fzf-lua',
-        cmd = 'FzfLua',
+        cmd = "FzfLua",
         opts = {
             previewers = {
-                    builtin = {
-                            extensions = {
-                                    ['png'] = { 'wezterm', 'imgcat', '--resize', '800x600' },
-                                    ['jpg'] = { 'wezterm', 'imgcat', '--resize', '800x600' },
-                                    ['webp'] = { 'wezterm', 'imgcat', '--resize', '800x600' }
-                            }
+                builtin = {
+                    extensions = {
+                        ['jpg'] = { "tiv" },
+                        ['png'] = { "tiv" },
                     }
+                }
             },
-        },
+            files = {
+                previewer = false,
+                file_icons = false,
+                git_icons = false,
+            },
+        }
     },
-    {'tpope/vim-dispatch', cmd = { 'Make','Dispatch' }},
     {'sindrets/winshift.nvim', cmd = { 'WinShift' }},
+    {'stevearc/overseer.nvim', cmd = { 'OverseerRun', 'OverseerToggle' }, opts = {}},
+    {'rachartier/tiny-inline-diagnostic.nvim', event = { 'LspAttach' }, opts = { preset = "minimal" }},
+    {'natecraddock/workspaces.nvim', cmd = { 'WorkspacesAdd', 'WorkspacesAddDir', 'WorkspacesOpen' }, opts = {}},
+    {'cshuaimin/ssr.nvim', lazy = true, opts = {}},
+    -- {'echasnovski/mini.operators', keys = { 'gr', mode = "n" }, opts = {}}
+    -- {'lervag/wiki.nvim'}
 }

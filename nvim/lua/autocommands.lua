@@ -1,11 +1,13 @@
 local aucmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
+local lsp = require("lsp")
 
 -- {{{ Autocommand Groups
 
--- TODO: add more augroups
 augroup("numbertoggle", { clear = true })
 augroup("alphanvim", { clear = true })
+augroup("UserLspStart", { clear = true })
+augroup("UserLspAttach", { clear = false })
 
 -- }}}
 --  -------------------------------------------------------
@@ -43,11 +45,12 @@ aucmd("BufUnload", {
 })
 
 --  -------------------------------------------------------
+-- LSP
 
-aucmd("InsertEnter", {
-        pattern = "*",
-        command = "LspStart",
-})
+aucmd("InsertEnter", { pattern = "*", command = "LspStart" })
+aucmd("LspAttach", { callback = function() require("lsp").lsp_hover.setup() end })
+
+--  -------------------------------------------------------
 
 aucmd("BufWritePre", { -- create missing directories on file save
         pattern = "*",
@@ -82,7 +85,8 @@ aucmd("BufReadPost", { -- jump to the last known position in the file
         end
 })
 
-aucmd("FileType", { -- set formatoptions after ftplugin fires (ftplugin overrides formatoptions)
+ -- set formatoptions after ftplugin fires (ftplugin overrides formatoptions)
+aucmd("FileType", {
         pattern = "*",
         command = "set fo=1jql"
 })
@@ -91,18 +95,35 @@ aucmd("FileType", { -- start in insert mode
         command = "startinsert | 1"
 })
 
-aucmd("TextYankPost", { -- highlight on yank
+ -- highlight on yank
+aucmd("TextYankPost", {
         pattern = "*",
         callback = function() vim.highlight.on_yank({ timeout = 500 }) end
 })
 
---  -------------------------------------------------------
---  filetype-specific commands
-
-aucmd("FileType", { -- set the compiler option to cargo (allows for :make t, :make b, etc) (easier job dispatch)
-    pattern = "rust",
-    callback = function()
-        vim.cmd [[:compiler cargo]]
-        vim.b.dispatch = "cargo build -q --message-format=short" -- default dispatch command
+-- enable treesitter as the folding method
+aucmd("FileType", {
+    callback = function(args)
+        if not pcall(vim.treesitter.start, args.buf) then
+            vim.wo[0][0].foldmethod = "syntax"
+            return
+        end
+        vim.api.nvim_buf_call(args.buf, function()
+            vim.wo[0][0].foldmethod = "expr"
+            vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+            vim.cmd.normal('zx')
+        end)
     end
 })
+
+-- update colorscheme
+aucmd("OptionSet", {
+    pattern = "background",
+    callback = function()
+        vim.cmd.luafile(vim.fn.stdpath("config") .. "/lua/highlights.lua")
+        vim.cmd.luafile(vim.fn.stdpath("config") .. "/lua/statusline.lua")
+    end
+})
+
+--  -------------------------------------------------------
+--  filetype-specific commands

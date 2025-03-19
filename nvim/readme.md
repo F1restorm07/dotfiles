@@ -15,3 +15,5 @@ colorscheme: iceberg
     - VonHeikemen/searchbox.nvim      // popup search window
     - VonHeikemen/fine-cmdline.nvim   // popup cmdline window
     - echasnovski/mini.splitjoin      // split and join lines
+    - gcmt/vessel.nvim                // ergonomics for marks, jumps, and buffer list
+    - fcpg/vim-waikiki                // minimal features for maintaining a wiki

@@ -31,6 +31,7 @@ keymap('n', ";q", "<cmd>q<cr>", opts("quit"))
 keymap('i', "jk", "<esc>", opts("exit to normal mode"))
 keymap({'n', 'v'}, 'E', "ge", { noremap = true, desc = "go to end of previous word" })
 keymap({'n', 'v'}, 'ge', '<nop>', { noremap = true })
+keymap('n', ':', 'q:', { noremap = true, desc = "open command line window" })
 
 keymap('n', 'n', "n<cmd>lua=require('search_index').echohl_search_status()<cr>", opts("move to next search count"))
 keymap('n', 'N', "N<cmd>lua=require('search_index').echohl_search_status()<cr>", opts("move to previous search count"))
@@ -62,8 +63,6 @@ keymap('v', '<leader>j', "<cmd>'<,'>move +<cr>gv==gv", opts("swap lines down"))
 keymap('n', "zs", '<cmd>term zsh<cr>a', opts("open terminal"))
 keymap('t', "<esc>", "<c-\\><c-n>", opts())
 
-keymap('n', "<leader>g", "<cmd>Git<cr>", opts("open git"))
-
 --  }}}
 --  -------------------------------------------------------
 --  {{{ Fuzzy Finder
@@ -72,8 +71,7 @@ keymap('n', "<leader>ff", "<cmd>FzfLua files<cr>", opts("open files"))
 keymap('n', "<leader>fg", "<cmd>FzfLua grep<cr>", opts("fuzzy find across files"))
 
 keymap('n', "<leader>fb", "<cmd>FzfLua buffers<cr>", opts("open buffers"))
-keymap('n', "<leader>f/", "<cmd>FzfLua grep_curbuf<cr>", opts("fuzzy find in current buffer"))
-keymap('n', "<leader>fh", "<cmd>FzfLua help_tags<cr>", opts("open help files"))
+keymap('n', "<leader>fh", "<cmd>FzfLua helptags<cr>", opts("open help files"))
 
 --  }}}
 --  -------------------------------------------------------
@@ -128,7 +126,8 @@ keymap('n', ';L', "<cmd>WinShift right<cr>", opts("swap window right"))
 keymap('n', "<leader>lf", "<cmd>FzfLua lsp_finder<cr>", opts("lsp definitions and references"))
 keymap('n', "<leader>ld", "<cmd>FzfLua lsp_definitions<cr>", opts("lsp definitions"))
 keymap('n', "<leader>lh", "<cmd>lua vim.lsp.buf.hover()<cr>", opts("hover documentation"))
-keymap('n', "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts("rename ident"))
+-- keymap('n', "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts("rename ident"))
+keymap('n', "<leader>lr", "<cmd>lua require('lsp').renamer()<cr>", opts("rename ident"))
 
 -- diagnostics
 keymap('n', "<leader>db", "<cmd>FzfLua diagnostics_document<cr>", opts("buffer diagnostics"))
@@ -140,3 +139,14 @@ keymap('n', "[D", "<cmd>lua vim.diagnostic.goto_prev({ severity = vim.diagnostic
 
 --  }}}
 --  -------------------------------------------------------
+--  {{{ Plugins
+
+-- overseer.nvim
+keymap('n', "<leader>or", "<cmd>OverseerRun<cr>", opts("run a template task"))
+keymap('n', "<leader>ot", "<cmd>OverseerToggle<cr>", opts("toggle the overseer window"))
+
+-- vim-fugitive
+keymap('n', "<leader>g", "<cmd>Git<cr>", opts("open fugitive git buffer"))
+
+-- ssr.nvim
+keymap({'n', 'x'}, "<leader>sr", "<cmd>lua require('ssr').open()<cr>", opts("open the ssr window"))

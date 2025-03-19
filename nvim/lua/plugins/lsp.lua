@@ -1,15 +1,53 @@
 return {
+    {'Saghen/blink.cmp',
+        lazy = true,
+        version = '*',
+        -- event = 'LspAttach',
+        opts = {
+            keymap = { preset = 'super-tab' },
+            appearance = {
+                use_nvim_cmp_as_default = true,
+                nerd_font_variant = 'mono'
+            },
+            sources = {
+                default = { 'lsp' }
+            },
+            signature = {
+                enabled = true,
+                window = {
+                    show_documentation = false
+                },
+            }
+        },
+    },
+    {'j-hui/fidget.nvim',
+        event = 'CursorHold',
+        -- TODO: test lsp progress (it seems to not work right now)
+        opts = {
+            progress = {
+                display = {
+                    done_icon = "[*-*]"
+                },
+            },
+            notification = {
+                override_vim_notify = true,
+            }
+        },
+    },
+    -- TODO: replace crate versions with custom implementation (maybe)
+    {'Saecki/crates.nvim',
+            event = 'BufRead Cargo.toml',
+            tag = 'stable',
+            dependencies = {{'nvim-lua/plenary.nvim', lazy = true}},
+            config = function() require('crates').setup() end
+    },
     {'neovim/nvim-lspconfig',
         cmd = 'LspStart',
         config = function()
             local lspconfig = require('lspconfig')
-
-            local function on_attach(client, bufnr)
-                vim.bo[bufnr].omnifunc = "v:lua.MiniCompletion.completefunc_lsp" -- taken from echasnovski's nvim config
-            end
+            local capabilities = require('blink.cmp').get_lsp_capabilities()
 
             lspconfig.rust_analyzer.setup {
-                on_attach = on_attach,
                 autostart = false,
                 settings = {
                     ['rust-analyzer'] = {
@@ -29,13 +67,15 @@ return {
                         },
                         procMacro = {
                             enable = true
+                        },
+                        hover = {
+                            documentation = true,
                         }
                     }
-                }
+                },
+                capabilities = capabilities,
             }
-
             lspconfig.lua_ls.setup {
-                on_attach = on_attach,
                 on_init = function(client)
                     local path = client.workspace_folders[1].name
                     if not vim.loop.fs_stat(path..'/.luarc.json') and not vim.loop.fs_stat(path..'/.luarc.jsonc') then
@@ -60,41 +100,25 @@ return {
                     end
                     return true
                 end,
-                autostart = false,
+                capabilities = capabilities,
             }
-
-            lspconfig.jdtls.setup {
-                on_attach = on_attach
+            lspconfig.ccls.setup {
+                capabilities = capabilities,
+            }
+            lspconfig.pylsp.setup {
+                settings = {
+                    ['pylsp'] = {
+                        plugins = {
+                            pylint = { enabled = true, executable = "pylint" },
+                            pyflakes = { enabled = false },
+                            pycodestyle = { enabled = false },
+                            pylsp_mypy = { enabled = true },
+                            jedi_completion = { fuzzy = true },
+                        },
+                    },
+                },
+                capabilities = capabilities,
             }
         end
-    },
-    {'echasnovski/mini.completion',
-        event = 'LspAttach',
-        opts = {
-            lsp_completion = {
-                source_func = 'omnifunc',
-                auto_setup = false,
-            },
-            window = {
-                signature = { border = 'single' }
-            },
-            delay = { signature = 100000000 } -- virtually disable the signature info, because it can tank the performance
-        },
-    },
-    {'j-hui/fidget.nvim',
-        event = 'LspAttach',
-        -- TODO: integrate with all vim.notify() notifications
-        opts = {
-            progress = {
-                display = {
-                    done_icon = "[*-*]"
-                },
-            },
-        },
-    },
-    {'Saecki/crates.nvim',
-            event = 'BufRead Cargo.toml',
-            tag = 'stable',
-            dependencies = {{'nvim-lua/plenary.nvim', lazy = true}},
     },
 }

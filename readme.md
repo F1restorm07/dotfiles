@@ -4,7 +4,7 @@
 - GTK Theme / [nordic](https://github.com/EliverLara/Nordic)
 - GTK Cursor Theme / [nordzy](https://github.com/alvatip/Nordzy-cursors)
 - Compositor / river
-- Terminal / wezterm
+- Terminal / foot
 - Editor / neovim
 - App Launcher / tofi
 - Notification Daemon / mako
@@ -16,7 +16,8 @@
 - very functional and minimal, no distractions
 
 ## TODOs
-- wire up volume, brightness, and other system controls to mako notifications
+- [x] wire up volume, brightness, and other system controls to mako notifications
+- [ ] replace yambar with eww, or another desktop widget library
 - extract system keybindings into external system (removes reliance upon river)
 - add more ascii art inspired touches (animations, icons, etc) to all facets of desktop
 - fill out the iceberg tmTheme for bat
@@ -28,10 +29,11 @@
 ## Aesthetic dreams
 - old-school pixel dithering (macintosh era)
 - 90's digital+cgi landscapes / sci fi
-- y2k
+- aquatic
 - ascii art
 - solarpunk vibe (tech mixed with nature -> namely coastal imagery {central california coast})
 - cloudy (pluto time)
+- aquamarine-purple colorscheme
 
 ## Ideas
 - yambar / prob y2k themed (either bm-space or digibop duo)
@@ -41,6 +43,7 @@
 - wallpaper / old-school pixel dithered image or serial experiments lain
 - colorscheme / iceberg
 - fonts / bm-space, digibop duo, hanno regular, concorde (condensed), thron
+- eww maybe? (see alternatives)
 
 ## Inspirations
 - [https://fauux.neocities.org]

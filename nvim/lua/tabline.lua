@@ -36,16 +36,17 @@ T.tabline_tabs = function()
                 local hl = tab_handle == curr_tab and T.theme.curr_tab or T.theme.tab
                 local sep_hl = T.theme.sep
 
-                if tabs[tab + 1] == curr_tab and tab_handle ~= curr_tab then
-                        sep_hl = T.theme.rear_sep
-                elseif tab_handle == vim.fn.tabpagenr('$') and tab_handle ~= curr_tab then
-                        sep_hl = T.theme.end_sep
-                elseif tabs[tab + 1] ~= curr_tab and tab_handle ~= curr_tab then
-                        sep_hl = T.theme.inactive_sep
-                end
+                -- if tabs[tab + 1] == curr_tab and tab_handle ~= curr_tab then
+                --         sep_hl = T.theme.rear_sep
+                -- elseif tab_handle == vim.fn.tabpagenr('$') and tab_handle ~= curr_tab then
+                --         sep_hl = T.theme.end_sep
+                -- elseif tabs[tab + 1] ~= curr_tab and tab_handle ~= curr_tab then
+                --         sep_hl = T.theme.inactive_sep
+                -- end
 
-                local tab_sect = string.format("%d%%X", tab)
-                table.insert(tab_sections, hl .. ' ' .. tab_sect .. sep_hl .. '')
+                local tab_sect = string.format(" %d%%X ", tab)
+                -- table.insert(tab_sections, hl .. ' ' .. tab_sect .. sep_hl .. '')
+                table.insert(tab_sections,hl .. tab_sect)
         end
         return tab_sections
 end
@@ -66,17 +67,17 @@ T.tabline_wins = function()
                 local buf_name = T.tabline_get_buf(win_handle)
                 local sep_hl = T.theme.sep
 
-                if wins_in_tab[win - 1] == curr_win and win_handle ~= curr_win then
-                        sep_hl = T.theme.rear_sep
-                elseif win_handle == wins_in_tab[1] and win_handle ~= curr_win then
-                        sep_hl = T.theme.end_sep
-                elseif win_handle ~= curr_win and wins_in_tab[win - 1] ~= curr_tab then
+                -- if wins_in_tab[win - 1] == curr_win and win_handle ~= curr_win then
+                --         sep_hl = T.theme.rear_sep
+                -- elseif win_handle == wins_in_tab[1] and win_handle ~= curr_win then
+                --         sep_hl = T.theme.end_sep
+                -- elseif win_handle ~= curr_win and wins_in_tab[win - 1] ~= curr_tab then
+                --         sep_hl = T.theme.inactive_sep
+                -- end
 
-                        sep_hl = T.theme.inactive_sep
-                end
-
-                local win_sect = string.format("%s%%X", buf_name)
-                table.insert(win_sections, sep_hl .. '' .. hl .. win_sect .. ' ')
+                local win_sect = string.format(" %s%%X ", buf_name)
+                -- table.insert(win_sections, sep_hl .. '' .. hl .. win_sect .. ' ')
+                table.insert(win_sections,hl .. win_sect)
         end
         return win_sections
 end

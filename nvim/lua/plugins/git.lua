@@ -1,10 +1,17 @@
 return {
     {'tpope/vim-fugitive',
-            cmd = { 'Git', 'Gread', 'Gwrite', 'Gedit', 'Gdiffsplit', 'Ggrep', 'GMove', 'GDelete' }
+            cmd = { 'Git', 'Gread', 'Gwrite', 'Gedit', 'Gdiffsplit', 'Ggrep', 'GMove', 'GDelete' },
+            event = { 'BufNewFile', 'BufReadPost', 'VeryLazy' },
     },
-    {'lewis6991/gitsigns.nvim',
+    {'echasnovski/mini.diff',
             event = { 'BufNewFile', 'BufReadPost' },
-            tag = 'release',
-            config = function() require('gitsigns').setup() end
+            config = function() require('mini.diff').setup({
+                -- may replace default signs with characters
+                view = {
+                    style = 'sign',
+                    signs = { add = '+', change = '~', delete = '-' }
+                },
+
+            }) end
     },
 }

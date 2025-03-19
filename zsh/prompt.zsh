@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+##!/bin/sh
 
 is_git_workspace() {
         [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == true ]]
@@ -68,7 +69,7 @@ prompt_precmd() {
 
         PROMPT_dir="$(path)"
         newline=$'\n' # to get around zsh screen redraw tendencies
-        
+
         PS1=
         PS1+=$newline
         PS1+="%F{cyan}$PROMPT_dir%f"

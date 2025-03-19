@@ -3,16 +3,13 @@
 super="Mod4"
 alt="Mod1"
 
-# platform-specific
-# riverctl map-switch normal lid close spawn 'sudo pm-suspend'
-# riverctl map-switch normal lid open spawn 'pkill pm-suspend'
-
 # gsettings cmds
 gsettings set org.gnome.desktop.wm.preferences button-layout ""
 
 # app spawning
-riverctl map normal $super Return spawn wezterm
-riverctl map normal $super W spawn firefox
+riverctl map normal $super Return spawn foot
+riverctl map normal $super W spawn librewolf
+riverctl map normal $super N spawn neovide
 riverctl map normal $super Space spawn "tofi-drun --drun-launch=true"
 
 riverctl map normal $super Q close
@@ -58,11 +55,11 @@ riverctl map normal $super+$alt+Shift H send-layout-cmd rivertile "main-count +1
 riverctl map normal $super+$alt+Shift L send-layout-cmd rivertile "main-count -1"
 
 # media
-riverctl map normal None XF86AudioRaiseVolume spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ +5%"
-riverctl map normal None XF86AudioLowerVolume spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ -5%"
-riverctl map normal None XF86AudioMute spawn "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-riverctl map normal None XF86MonBrightnessUp spawn "brightnessctl set +5%"
-riverctl map normal None XF86MonBrightnessDown spawn "brightnessctl set 5%-"
+riverctl map normal None XF86AudioRaiseVolume spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+; $HOME/.config/river/vol.sh"
+riverctl map normal None XF86AudioLowerVolume spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; $HOME/.config/river/vol.sh"
+riverctl map normal None XF86AudioMute spawn "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; $HOME/.config/river/vol.sh"
+riverctl map normal None XF86MonBrightnessUp spawn "brightnessctl set +5%; $HOME/.config/river/bright.sh"
+riverctl map normal None XF86MonBrightnessDown spawn "brightnessctl set 5%-; $HOME/.config/river/bright.sh"
 
 # floating window conditions
 riverctl float-filter-add app-id mako

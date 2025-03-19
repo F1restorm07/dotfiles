@@ -16,6 +16,7 @@ zmodload -F zsh/terminfo +p:terminfo
 
 eval "$(zoxide init zsh --cmd cd)"
 
+# -- sourcing external files
 # TODO: add vi-mode prompt (<)
 source ~/.config/zsh/prompt.zsh # <-- cmdline prompt here
 source ~/.config/zsh/completion.zsh
@@ -29,16 +30,16 @@ bindkey "$terminfo[kcud1]"  history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
-export TERM="rxvt-256color"
-
 export FZF_DEFAULT_OPTS="
---color fg:#c6c8d1,bg:#161821,hl:#b4b482,fg+:#c6c8d1,bg+:#1e2132,hl+:#b4be82
---color pointer:#84a0c6,info:#1e2132,spinner:#1e2132,header:#1e2132,prompt:#84a0c6,marker:#e2a478
+--color fg:7,hl:2,fg+:7,bg+:0,hl+:2
+--color pointer:4,info:7,spinner:0,header:4,prompt:4,marker:3
 --bind 'alt-j:preview-down,alt-k:preview-up,ctrl-j:preview-page-down,ctrl-k:preview-page-up'
 "
-export FZF_DEFAULT_COMMAND="fd -tf -tl -H --exclude .git node_modules"
+export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 
-export PATH="/bin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:$HOME/builds/bin:$HOME/.cargo/bin:$JAVA_HOME/bin"
+export PATH="/bin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:$HOME/builds/bin:$HOME/.cargo/bin:$JAVA_HOME/bin:$HOME/.local/bin:$HOME/go/bin"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
+export PYTHONPATH="$PYTHONPATH:$HOME/Documents/neko_python/venv/lib/python3.12/site-packages"
 
 export CC="cc"
 export CXX="c++"
@@ -49,6 +50,10 @@ export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
 MOZ_ENABLE_WAYLAND=1
 
 alias ls="eza -lhoF --no-permissions --git --no-user"
-alias cat="bat --theme iceberg --style grid,numbers,changes"
+alias cat="bat --style grid,numbers,changes --theme base16"
+alias ffzf="exec ~/.config/zsh/explorer.sh"
+
+alias dnf_pkg_size_ls="dnf repoquery -C --installed --qf '%{size} %{name}' | sort -n | numfmt --to=iec --format='%.2f'"
+alias dnf_userpkg_size_ls="dnf repoquery -C --userinstalled --qf '%{size} %{name}' | sort -n | numfmt --to=iec --format='%.2f'"
 # alias fb="buku -p -f5 | column -ts $'\t' | fzf -m | cut -d ' ' -f1 | buku -o"
 # alias fa="fd .  -t x -t l $(echo $PATH | sed 's_:_\ _g') | grep -o '[^/]*$' | fzf --preview='man {}'"

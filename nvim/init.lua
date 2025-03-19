@@ -6,10 +6,10 @@ local set = vim.opt
 local g = vim.g
 
 set.visualbell = true
-set.ruler = true
+set.ruler = false
 set.number = true
 
-set.mouse = 'a'
+set.mouse = 'nv'
 set.confirm = true
 
 set.softtabstop = 4
@@ -21,6 +21,7 @@ set.shiftwidth = 4 -- number of characters to (auto)indent
 set.shiftround = true -- when using <</>>, it rounds to the nearest shiftwidth
 
 set.showcmd = true
+set.showmode = false
 set.laststatus = 2
 
 set.cursorline = true
@@ -31,9 +32,9 @@ set.incsearch = true
 set.hlsearch = false
 
 set.foldenable = true
-set.foldlevelstart = 10
+set.foldcolumn = "0"
+set.foldlevelstart = 99
 set.foldnestmax = 10
-set.foldmethod = "marker"
 set.fillchars = "fold: ,vert: "
 
 set.swapfile = false
@@ -55,6 +56,27 @@ set.scrolloff = 3
 set.shortmess = "atToOcCsSIFW"
 set.sessionoptions = "blank,curdir,folds,help,winsize,winpos,terminal,tabpages"
 set.signcolumn = "yes"
+
+g.c_syntax_for_h = 1
+
+if g.neovide then
+    g.neovide_position_animation_length = 0
+    g.neovide_cursor_animation_length = 0.00
+    g.neovide_cursor_trail_size = 0
+    g.neovide_cursor_animate_in_insert_mode = false
+    g.neovide_cursor_animate_command_line = false
+    g.neovide_scroll_animation_far_lines = 0
+    g.neovide_scroll_animation_length = 0.00
+    g.neovide_scale_factor = 1.25
+    set.linespace = 10
+end
+
+-- vim.o.listchars = table.concat({ 'extends:…', 'nbsp:␣', 'precedes:…', 'tab:> ' }, ',')
+-- set.list = true
+-- set.listchars = {
+--     tab = "· ",
+--     nbsp = "+"
+-- }
 
 --  }}}
 --  -------------------------------------------------------
@@ -81,12 +103,15 @@ g.loaded_2html_plugin = 1
 g.loaded_remote_plugins = 1
 g.loaded_compiler = 1
 g.loaded_man = 1
+g.editorconfig = false
 
 --  }}}
 --  -------------------------------------------------------
 --  {{{ Plugin Setup Commands
 
 set.rtp:prepend(vim.fn.stdpath('data') .. '/lazy/lazy.nvim')
+-- the fzf plugin needs to be manually activated (installed with fedora linux)
+-- run the command `sudo ln -s /usr/share/nvim/site/plugin/fzf.vim /usr/share/nvim/runtime/plugin/fzf.vim`
 
 require('keymaps') -- vim.g.mapleader is located in here (lazy.nvim needs it loaded before)
 
@@ -97,9 +122,11 @@ require('lazy').setup({
 })
 
 set.termguicolors = true
+set.background = "dark"
 set.guifont = 'JetBrainsMono Nerd Font Mono:h13'
 vim.cmd.colorscheme('iceberg') -- set the colorscheme before highlights (sets the v.g.terminal_color_* used in highlights)
 
+require('lsp')
 require('highlights')
 require('autocommands')
 require('tabline')
