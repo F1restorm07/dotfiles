@@ -33,6 +33,7 @@ keymap({'n', 'v'}, 'E', "ge", { noremap = true, desc = "go to end of previous wo
 keymap({'n', 'v'}, 'ge', '<nop>', { noremap = true })
 keymap('n', ':', 'q:', { noremap = true, desc = "open command line window" })
 
+-- add index to search count
 keymap('n', 'n', "n<cmd>lua=require('search_index').echohl_search_status()<cr>", opts("move to next search count"))
 keymap('n', 'N', "N<cmd>lua=require('search_index').echohl_search_status()<cr>", opts("move to previous search count"))
 

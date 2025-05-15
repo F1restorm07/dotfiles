@@ -37,7 +37,7 @@ export FZF_DEFAULT_OPTS="
 "
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 
-export PATH="/bin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:$HOME/builds/bin:$HOME/.cargo/bin:$JAVA_HOME/bin:$HOME/.local/bin:$HOME/go/bin"
+export PATH="/bin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:$HOME/builds/bin:$HOME/.cargo/bin:$JAVA_HOME/bin:$HOME/.local/bin:$HOME/go/bin:$HOME/.pyenv/bin"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
 export PYTHONPATH="$PYTHONPATH:$HOME/Documents/neko_python/venv/lib/python3.12/site-packages"
 
@@ -55,5 +55,7 @@ alias ffzf="exec ~/.config/zsh/explorer.sh"
 
 alias dnf_pkg_size_ls="dnf repoquery -C --installed --qf '%{size} %{name}' | sort -n | numfmt --to=iec --format='%.2f'"
 alias dnf_userpkg_size_ls="dnf repoquery -C --userinstalled --qf '%{size} %{name}' | sort -n | numfmt --to=iec --format='%.2f'"
+
+eval "$(pyenv init - zsh)"
 # alias fb="buku -p -f5 | column -ts $'\t' | fzf -m | cut -d ' ' -f1 | buku -o"
 # alias fa="fd .  -t x -t l $(echo $PATH | sed 's_:_\ _g') | grep -o '[^/]*$' | fzf --preview='man {}'"

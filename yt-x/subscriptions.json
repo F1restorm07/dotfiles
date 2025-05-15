@@ -1,0 +1,64 @@
+{
+  "entries": [
+    {
+      "_type": "url",
+      "url": "https://www.youtube.com/channel/UCpFFItkfZz1qz5PpHpqzYBw",
+      "id": "UCpFFItkfZz1qz5PpHpqzYBw",
+      "ie_key": "YoutubeTab",
+      "channel": "Nexpo",
+      "uploader": "Nexpo",
+      "channel_id": "UCpFFItkfZz1qz5PpHpqzYBw",
+      "channel_url": "https://www.youtube.com/channel/UCpFFItkfZz1qz5PpHpqzYBw",
+      "title": "Nexpo",
+      "uploader_id": "@Nexpo",
+      "uploader_url": "https://www.youtube.com/@Nexpo",
+      "channel_follower_count": 3620000,
+      "thumbnails": [
+        {
+          "url": "//yt3.ggpht.com/b9z-LrY5p97i8JlkOjGY0B2wdrUX79zD-mZcSkfEuY7drXXXQCEQDNkxvywbIVgpzxC2kS1sDQ=s88-c-k-c0x00ffffff-no-rj-mo",
+          "height": 88,
+          "width": 88
+        },
+        {
+          "url": "//yt3.ggpht.com/b9z-LrY5p97i8JlkOjGY0B2wdrUX79zD-mZcSkfEuY7drXXXQCEQDNkxvywbIVgpzxC2kS1sDQ=s176-c-k-c0x00ffffff-no-rj-mo",
+          "height": 176,
+          "width": 176
+        }
+      ],
+      "playlist_count": null,
+      "description": "Exploring the Internet's dark side.",
+      "channel_is_verified": true,
+      "__x_forwarded_for_ip": null
+    },
+    {
+      "_type": "url",
+      "url": "https://www.youtube.com/channel/UCeTfBygNb1TahcNpZyELO8g",
+      "id": "UCeTfBygNb1TahcNpZyELO8g",
+      "ie_key": "YoutubeTab",
+      "channel": "Jacob Geller",
+      "uploader": "Jacob Geller",
+      "channel_id": "UCeTfBygNb1TahcNpZyELO8g",
+      "channel_url": "https://www.youtube.com/channel/UCeTfBygNb1TahcNpZyELO8g",
+      "title": "Jacob Geller",
+      "uploader_id": "@JacobGeller",
+      "uploader_url": "https://www.youtube.com/@JacobGeller",
+      "channel_follower_count": 1380000,
+      "thumbnails": [
+        {
+          "url": "//yt3.ggpht.com/oEvJp21jyoK8viSJQZsoIB4TpDmXsRBjOfMybj8azcfgCQ6dkQ8uP6Fg4nyYUCosnYhYzTlc=s88-c-k-c0x00ffffff-no-rj-mo",
+          "height": 88,
+          "width": 88
+        },
+        {
+          "url": "//yt3.ggpht.com/oEvJp21jyoK8viSJQZsoIB4TpDmXsRBjOfMybj8azcfgCQ6dkQ8uP6Fg4nyYUCosnYhYzTlc=s176-c-k-c0x00ffffff-no-rj-mo",
+          "height": 176,
+          "width": 176
+        }
+      ],
+      "playlist_count": null,
+      "description": "Talking about video games, history, politics, empathy, and more — typically at the same time, always unpredictably. For more info ...",
+      "channel_is_verified": true,
+      "__x_forwarded_for_ip": null
+    }
+  ]
+}

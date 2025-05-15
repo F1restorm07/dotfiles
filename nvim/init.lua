@@ -12,6 +12,7 @@ set.number = true
 set.mouse = 'nv'
 set.confirm = true
 
+
 set.softtabstop = 4
 set.expandtab = true
 set.smartindent = true
@@ -133,6 +134,8 @@ require('tabline')
 require('statusline')
 require('search_index')
 require('diagnostics')
+
+vim.lsp.enable({ 'rust_analyzer', 'luals' })
 
 --  }}}
 --  -------------------------------------------------------

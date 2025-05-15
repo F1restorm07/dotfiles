@@ -17,7 +17,10 @@
 
 ## TODOs
 - [x] wire up volume, brightness, and other system controls to mako notifications
-- [ ] replace yambar with eww, or another desktop widget library
+- [ ] create build scripts that add all of the essential libraries and tools to the system
+    - these include river, mako, neovim, sxiv, etc -> basically anything I need for the environment on top of the base libraries
+    - [ ] xbps
+    - [ ] dnf
 - extract system keybindings into external system (removes reliance upon river)
 - add more ascii art inspired touches (animations, icons, etc) to all facets of desktop
 - fill out the iceberg tmTheme for bat

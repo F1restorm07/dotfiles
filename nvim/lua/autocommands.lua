@@ -47,8 +47,8 @@ aucmd("BufUnload", {
 --  -------------------------------------------------------
 -- LSP
 
-aucmd("InsertEnter", { pattern = "*", command = "LspStart" })
-aucmd("LspAttach", { callback = function() require("lsp").lsp_hover.setup() end })
+-- aucmd("InsertEnter", { pattern = "*", command = "LspStart" })
+-- aucmd("LspAttach", { callback = function() require("lsp").lsp_hover.setup() end })
 
 --  -------------------------------------------------------
 

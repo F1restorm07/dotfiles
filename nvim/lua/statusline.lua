@@ -76,13 +76,11 @@ S.status_filename = function ()
 end
 
 S.status_git_status = function ()
-        -- how do i rerun a pcall function
-        -- local ok, fugitive = pcall(vim.fn["fugitive#statusline"]())
-        local fugitive = vim.fn["fugitive#statusline"]()
+        local exists, fugitive = pcall(vim.fn["fugitive#statusline"])
         local git_branch = ""
-        -- if ok then
+        if exists then
             git_branch = string.match(fugitive, "%((%a+)%)")
-        -- end
+        end
 
         return git_branch ~= nil and
             status_norm_hl .. ' ' .. git_branch .. ' '
@@ -100,8 +98,8 @@ S.status_lsp_status = function ()
 end
 
 S.get_diagnostic = function (severity)
-        if next(vim.lsp.buf_get_clients(0)) == nil then return '' end
-        local active_clients = vim.lsp.get_active_clients()
+        local active_clients = vim.lsp.get_clients({ bufnr = 0 })
+        if next(active_clients) == nil then return '' end
 
         if active_clients then
                 local diag_count = vim.diagnostic.get(vim.api.nvim_get_current_buf(), { severity = severity })

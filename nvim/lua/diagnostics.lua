@@ -6,6 +6,9 @@ vim.diagnostic.config({
     virtual_text = {
         source = "if_many"
     },
+    virtual_lines = {
+        current_line = true,
+    }
 })
 
 vim.fn.sign_define("DiagnosticSignInfo", { text = "", texthl = "DiagnosticSignInfo", numhl = ""})

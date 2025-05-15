@@ -55,7 +55,7 @@ return {
     -- },
     {'echasnovski/mini.clue',
         keys = {
-            { ',', mode = {'n', 'x'} }, -- leader key
+            { vim.g.mapleader, mode = {'n', 'x'} },
             { ';', mode = {'n', 'x'} },
             { 't', mode = {'n', 'x'} },
             { 'g', mode = {'n', 'x'} },
@@ -127,7 +127,7 @@ return {
     },
     {'sindrets/winshift.nvim', cmd = { 'WinShift' }},
     {'stevearc/overseer.nvim', cmd = { 'OverseerRun', 'OverseerToggle' }, opts = {}},
-    {'rachartier/tiny-inline-diagnostic.nvim', event = { 'LspAttach' }, opts = { preset = "minimal" }},
+    -- {'rachartier/tiny-inline-diagnostic.nvim', event = { 'LspAttach' }, opts = { preset = "minimal" }},
     {'natecraddock/workspaces.nvim', cmd = { 'WorkspacesAdd', 'WorkspacesAddDir', 'WorkspacesOpen' }, opts = {}},
     {'cshuaimin/ssr.nvim', lazy = true, opts = {}},
     -- {'echasnovski/mini.operators', keys = { 'gr', mode = "n" }, opts = {}}
