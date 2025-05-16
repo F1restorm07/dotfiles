@@ -5,8 +5,7 @@ gsettings set org.gnome.desktop.wm.preferences button-layout ""
 
 # app spawning
 riverctl map normal Super Return spawn foot
-riverctl map normal Super W spawn librewolf
-riverctl map normal Super N spawn neovide
+riverctl map normal Super W spawn "flatpak run io.gitlab.librewolf-community"
 riverctl map normal Super Space spawn "tofi-drun --drun-launch=true"
 
 riverctl map normal Super Q close
@@ -29,10 +28,10 @@ riverctl map normal Super+Alt K move up 100
 riverctl map normal Super+Alt L move right 100
 
 # window reszing
-riverctl map normal Super+Fn H resize left 100
-riverctl map normal Super+Fn J resize down 100
-riverctl map normal Super+Fn K resize up 100
-riverctl map normal Super+Fn L resize right 100
+# riverctl map normal Super+Fn H resize left 100
+# riverctl map normal Super+Fn J resize down 100
+# riverctl map normal Super+Fn K resize up 100
+# riverctl map normal Super+Fn L resize right 100
 
 # snap window to anchor
 riverctl map normal Super+Control H snap left
@@ -48,8 +47,8 @@ riverctl map normal Super Down send-layout-cmd rivertile "main-location down"
 
 riverctl map normal Super+Control+Shift H send-layout-cmd rivertile "main-ratio +0.01"
 riverctl map normal Super+Control+Shift L send-layout-cmd rivertile "main-ratio -0.01"
-riverctl map normal Super+$alt+Shift H send-layout-cmd rivertile "main-count +1"
-riverctl map normal Super+$alt+Shift L send-layout-cmd rivertile "main-count -1"
+riverctl map normal Super+Alt+Shift H send-layout-cmd rivertile "main-count +1"
+riverctl map normal Super+Alt+Shift L send-layout-cmd rivertile "main-count -1"
 
 # media
 riverctl map normal None XF86AudioRaiseVolume spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+; $HOME/.config/river/vol.sh"
@@ -81,16 +80,16 @@ for i in $(seq 1 9)
 do
         tagmask=$((1 << ($i - 1)))
 
-        riverctl map normal $super $i set-focused-tags $tagmask         # switch to tag
-        riverctl map normal $super+Shift $i set-view-tags $tagmask      # move window to tag
-        riverctl map normal $super+$alt $i toggle-focused-tags $tagmask
-        riverctl map normal $super+$alt+Shift toggle-view-tags $tagmask
+        riverctl map normal Super $i set-focused-tags $tagmask         # switch to tag
+        riverctl map normal Super+Shift $i set-view-tags $tagmask      # move window to tag
+        riverctl map normal Super+Alt $i toggle-focused-tags $tagmask
+        riverctl map normal Super+Alt+Shift toggle-view-tags $tagmask
 done
 
 alltagmask=$(((1 << 32) - 1))
 
-riverctl map normal $super 0 set-focused-tags $alltagmask
-riverctl map normal $super+Shift 0 set-view-tags $alltagmask
+riverctl map normal Super 0 set-focused-tags $alltagmask
+riverctl map normal Super+Shift 0 set-view-tags $alltagmask
 
 riverctl default-layout rivertile
 rivertile -view-padding 5 -outer-padding 5 -main-ratio 0.50 -main-location left
